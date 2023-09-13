@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <script>
+    let num = parseInt(prompt("Dime tu edad: "));
+    let message;
+
+    switch (true) {
+      case num < 18:
+        message = "Eres menor de edad";
+        break;
+      case num >= 18 && num < 65:
+        message = "Estás en edad de trabajar";
+        break;
+      default:
+        message = "Estás jubilado";
+        break;
+    }
+
+    alert(message);
+  </script>
+  <body></body>
+</html>
