@@ -9,6 +9,16 @@ package com.rittz.capota;
  * @author Rittz
  */
 public class Capota extends javax.swing.JFrame {
+    
+    //attributes
+    private String mensajeFijoVehiculo = "Has seleccionado un/a ";
+    private String mensajeFinalVehiculo = "";
+    private String cabeceraExtras = "Extras:";
+    private String mensajeRemolque = "\t· Remolque";
+    private String mensajeCapota = "\t· Capota";
+    private String mensajeSidecar = "\t· Sidecar";
+    
+    
 
     /**
      * Creates new form Capota
@@ -26,6 +36,7 @@ public class Capota extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupFuel = new javax.swing.ButtonGroup();
         labelTitle = new javax.swing.JLabel();
         brandLabel = new javax.swing.JLabel();
         labelModel = new javax.swing.JLabel();
@@ -39,6 +50,10 @@ public class Capota extends javax.swing.JFrame {
         checkBoxCapota = new javax.swing.JCheckBox();
         checkBoxSidecar = new javax.swing.JCheckBox();
         checkBoxRemolque = new javax.swing.JCheckBox();
+        jButtonSend = new javax.swing.JButton();
+        jRadioButtonGasolina = new javax.swing.JRadioButton();
+        jRadioButtonDiesel = new javax.swing.JRadioButton();
+        jRadioButtonElectrico = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +69,8 @@ public class Capota extends javax.swing.JFrame {
                 textBrandActionPerformed(evt);
             }
         });
+
+        textModel.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         labelVehicleType.setText("Tipo vehiculo");
 
@@ -74,8 +91,18 @@ public class Capota extends javax.swing.JFrame {
         });
 
         checkBoxCamion.setText("Camión");
+        checkBoxCamion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxCamionActionPerformed(evt);
+            }
+        });
 
         checkBoxCapota.setText("Capota");
+        checkBoxCapota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxCapotaActionPerformed(evt);
+            }
+        });
 
         checkBoxSidecar.setText("Sidecar");
         checkBoxSidecar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +112,32 @@ public class Capota extends javax.swing.JFrame {
         });
 
         checkBoxRemolque.setText("Remolque");
+        checkBoxRemolque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxRemolqueActionPerformed(evt);
+            }
+        });
+
+        jButtonSend.setText("Enviar");
+        jButtonSend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSendActionPerformed(evt);
+            }
+        });
+
+        buttonGroupFuel.add(jRadioButtonGasolina);
+        jRadioButtonGasolina.setText("Gasolina");
+
+        buttonGroupFuel.add(jRadioButtonDiesel);
+        jRadioButtonDiesel.setText("Diesel");
+        jRadioButtonDiesel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonDieselActionPerformed(evt);
+            }
+        });
+
+        buttonGroupFuel.add(jRadioButtonElectrico);
+        jRadioButtonElectrico.setText("Eléctrico");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,35 +145,48 @@ public class Capota extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonSend))
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(checkBoxMoto)
+                                            .addComponent(checkBoxCamion)
+                                            .addComponent(checkBoxCoche))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(checkBoxCapota)
+                                            .addComponent(checkBoxRemolque)
+                                            .addComponent(checkBoxSidecar)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(brandLabel)
+                                            .addComponent(labelModel))
+                                        .addGap(24, 24, 24)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(textBrand, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                            .addComponent(textModel)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(69, 69, 69)
-                        .addComponent(labelVehicleType)
-                        .addGap(100, 100, 100)
-                        .addComponent(labelExtras))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(35, 35, 35)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(checkBoxMoto)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(brandLabel)
-                                        .addComponent(labelModel))
-                                    .addGap(24, 24, 24)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(textModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(textBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(checkBoxCamion)
-                                .addComponent(checkBoxCoche))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(checkBoxCapota)
-                                .addComponent(checkBoxRemolque)
-                                .addComponent(checkBoxSidecar)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(90, 90, 90)
-                            .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(98, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButtonDiesel)
+                            .addComponent(jRadioButtonElectrico)
+                            .addComponent(jRadioButtonGasolina))
+                        .addGap(0, 71, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(labelVehicleType)
+                .addGap(100, 100, 100)
+                .addComponent(labelExtras)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,23 +201,28 @@ public class Capota extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelModel)
                     .addComponent(textModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelVehicleType)
-                    .addComponent(labelExtras))
+                    .addComponent(labelExtras)
+                    .addComponent(jRadioButtonGasolina))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checkBoxCoche)
-                    .addComponent(checkBoxCapota))
+                    .addComponent(checkBoxCapota)
+                    .addComponent(jRadioButtonDiesel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checkBoxMoto)
-                    .addComponent(checkBoxSidecar))
+                    .addComponent(checkBoxSidecar)
+                    .addComponent(jRadioButtonElectrico))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checkBoxCamion)
                     .addComponent(checkBoxRemolque))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonSend)
+                .addContainerGap())
         );
 
         pack();
@@ -159,6 +230,14 @@ public class Capota extends javax.swing.JFrame {
 
     private void checkBoxCocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCocheActionPerformed
         // TODO add your handling code here:
+        checkBoxCoche.setSelected(true);
+        checkBoxMoto.setSelected(false);
+        checkBoxCamion.setSelected(false);
+        checkBoxRemolque.setEnabled(true);           
+        checkBoxCapota.setEnabled(true);
+        checkBoxSidecar.setEnabled(false);
+        checkBoxSidecar.setSelected(false);
+        mensajeFinalVehiculo = mensajeFijoVehiculo + " coche";
     }//GEN-LAST:event_checkBoxCocheActionPerformed
 
     private void textBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textBrandActionPerformed
@@ -171,8 +250,59 @@ public class Capota extends javax.swing.JFrame {
 
     private void checkBoxMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxMotoActionPerformed
         // TODO add your handling code here:
-        //checkBoxMoto..se
+        checkBoxCoche.setSelected(false);
+        checkBoxMoto.setSelected(true);
+        checkBoxCamion.setSelected(false);
+        checkBoxRemolque.setEnabled(false);           
+        checkBoxCapota.setEnabled(false);
+        checkBoxSidecar.setEnabled(true);
+        checkBoxRemolque.setSelected(false);           
+        checkBoxCapota.setSelected(false);
+        mensajeFinalVehiculo = mensajeFijoVehiculo + " moto";
+        
     }//GEN-LAST:event_checkBoxMotoActionPerformed
+
+    private void checkBoxCamionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCamionActionPerformed
+        // TODO add your handling code here:
+        checkBoxCoche.setSelected(false);
+        checkBoxMoto.setSelected(false);
+        checkBoxCamion.setSelected(true);
+        checkBoxRemolque.setEnabled(true);           
+        checkBoxCapota.setEnabled(false);
+        checkBoxSidecar.setEnabled(false);
+        checkBoxCapota.setSelected(false);
+        checkBoxSidecar.setSelected(false);
+        mensajeFinalVehiculo = mensajeFijoVehiculo + " camión";
+    }//GEN-LAST:event_checkBoxCamionActionPerformed
+
+    private void jButtonSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendActionPerformed
+        // TODO add your handling code here:
+        System.out.println(mensajeFinalVehiculo + ".");
+        System.out.println("Marca: " + textBrand.getText());
+        System.out.println("Modelo: " + textModel.getText());        
+        System.out.println(cabeceraExtras);
+        if(checkBoxCapota.isSelected()){
+            System.out.println(mensajeCapota);
+        }
+        if(checkBoxSidecar.isSelected()){
+            System.out.println(mensajeSidecar);
+        }
+        if(checkBoxRemolque.isSelected()){
+            System.out.println(mensajeRemolque);
+        }
+    }//GEN-LAST:event_jButtonSendActionPerformed
+
+    private void checkBoxCapotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCapotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkBoxCapotaActionPerformed
+
+    private void checkBoxRemolqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxRemolqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkBoxRemolqueActionPerformed
+
+    private void jRadioButtonDieselActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDieselActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonDieselActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,12 +341,17 @@ public class Capota extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel brandLabel;
+    private javax.swing.ButtonGroup buttonGroupFuel;
     private javax.swing.JCheckBox checkBoxCamion;
     private javax.swing.JCheckBox checkBoxCapota;
     private javax.swing.JCheckBox checkBoxCoche;
     private javax.swing.JCheckBox checkBoxMoto;
     private javax.swing.JCheckBox checkBoxRemolque;
     private javax.swing.JCheckBox checkBoxSidecar;
+    private javax.swing.JButton jButtonSend;
+    private javax.swing.JRadioButton jRadioButtonDiesel;
+    private javax.swing.JRadioButton jRadioButtonElectrico;
+    private javax.swing.JRadioButton jRadioButtonGasolina;
     private javax.swing.JLabel labelExtras;
     private javax.swing.JLabel labelModel;
     private javax.swing.JLabel labelTitle;

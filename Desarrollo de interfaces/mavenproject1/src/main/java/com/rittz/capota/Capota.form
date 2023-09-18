@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroupFuel">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -25,45 +29,63 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                      <Component id="labelVehicleType" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                      <Component id="labelExtras" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jButtonSend" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="checkBoxMoto" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="brandLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelModel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="checkBoxMoto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkBoxCamion" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkBoxCoche" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="checkBoxCapota" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkBoxRemolque" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkBoxSidecar" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="textModel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textBrand" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="brandLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelModel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="textBrand" pref="130" max="32767" attributes="0"/>
+                                          <Component id="textModel" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <Component id="checkBoxCamion" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxCoche" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="58" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="checkBoxCapota" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxRemolque" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxSidecar" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                              <Component id="labelTitle" min="-2" pref="203" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                          <Component id="labelTitle" min="-2" pref="203" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jRadioButtonDiesel" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonElectrico" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonGasolina" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="0" pref="71" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="98" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+              <Component id="labelVehicleType" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="labelExtras" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,27 +104,32 @@
                   <Component id="labelModel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textModel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelVehicleType" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelExtras" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonGasolina" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="checkBoxCoche" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="checkBoxCapota" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonDiesel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="checkBoxMoto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="checkBoxSidecar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonElectrico" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="checkBoxCamion" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="checkBoxRemolque" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jButtonSend" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,6 +157,11 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textModel">
+      <Properties>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor de Texto"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelVehicleType">
       <Properties>
@@ -161,11 +193,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cami&#xf3;n"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxCamionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxCapota">
       <Properties>
         <Property name="text" type="java.lang.String" value="Capota"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxCapotaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxSidecar">
       <Properties>
@@ -178,6 +216,44 @@
     <Component class="javax.swing.JCheckBox" name="checkBoxRemolque">
       <Properties>
         <Property name="text" type="java.lang.String" value="Remolque"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxRemolqueActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonSend">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enviar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSendActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonGasolina">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroupFuel"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Gasolina"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonDiesel">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroupFuel"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Diesel"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonDieselActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonElectrico">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroupFuel"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="El&#xe9;ctrico"/>
       </Properties>
     </Component>
   </SubComponents>
