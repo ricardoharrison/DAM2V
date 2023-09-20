@@ -19,6 +19,12 @@
 
     document.getElementById("link3").href = cadenaEnlace;
     document.getElementById("p2").innerHTML = cadenaTexto;
+    /* for(let i = 0; i < document.getElementsByTagName("a").length; i++){
+        console.log(document.getElementsByTagName("a")[i].innerText);
+    } */
+    Array.from(document.getElementsByTagName("a")).forEach(element => {
+        console.log(element.href + " " + element.innerHTML);
+    });
 </script>
 <style>
     body{
