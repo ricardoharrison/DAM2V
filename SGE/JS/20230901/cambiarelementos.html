@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba guarrindonga</title>
+</head>
+<body>
+    <p id="p1">Este es el texto del PRIMER párrafo</p>
+    <a href="http://www.google.com" id="link1">Google</a>
+    <p id="p2">Este es el texto del SEGUNDO párrafo</p>
+    <a href="http://www.youtube.com" id="link2">YouTube</a>
+    <p id="p3">Este es el texto del TERCER párrafo</p>
+    <a href="http://www.gmail.com" id="link3">Gmail</a>    
+</body>
+<script>
+    let cadenaEnlace = "http://www." + prompt("Introduce una dirección web (por ejemplo, 'reddit.com'): ");
+    let cadenaTexto = prompt("Introduce una frase para el 2º párrafo: ");
+
+    document.getElementById("link3").href = cadenaEnlace;
+    document.getElementById("p2").innerHTML = cadenaTexto;
+    /* for(let i = 0; i < document.getElementsByTagName("a").length; i++){
+        console.log(document.getElementsByTagName("a")[i].innerText);
+    } */
+    Array.from(document.getElementsByTagName("a")).forEach(element => {
+        console.log(element.href + " " + element.innerHTML);
+    });
+</script>
+<style>
+    body{
+        background-color: aquamarine;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: larger;
+        text-align: center;
+    }
+</style>
+</html>
