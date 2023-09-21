@@ -17,7 +17,8 @@ public class Capota extends javax.swing.JFrame {
     private String mensajeRemolque = "\t· Remolque";
     private String mensajeCapota = "\t· Capota";
     private String mensajeSidecar = "\t· Sidecar";
-    
+    private String alertFuel = "Debes seleccionar al menos un tipo de combustible antes de continuar";
+        
     
 
     /**
@@ -25,6 +26,7 @@ public class Capota extends javax.swing.JFrame {
      */
     public Capota() {
         initComponents();
+        jTextFieldAlertMessage.setVisible(false);
     }
 
     /**
@@ -54,6 +56,8 @@ public class Capota extends javax.swing.JFrame {
         jRadioButtonGasolina = new javax.swing.JRadioButton();
         jRadioButtonDiesel = new javax.swing.JRadioButton();
         jRadioButtonElectrico = new javax.swing.JRadioButton();
+        jComboBoxColor = new javax.swing.JComboBox<>();
+        jTextFieldAlertMessage = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,61 +143,81 @@ public class Capota extends javax.swing.JFrame {
         buttonGroupFuel.add(jRadioButtonElectrico);
         jRadioButtonElectrico.setText("Eléctrico");
 
+        jComboBoxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rojo", "Amarillo", "Verde", "Azul" }));
+        jComboBoxColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxColorActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAlertMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAlertMessageActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonSend))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(checkBoxMoto)
-                                            .addComponent(checkBoxCamion)
-                                            .addComponent(checkBoxCoche))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(checkBoxCapota)
-                                            .addComponent(checkBoxRemolque)
-                                            .addComponent(checkBoxSidecar)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(brandLabel)
-                                            .addComponent(labelModel))
-                                        .addGap(24, 24, 24)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(textBrand, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                            .addComponent(textModel)))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonDiesel)
-                            .addComponent(jRadioButtonElectrico)
-                            .addComponent(jRadioButtonGasolina))
-                        .addGap(0, 71, Short.MAX_VALUE)))
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addComponent(labelVehicleType)
                 .addGap(100, 100, 100)
                 .addComponent(labelExtras)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jTextFieldAlertMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(jButtonSend))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(35, 35, 35)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(checkBoxMoto)
+                                                    .addComponent(checkBoxCamion)
+                                                    .addComponent(checkBoxCoche))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(checkBoxCapota)
+                                                    .addComponent(checkBoxRemolque)
+                                                    .addComponent(checkBoxSidecar)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(brandLabel)
+                                                    .addComponent(labelModel))
+                                                .addGap(24, 24, 24)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(textBrand, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                                    .addComponent(textModel)))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(90, 90, 90)
+                                        .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(69, 69, 69)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButtonDiesel)
+                                    .addComponent(jRadioButtonElectrico)
+                                    .addComponent(jRadioButtonGasolina))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(labelTitle)
-                .addGap(31, 31, 31)
+                .addGap(3, 3, 3)
+                .addComponent(jComboBoxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(brandLabel)
                     .addComponent(textBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -221,7 +245,9 @@ public class Capota extends javax.swing.JFrame {
                     .addComponent(checkBoxCamion)
                     .addComponent(checkBoxRemolque))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSend)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSend)
+                    .addComponent(jTextFieldAlertMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -277,18 +303,27 @@ public class Capota extends javax.swing.JFrame {
 
     private void jButtonSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendActionPerformed
         // TODO add your handling code here:
-        System.out.println(mensajeFinalVehiculo + ".");
-        System.out.println("Marca: " + textBrand.getText());
-        System.out.println("Modelo: " + textModel.getText());        
-        System.out.println(cabeceraExtras);
-        if(checkBoxCapota.isSelected()){
-            System.out.println(mensajeCapota);
-        }
-        if(checkBoxSidecar.isSelected()){
-            System.out.println(mensajeSidecar);
-        }
-        if(checkBoxRemolque.isSelected()){
-            System.out.println(mensajeRemolque);
+        if(jRadioButtonDiesel.isSelected() || jRadioButtonElectrico.isSelected() || jRadioButtonGasolina.isSelected()){
+            System.out.println(mensajeFinalVehiculo + ".");
+            System.out.println("Marca: " + textBrand.getText());
+            System.out.println("Modelo: " + textModel.getText());        
+            if(checkBoxCapota.isSelected() || checkBoxRemolque.isSelected() || checkBoxSidecar.isSelected()){
+                System.out.println(cabeceraExtras);
+            }
+            if(checkBoxCapota.isSelected()){
+                System.out.println(mensajeCapota);
+            }
+            if(checkBoxSidecar.isSelected()){
+                System.out.println(mensajeSidecar);
+            }
+            if(checkBoxRemolque.isSelected()){
+                System.out.println(mensajeRemolque);
+            }
+            System.out.println("Color:");
+            System.out.println(jComboBoxColor.getSelectedItem());
+        } else {
+            jTextFieldAlertMessage.setVisible(true);
+            jTextFieldAlertMessage.setText(alertFuel);
         }
     }//GEN-LAST:event_jButtonSendActionPerformed
 
@@ -303,6 +338,14 @@ public class Capota extends javax.swing.JFrame {
     private void jRadioButtonDieselActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDieselActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonDieselActionPerformed
+
+    private void jComboBoxColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxColorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxColorActionPerformed
+
+    private void jTextFieldAlertMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAlertMessageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAlertMessageActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,9 +392,11 @@ public class Capota extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkBoxRemolque;
     private javax.swing.JCheckBox checkBoxSidecar;
     private javax.swing.JButton jButtonSend;
+    private javax.swing.JComboBox<String> jComboBoxColor;
     private javax.swing.JRadioButton jRadioButtonDiesel;
     private javax.swing.JRadioButton jRadioButtonElectrico;
     private javax.swing.JRadioButton jRadioButtonGasolina;
+    private javax.swing.JTextField jTextFieldAlertMessage;
     private javax.swing.JLabel labelExtras;
     private javax.swing.JLabel labelModel;
     private javax.swing.JLabel labelTitle;

@@ -24,7 +24,9 @@ public class MisEventos extends AppCompatActivity {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tv.setText(R.string.messageOnClick);
+                //tv.setText(R.string.messageOnClick);  línea para imprimir el recurso messageOnClick
+                tv.append(getResources().getString(R.string.messageOnClick)); // esta línea añade (append) el contenido actual
+                                                                            //del objeto 'tv' una vez más
             }
         });
     }
