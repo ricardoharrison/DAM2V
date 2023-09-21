@@ -24,7 +24,7 @@ public class MisEventos extends AppCompatActivity {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tv.setText("Me encantan los patrones de diseño");
+                tv.setText(R.string.messageOnClick);
             }
         });
     }
