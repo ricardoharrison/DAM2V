@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChosenElement</title>
+</head>
+<body>
+    <h2>Submit an item to add to the list:</h2>
+    
+    <input type="radio" name="group1" id="link" checked="true">Link
+    <input type="radio" name="group1" id="image">Image
+    <input type="radio" name="group1" id="plainText">Text
+    <br>
+    <input type="text" id="text">
+    <input type="button" id="button" value="Enviar">
+    
+    <li id="list">
+
+    </li>
+    <script>
+        
+        document.getElementById("button").addEventListener("click",createItem);
+
+        //añadiendo los elementos directamente en la función nos ahorramos pasar multiples
+        //parámetros
+        
+        function createItem() {
+            myList = document.getElementById("list");         
+            elemento = document.createElement("li");
+            myText = document.getElementById("text").value;
+            if(document.getElementById("link").checked){
+                linea = document.createElement("a");
+                linea.setAttribute("href", myText);
+                linea.innerText=myText;
+
+            } else if (document.getElementById("image").checked) {
+                linea = document.createElement("img");
+                linea.setAttribute("src", myText);
+                
+            } else if (document.getElementById("plainText").checked) {
+                linea = document.createElement("span");
+                linea.innerText=myText;
+            }
+            elemento.appendChild(linea)
+            myList.appendChild(elemento)
+        }       
+        
+    </script>
+</body>
+</html>
