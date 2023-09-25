@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Greetenator</string>
+    <string name="helloWorld">Hello World!</string>
+    <string name="explode">Boom! Something exploded!</string>
+    <string name="world">world</string>
+    <string name="hello">"Hello, "</string>
+</resources>
