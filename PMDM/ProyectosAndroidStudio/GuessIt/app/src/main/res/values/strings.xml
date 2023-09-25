@@ -5,6 +5,7 @@
     <string name="higher_clue">Oops! The number is higher, keep trying!</string>
     <string name="lower_clue">Oops, the number is lower. You can do it!</string>
     <string name="game_over">Game over! You run out of attempts!</string>
-    <string name="remaining_attempts">Remaining attempts: </string>
+    <string name="remaining_attempts">Remaining attempts:\ </string>
+    <string name="win_message">Congratulations, you guessed the number!</string>
 
 </resources>
