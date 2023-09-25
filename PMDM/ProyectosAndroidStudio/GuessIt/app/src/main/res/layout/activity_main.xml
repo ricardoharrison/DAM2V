@@ -63,6 +63,7 @@
         android:id="@+id/textViewLives"
         android:layout_width="239dp"
         android:layout_height="30dp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/editTextInsertNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
