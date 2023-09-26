@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    final int MAX_LIVES = 7;
+    final int MAX_LIVES = 6;
     final int MIN_LIVES = 0;
     int randomNumber = (int)(Math.random()*101);
     int lives = MAX_LIVES;
@@ -36,21 +36,26 @@ public class MainActivity extends AppCompatActivity {
         btGuessIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (lives > 0) {
-                    lives -= 1;
-                }
-                tvLives.setText(getString(R.string.remaining_attempts) + lives);  //aquí era necesario getString
+                try {
+                    if (lives > 0) {
+                        lives -= 1;
+                    }
+                    tvLives.setText(getString(R.string.remaining_attempts) + lives);  //aquí era necesario getString *por la concatenación*
 
-                if ((lives <= MIN_LIVES & (randomNumber != Integer.parseInt(etInsertNumber.getText().toString()) ) )
-                        || gameOver) {
-                    tvClues.setText(R.string.game_over);                         //aquí no lo es, ??
-                    gameOver = true;
-                } else if (randomNumber > Integer.parseInt(etInsertNumber.getText().toString()) && !gameOver) {
-                    tvClues.setText(R.string.higher_clue);
-                } else if (randomNumber < Integer.parseInt(etInsertNumber.getText().toString()) && !gameOver) {
-                    tvClues.setText(R.string.lower_clue);
-                } else if (randomNumber == Integer.parseInt(etInsertNumber.getText().toString()) && !gameOver) {
-                    tvClues.setText(R.string.win_message);
+                    if ((lives <= MIN_LIVES && randomNumber != Integer.parseInt(etInsertNumber.getText().toString()))
+                            || gameOver) {
+                        tvClues.setText(R.string.game_over);                         //aquí no lo es, ?? * (ver comentario anterior)
+                        gameOver = true;
+                    } else if (randomNumber > Integer.parseInt(etInsertNumber.getText().toString()) && !gameOver) {
+                        tvClues.setText(R.string.higher_clue);
+                    } else if (randomNumber < Integer.parseInt(etInsertNumber.getText().toString()) && !gameOver) {
+                        tvClues.setText(R.string.lower_clue);
+                    } else if (randomNumber == Integer.parseInt(etInsertNumber.getText().toString()) && !gameOver) {
+                        tvClues.setText(R.string.win_message);
+                    }
+                } catch (NumberFormatException e){
+                    lives += 1;
+                    tvLives.setText(getString(R.string.remaining_attempts) + lives);
                 }
             }
         });
