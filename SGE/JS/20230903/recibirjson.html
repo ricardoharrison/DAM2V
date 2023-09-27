@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" id="myButton" value="Añadir">
+  <ul id="myList">
+
+  </ul>
+</body>
+<script>
+  const elber = {
+    "name": "Elber",
+    "surname": "Galarga"
+  }
+
+  const rosa = {
+    "name": "Rosa",
+    "surname": "Melano"
+  }
+
+  let array = [elber, rosa]; // Use an array to store the objects
+
+  let myButton = document.getElementById("myButton");
+  myButton.addEventListener("click", function () {
+    addJsonArray(array); // Add all elements in the array when the button is clicked
+  });
+
+  function addJsonArray(jsonArray){
+    let myList = document.getElementById("myList");
+
+    // Loop through the array and add each object as an <li> element
+    for (let i = 0; i < jsonArray.length; i++) {
+      let listItem = document.createElement("li"); // Create a new <li> element
+      listItem.textContent = `${jsonArray[i].name} ${jsonArray[i].surname}`; // Set the content of the <li> element
+      myList.appendChild(listItem); // Append the <li> element to the <ul> element
+    }
+  }
+</script>
+</html>
+
