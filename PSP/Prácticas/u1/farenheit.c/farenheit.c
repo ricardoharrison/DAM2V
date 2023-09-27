@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int covertToFarenheit(int celsiusValue){
-  return celsiusValue * (5/9) + 23;
+  return (celsiusValue * 9 / 5) + 32;
 }
 
 int main(void){
