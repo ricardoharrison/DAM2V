@@ -6,13 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <SeekBar
+        android:id="@+id/seekBarBlue"
+        android:layout_width="193dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="108dp"
+        android:max="255"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUserInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:id="@+id/textViewDisplay"
+        android:layout_width="311dp"
+        android:layout_height="230dp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.127" />
 
+    <EditText
+        android:id="@+id/editTextUserInput"
+        android:layout_width="217dp"
+        android:layout_height="54dp"
+        android:contentDescription="Insert name here"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.886" />
+
+    <SeekBar
+        android:id="@+id/seekBarRed"
+        android:layout_width="193dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:max="255"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDisplay" />
+
+    <SeekBar
+        android:id="@+id/seekBarGreen"
+        android:layout_width="193dp"
+        android:layout_height="40dp"
+        android:max="255"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarRed"
+        app:layout_constraintVertical_bias="0.487" />
+
+    <TextView
+        android:id="@+id/textViewWhiteText"
+        android:layout_width="96dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="100dp"
+        android:text="@string/white_text"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUserInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarBlue"
+        app:layout_constraintVertical_bias="0.51" />
+
+    <Switch
+        android:id="@+id/switchWhiteText"
+        android:layout_width="66dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUserInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewWhiteText"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarBlue" />
 </androidx.constraintlayout.widget.ConstraintLayout>
