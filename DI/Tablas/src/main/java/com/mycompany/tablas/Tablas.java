@@ -37,6 +37,7 @@ public class Tablas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePersonas = new javax.swing.JTable();
         jButtonBorrar = new javax.swing.JButton();
+        jButtonActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,12 +66,24 @@ public class Tablas extends javax.swing.JFrame {
                 "Nombre", "Apellido"
             }
         ));
+        jTablePersonas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablePersonasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTablePersonas);
 
         jButtonBorrar.setText("Borrar fila");
         jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBorrarActionPerformed(evt);
+            }
+        });
+
+        jButtonActualizar.setText("Actualizar fila");
+        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarActionPerformed(evt);
             }
         });
 
@@ -83,6 +96,8 @@ public class Tablas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonBorrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonActualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonEnviar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -114,7 +129,8 @@ public class Tablas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEnviar)
-                    .addComponent(jButtonBorrar))
+                    .addComponent(jButtonBorrar)
+                    .addComponent(jButtonActualizar))
                 .addGap(14, 14, 14))
         );
 
@@ -150,6 +166,24 @@ public class Tablas extends javax.swing.JFrame {
             }            
         }
     }//GEN-LAST:event_jButtonBorrarActionPerformed
+
+    private void jTablePersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePersonasMouseClicked
+        // TODO add your handling code here:
+        int selectedRow = jTablePersonas.getSelectedRow(); 
+        jTextFieldNombre.setText(jTablePersonas.getValueAt(selectedRow, 0).toString());
+        jTextFieldApellido.setText(jTablePersonas.getValueAt(selectedRow, 1).toString());
+    }//GEN-LAST:event_jTablePersonasMouseClicked
+
+    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
+        // TODO add your handling code here:
+        try{
+            int selectedRow = jTablePersonas.getSelectedRow();
+            jTablePersonas.setValueAt(jTextFieldNombre.getText(), selectedRow, 0);
+            jTablePersonas.setValueAt(jTextFieldApellido.getText(), selectedRow, 1);            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(this, "Selecciona una fila");
+        }
+    }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,6 +221,7 @@ public class Tablas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonBorrar;
     private javax.swing.JButton jButtonEnviar;
     private javax.swing.JLabel jLabelApellido;
