@@ -29,6 +29,8 @@ public class Tablas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldApellido = new javax.swing.JTextField();
         jLabelNombre = new javax.swing.JLabel();
@@ -38,6 +40,19 @@ public class Tablas extends javax.swing.JFrame {
         jTablePersonas = new javax.swing.JTable();
         jButtonBorrar = new javax.swing.JButton();
         jButtonActualizar = new javax.swing.JButton();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,11 +158,16 @@ public class Tablas extends javax.swing.JFrame {
 
     private void jButtonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnviarActionPerformed
         // TODO add your handling code here:
-        if(!jTextFieldNombre.getText().isEmpty() || !jTextFieldApellido.getText().isEmpty()) { //impedir enviar si ambos campos están vacíos
-            DefaultTableModel miTabla = (DefaultTableModel) jTablePersonas.getModel();
-            miTabla.addRow(new Object[]{jTextFieldNombre.getText(), jTextFieldApellido.getText()}); //aquí estamos pasando un objeto tipo Array con 2 entradas
-            jTextFieldNombre.setText("");           //limpiando las cajas después de insertar
-            jTextFieldApellido.setText("");
+        int choice = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres añadir este elemento a la lista?",
+                "Confirma tu elección", JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.INFORMATION_MESSAGE);
+        if (choice == JOptionPane.YES_OPTION){
+            if(!jTextFieldNombre.getText().isEmpty() || !jTextFieldApellido.getText().isEmpty()) { //impedir enviar si ambos campos están vacíos
+                DefaultTableModel miTabla = (DefaultTableModel) jTablePersonas.getModel();
+                miTabla.addRow(new Object[]{jTextFieldNombre.getText(), jTextFieldApellido.getText()}); //aquí estamos pasando un objeto tipo Array con 2 entradas
+                jTextFieldNombre.setText("");           //limpiando las cajas después de insertar
+                jTextFieldApellido.setText("");
+            }
         }
     }//GEN-LAST:event_jButtonEnviarActionPerformed
 
@@ -227,6 +247,8 @@ public class Tablas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelApellido;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTablePersonas;
     private javax.swing.JTextField jTextFieldApellido;
     private javax.swing.JTextField jTextFieldNombre;
