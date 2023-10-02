@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="foto">
+        
+    </div>    
+</body>
+<script>
+    let nombre = prompt("Inserta el nombre de un pokémon:");
+    fetch('https://pokeapi.co/api/v2/pokemon/' + nombre)    //hacemos la petición a la API
+        .then(response => response.json())                  //guardamos la respuesta en un json
+        .then(data => formatear(data));                     //los datos de la respuesta los tratamos con la función data
+        //.then(data => consol.log(data))                   //esta línea se podría usar en vez de la anterior si queremos imprimir a capón
+
+    function formatear(data){
+        console.log(data.name.toUpperCase());
+        console.log("Tipo:");
+        for(let i = 0; i < data.types.length; i++){
+            console.log("\t" + data.types[i].type.name);
+        }
+        console.log("Habilidades:");
+        for (let i = 0; i < data.abilities.length; i++){
+            console.log("\t" + data.abilities[i].ability.name);
+        }
+        console.log("Movimientos:");
+        for (let i = 0; i < 5; i++){
+            console.log("\t" + data.moves[i].move.name);
+        }
+
+        let urlFoto = data.sprites.front_default;
+        let pokemonFoto = document.createElement("img");
+        pokemonFoto.setAttribute("src", urlFoto);
+        let divFoto = document.getElementById("foto");
+        divFoto.appendChild(pokemonFoto);
+        pokemonFoto.style.width = "20%";
+
+        /* 
+        data.moves.slice(0, 5).forEach(move => {
+        console.log("\t" + move.move.name);             //alternativa del último bucle con forEach
+        });
+        */
+    }
+
+</script>
+</html>
