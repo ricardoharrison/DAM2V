@@ -18,14 +18,16 @@
 
     <TextView
         android:id="@+id/textViewDisplay"
+        android:gravity="center"
         android:layout_width="311dp"
         android:layout_height="230dp"
         android:textAlignment="center"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintVertical_bias="0.129" />
 
     <EditText
         android:id="@+id/editTextUserInput"
@@ -66,20 +68,60 @@
         android:id="@+id/textViewWhiteText"
         android:layout_width="96dp"
         android:layout_height="25dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="108dp"
         android:text="@string/white_text"
+        android:textAlignment="textEnd"
         app:layout_constraintBottom_toTopOf="@+id/editTextUserInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBarBlue"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintVertical_bias="0.397" />
 
     <Switch
         android:id="@+id/switchWhiteText"
-        android:layout_width="66dp"
-        android:layout_height="40dp"
+        android:layout_width="69dp"
+        android:layout_height="49dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextUserInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textViewWhiteText"
-        app:layout_constraintTop_toBottomOf="@+id/seekBarBlue" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBarBlue"
+        app:layout_constraintVertical_bias="0.305" />
+
+    <TextView
+        android:id="@+id/textViewRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/red_text_view"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toTopOf="@+id/textViewGreen"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarRed"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.884" />
+
+    <TextView
+        android:id="@+id/textViewGreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/green_text_view"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarGreen"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarRed" />
+
+    <TextView
+        android:id="@+id/textViewBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/blue_text_view"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarBlue"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGreen"
+        app:layout_constraintVertical_bias="0.157" />
 </androidx.constraintlayout.widget.ConstraintLayout>
