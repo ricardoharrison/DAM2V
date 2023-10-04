@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
     
     const int ARGUMENTOS_NECESARIOS = 4;
     float resultado;
-    int opcionSwitch;
+    int opcionSwitch = 0;
    
     if (argc < ARGUMENTOS_NECESARIOS) {
         printf("No se han indicado suficientes argumentos.\n");
