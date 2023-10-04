@@ -1,4 +1,15 @@
 # Ignore target directories
+<<<<<<< HEAD
 /DI/Producto/target/
 /node_modules
 /vars
+=======
+Desarrollo de interfaces/mavenproject1/target/
+Desarrollo de interfaces/Capota/target/
+Desarrollo de interfaces/Tablas/target/
+DI/Producto/target/
+/vars
+
+# Ignore .env files
+.env
+>>>>>>> 1cc9374a17d6e04a88ba819c6805e178b2558102
