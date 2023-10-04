@@ -1,4 +1,8 @@
-/Desarrollo de interfaces/mavenproject1/target/
-/Desarrollo de interfaces/Capota/target/
-/Desarrollo de interfaces/Tablas/target/
-/DI/Producto/target/
+# Ignore target directories
+Desarrollo de interfaces/mavenproject1/target/
+Desarrollo de interfaces/Capota/target/
+Desarrollo de interfaces/Tablas/target/
+DI/Producto/target/
+
+# Ignore .env files
+.env

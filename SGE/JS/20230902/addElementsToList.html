@@ -23,7 +23,7 @@
     let myList = document.getElementById("list");
 
     function addPhrase() {
-        bulletPoint = document.createElement("li");
+        let bulletPoint = document.createElement("li");
         bulletPoint.innerHTML = "Este vehículo es de la marca " +
                 brandTextBox.value + ", modelo " + modelTextBox.value;                
         list.appendChild(bulletPoint);
