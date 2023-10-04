@@ -28,20 +28,20 @@ int main(int argc, char *argv[]) {
         switch (opcionSwitch){
             case 1:
                 resultado = atof(argv[2]) + atof(argv[3]);
-                printf("El resultado de la suma es %f\n", resultado);
+                printf("El resultado de la suma es %.2f\n", resultado);
                 break;
             case 2:
                 resultado = atof(argv[2]) - atof(argv[3]);;
-                printf("El resultado de la resta es %f\n", resultado);
+                printf("El resultado de la resta es %.2f\n", resultado);
                 break;
             case 3:
                 resultado = atof(argv[2]) * atof(argv[3]);
-                printf("El resultado de la multiplicación es %f\n", resultado);
+                printf("El resultado de la multiplicación es %.2f\n", resultado);
                 break;
             case 4:
-                if(argv[3] != 0){
+                if(atof(argv[3]) != 0){
                     resultado = atof(argv[2]) / atof(argv[3]);
-                    printf("El resultado de la división es %f\n", resultado);
+                    printf("El resultado de la división es %.2f\n", resultado);
                 } else {
                     printf("No es posible dividir entre 0\n");
                 }
