@@ -32,8 +32,9 @@
         let elemento = document.createElement("p");
         elemento.innerText = x.data.detections[0][0].language;
         document.getElementById("div").appendChild(elemento);
-        elemento.style.width = "300%";
-    }
+    } 
+
+
 
     try {
         fetch(url, options)    
