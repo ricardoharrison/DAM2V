@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         bt3 = findViewById(R.id.button3);
         bt4 = findViewById(R.id.button4);
         bt5 = findViewById(R.id.button5);
-        bt6  = findViewById(R.id.button6);
+        bt6 = findViewById(R.id.button6);
         bt7 = findViewById(R.id.button7);
         bt8 = findViewById(R.id.button8);
         bt9 = findViewById(R.id.button9);
@@ -73,35 +73,33 @@ public class MainActivity extends AppCompatActivity {
         btD.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                String previousText = tvDisplay.getText().toString();
-                String newText = previousText.substring(0, previousText.length() - 1);
-                tvDisplay.setText(newText);
+                if(tvDisplay.getText().length() > 0){
+                    String previousText = tvDisplay.getText().toString();
+                    String newText = previousText.substring(0, previousText.length() - 1);
+                    tvDisplay.setText(newText);
+                }
             }
         });
 
         btCalculate.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                String predefinedText = String.valueOf(R.string.final_fixed_text);
-                String finalText;
-                int parsedInt = Integer.parseInt(tvDisplay.getText().toString());
-                if(rbBad.isChecked()){
-                    finalText = predefinedText + parsedInt;
-                    tvFinalCalc.setText(finalText);
-                } else if(rbOk.isChecked()){
-                    parsedInt *= (int) 1.05;
-                    finalText = predefinedText + parsedInt;
-                    tvFinalCalc.setText(finalText);
-                } else if(rbGood.isChecked()){
-                    parsedInt *= (int) 1.1;
-                    finalText = predefinedText + parsedInt;
-                    tvFinalCalc.setText(finalText);
+                if(tvDisplay.getText().length() > 0){
+                    String finalText;
+                    float parsedFloat = Integer.parseInt(tvDisplay.getText().toString());
+                    if (rbBad.isChecked()) {
+                        parsedFloat = 0;
+                    } else if (rbOk.isChecked()) {
+                        parsedFloat *= 0.05;
+                    } else if (rbGood.isChecked()) {
+                        parsedFloat *= 0.1;
+                    }
+                    if(rbBad.isChecked() || rbOk.isChecked() || rbGood.isChecked()){
+                        finalText = String.format("%.2f€", parsedFloat);
+                        tvFinalCalc.setText(finalText);
+                    }
                 }
             }
         });
-
-
-
-
     }
 }

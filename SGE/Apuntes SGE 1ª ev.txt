@@ -2,16 +2,20 @@
 HTML/JavaScript
 ----------
 
-<script></script> -> esta tag encierra dentro del documento html la parte que est· escrita en JavaScript
+<script></script> -> esta tag encierra dentro del documento html la parte que estÔøΩ escrita en JavaScript
 
-	∑ En la ventana de Chrome, en los 3 puntos de la derecha, se puede abrir la consola y elegir la disposiciÛn en pantalla.
+	ÔøΩ En la ventana de Chrome, en los 3 puntos de la derecha, se puede abrir la consola y elegir la disposiciÔøΩn en pantalla.
 
 alert -> ventana de alerta que aparece en la parte sueprior de la pantalla -> alert("esto es una alerta")
 
 
-console.log -> mensajes que aparecen directamente en consola al cargar la p·gina
+console.log -> mensajes que aparecen directamente en consola al cargar la pÔøΩgina
 
 let/var -> se usan indistintamente para declarar variables
 
-prompt -> ventana emergente que pide informaciÛn mediante caja de texto. Entra como string, hay que hacer casting para usarlo como numero, etc.
+prompt -> ventana emergente que pide informaciÔøΩn mediante caja de texto. Entra como string, hay que hacer casting para usarlo como numero, etc.
+
+PROMISES
+
+.then -> llamadas as√≠ncronas
 

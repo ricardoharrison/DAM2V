@@ -18,7 +18,7 @@
     <string name="radio_bad">Bad</string>
     <string name="radio_ok">Ok</string>
     <string name="radio_good">Good</string>
-    <string name="final_fixed_text">Recommended tip:\\n</string>
+    <string name="final_fixed_text">Recommended tip:</string>
 
 
 </resources>
