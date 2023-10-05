@@ -11,8 +11,38 @@
     </div>
 </body>
 <script>
+    var idiomasData;
+
     let myPrompt = prompt("Inserta tu RapidApi API key");
     let myPhrase = prompt("Inserta la frase que quieres detectar");
+
+    //nuestra función para formatear
+    function formatear(x){ 
+        //console.log(x.data.detections[0][0].language);
+        let elemento = document.createElement("p");
+        elemento.innerText = x.data.detections[0][0].language;
+        document.getElementById("div").appendChild(elemento);
+    } 
+
+    //obtener json "idiomas.json"
+    fetch('idiomas.json')
+        .then(response => response.json())
+        .then(data => {
+            //guarda la json en una variable
+            idiomasData = data;
+            //recupera la información del json
+            var espanol = idiomasData.es;
+            var frances = idiomasData.fr;
+            //la imprime
+            console.log(espanol);
+            console.log(frances);
+        });
+
+    //callback para poder usar el json fuera del fetch?
+
+    
+
+    //bloque proporcionado por RapidApi
     const url = 'https://google-translate1.p.rapidapi.com/language/translate/v2/detect';
     const options = {
         method: 'POST',
@@ -26,15 +56,6 @@
             q: myPhrase,
         })
     };
-
-    function formatear(x){ 
-        console.log(x.data.detections[0][0].language);
-        let elemento = document.createElement("p");
-        elemento.innerText = x.data.detections[0][0].language;
-        document.getElementById("div").appendChild(elemento);
-    } 
-
-
 
     try {
         fetch(url, options)    
