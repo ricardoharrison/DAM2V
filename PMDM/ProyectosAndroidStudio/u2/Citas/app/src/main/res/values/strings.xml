@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Citas</string>
+    <string name="text_view_top">¡Pide tu cita ya y lo fliparás en colores!</string>
+    <string name="insert_id">Indica tu DNI:</string>
+    <string name="day">Día:</string>
+    <string name="time">Hora:</string>
+    <string name="report_planned_date">Fecha</string>
+</resources>
