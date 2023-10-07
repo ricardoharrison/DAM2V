@@ -4,8 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CDFFCC80"
+    android:background="#66BB6A"
     tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/idBtnPickDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:layout_marginStart="4dp"
+        android:backgroundTint="#CBEC407A"
+        android:text="@string/pick_date"
+        android:textAllCaps="false"
+        android:textColorHighlight="@android:color/holo_blue_dark"
+        android:textColorLink="#90CAF9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextID"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <Button
+        android:id="@+id/idBtnPickTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:backgroundTint="#EC407A"
+        android:text="@string/pick_time"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idBtnPickDate"
+        app:layout_constraintVertical_bias="0.072"
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
         android:id="@+id/textViewTop"
@@ -46,20 +77,6 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="Accessibility" />
 
-    <EditText
-        android:id="@+id/etPlannedDate"
-        android:layout_width="119dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="40dp"
-        android:clickable="true"
-        android:focusable="false"
-        android:hint="@string/report_planned_date"
-        android:inputType="date"
-        android:maxLines="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDay"
-        app:layout_constraintVertical_bias="0.07" />
 
     <TextView
         android:id="@+id/textViewID"
@@ -73,24 +90,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTop"
         app:layout_constraintVertical_bias="0.823" />
 
-    <TextView
-        android:id="@+id/textViewTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="152dp"
-        android:text="@string/time"
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="263dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="#EC407A"
+        android:text="@string/submit"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextID" />
-
-    <TextView
-        android:id="@+id/textViewDay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="@string/day"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTime"
-        app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextID" />
+        app:layout_constraintTop_toBottomOf="@+id/idBtnPickTime"
+        app:layout_constraintVertical_bias="0.078" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
