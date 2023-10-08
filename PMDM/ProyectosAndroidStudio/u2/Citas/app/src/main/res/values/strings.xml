@@ -11,5 +11,16 @@
     <string name="regex_id">^[0-9]{8,8}[-]?[a-zA-Z]$</string>
     <string name="alert_id_regex_title">DNI no válido</string>
     <string name="alert_id_regex_msg">Un DNI válido contiene 8 números y 1 letra</string>
+    <string name="alert_closed_msg">El establecimiento está cerrado a esa hora</string>
+    <string name="alert_closed_title">Fuera de horario</string>
+    <string name="final_msg">Cita reservada con éxito para el día %2d/%2d/%4d a las %2d:%2d</string>
+    <string name="alert_null_title">Datos incompletos</string>
+    <string name="alert_null_msg">Selecciona una fecha y hora e indica el DNI</string>
+    <string name="alert_date_in_past_title">Fecha inválida</string>
+    <string name="alert_date_in_past_msg">La fecha debe ser futura</string>
+    <string name="alert_weekend_title">Día inválido</string>
+    <string name="alert_weekend_msg">El establecimiento permanecerá cerrado los sábados y domingos</string>
+    <string name="unkownk_error_title">Error desconocido</string>
+    <string name="unkownk_error_msg">Vaya, algo salió mal</string>
 
 </resources>
