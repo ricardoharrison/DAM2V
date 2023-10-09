@@ -4,7 +4,12 @@
  */
 package com.rittz.tienda;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -29,6 +34,9 @@ public class Tienda extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButtonSubmit = new javax.swing.JButton();
         jMenuBarTienda = new javax.swing.JMenuBar();
         jMenuProducto = new javax.swing.JMenu();
         jMenuItemProductoSofas = new javax.swing.JMenuItem();
@@ -42,6 +50,23 @@ public class Tienda extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Tienda feliz");
         jLabel1.setToolTipText("");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jButtonSubmit.setText("jButton1");
+        jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSubmitActionPerformed(evt);
+            }
+        });
 
         jMenuProducto.setText("Productos");
 
@@ -86,16 +111,26 @@ public class Tienda extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonSubmit)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(137, 137, 137)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(25, 25, 25)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonSubmit)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -124,6 +159,64 @@ public class Tienda extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Sillas que te cagas");
     }//GEN-LAST:event_jMenuItemProductoSillasActionPerformed
+
+    private void jButtonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmitActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // Establish a database connection
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
+
+            // Define your SQL query to retrieve data
+            String query = "SELECT * FROM COCHES";
+
+            // Create a statement
+            statement = connection.createStatement();
+
+            // Execute the query
+            resultSet = statement.executeQuery(query);
+
+            // Create a DefaultTableModel to hold the data
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("ID");
+            model.addColumn("MODELO");
+            model.addColumn("POTENCIA");
+            model.addColumn("AUTONOMIA");
+            model.addColumn("PRECIO");
+            model.addColumn("MALETERO");
+
+            // Populate the table model with the retrieved data
+            while (resultSet.next()) {
+                Object[] rowData = {
+                    resultSet.getInt("ID"),
+                    resultSet.getString("MODELO"),
+                    resultSet.getInt("POTENCIA"),
+                    resultSet.getInt("AUTONOMIA"),
+                    resultSet.getInt("PRECIO"),
+                    resultSet.getInt("MALETERO")
+                };
+                model.addRow(rowData);
+            }
+
+            // Set the JTable's model to the populated model
+            //JTable miTabla = new JTable(model);
+
+        } catch (SQLException e) {
+            // Handle any database errors
+        } finally {
+            // Close resources
+            try {
+                if (resultSet != null) resultSet.close();
+                if (statement != null) statement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+            }
+        }
+    }//GEN-LAST:event_jButtonSubmitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,6 +254,7 @@ public class Tienda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBarTienda;
     private javax.swing.JMenuItem jMenuItemProductoSillas;
@@ -168,5 +262,7 @@ public class Tienda extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuLocalizacion;
     private javax.swing.JMenu jMenuProducto;
     private javax.swing.JMenu jMenuSalir;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
