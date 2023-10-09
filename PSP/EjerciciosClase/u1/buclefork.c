@@ -21,8 +21,9 @@ int main(void){
             printTable(i);
             exit(0);
         } else {
-            wait(NULL);
+            wait(NULL); //esta línea debería ir en un bucle for fuera porque si no no es concurrente
         }
     }
+    // for{} -> aquí
     printf("FIN");
 }
