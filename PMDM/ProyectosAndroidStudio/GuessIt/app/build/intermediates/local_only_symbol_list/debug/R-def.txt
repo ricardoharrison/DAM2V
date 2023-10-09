@@ -1,0 +1,26 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id buttonGuessIt
+id buttonRestart
+id editTextInsertNumber
+id textViewClues
+id textViewLives
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string game_over
+string guess_it
+string higher_clue
+string lower_clue
+string remaining_attempts
+string restart
+string win_message
+style Base.Theme.MyApplication
+style Theme.MyApplication
+xml backup_rules
+xml data_extraction_rules

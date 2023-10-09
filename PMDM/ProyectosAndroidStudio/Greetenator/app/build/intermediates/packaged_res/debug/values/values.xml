@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Greetenator</string>
+    <string name="explode">Boom! Something exploded!</string>
+    <string name="hello">"Hello, "</string>
+    <string name="helloWorld">Hello World!</string>
+    <string name="world">world</string>
+    <style name="Base.Theme.Greetenator" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.Greetenator" parent="Base.Theme.Greetenator"/>
+</resources>

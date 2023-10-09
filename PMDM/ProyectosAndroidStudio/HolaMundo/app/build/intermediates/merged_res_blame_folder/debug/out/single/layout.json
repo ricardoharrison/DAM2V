@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.example.holamundo.app-mergeDebugResources-39:/layout/activity_mis_eventos.xml",
+        "source": "com.example.holamundo.app-main-42:/layout/activity_mis_eventos.xml"
+    },
+    {
+        "merged": "com.example.holamundo.app-mergeDebugResources-39:/layout/activity_hola_mundo.xml",
+        "source": "com.example.holamundo.app-main-42:/layout/activity_hola_mundo.xml"
+    }
+]

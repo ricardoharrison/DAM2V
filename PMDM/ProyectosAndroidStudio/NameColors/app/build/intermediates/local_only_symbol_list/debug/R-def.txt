@@ -1,0 +1,29 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id editTextUserInput
+id seekBarBlue
+id seekBarGreen
+id seekBarRed
+id switchWhiteText
+id textViewBlue
+id textViewDisplay
+id textViewGreen
+id textViewRed
+id textViewWhiteText
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string accesibility_user_input
+string app_name
+string blue_text_view
+string green_text_view
+string red_text_view
+string white_text
+style Base.Theme.NameColors
+style Theme.NameColors
+xml backup_rules
+xml data_extraction_rules
