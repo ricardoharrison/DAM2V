@@ -480,29 +480,59 @@ end;
 /
 
 --ejercicio27
+create or replace procedure subir_sueldo (oficio number) as
+num_emp number;
+total number;
+media number;
+begin
+    select count(*) into num_emp from employee where job_id = oficio;
+    select sum(salary) into total from employee where job_id = oficio;
+    media := total / num_emp;
+    for i in (select * from employee where job_id = oficio) loop
+        if i.salary < media then
+            update employee set salary = (i.salary + (media - i.salary) * 0.5)
+                where employee_id = i.employee_id;
+        end if;
+    end loop;
+exception
+    when others then
+        BMS_OUTPUT.PUT_LINE('Se ha producido un error');
+end;
+/
 
+--ejercicio28
+CREATE OR REPLACE PROCEDURE incrementar_salario(
+    p_department_id NUMBER,
+    p_incremento NUMBER
+) AS
+    filas_afectadas NUMBER := 0;
+BEGIN
+    FOR rec IN (SELECT employee_id, salary FROM employee WHERE department_id = p_department_id) LOOP
+        rec.salary := rec.salary + p_incremento;
+        UPDATE employee SET salary = rec.salary WHERE employee_id = rec.employee_id;
+        filas_afectadas := filas_afectadas + 1;
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Número de filas afectadas: ' || filas_afectadas);
+END;
+/
 
-
-
-
-
-
-
-
-
-select * from temp;
-
-
-
-
-
-
-
-
-select * from temp;
-
-
-
-
+--ejercicio29
+declare
+    numero number;
+    cantidad number;
+begin
+    numero := &numero_empleado;
+    cantidad := &subida_sueldo;
+    if cantidad is null then
+        raise_application_error(-20001, 'El salario no puede ser nulo');
+    end if;
+    update employee set salary = salary + cantidad where employee_id = numero;
+exception
+    when no_data_found then
+        DBMS_OUTPUT.PUT_LINE('Empleado no encontrado');
+    when others then
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+end;
+/
 
 
