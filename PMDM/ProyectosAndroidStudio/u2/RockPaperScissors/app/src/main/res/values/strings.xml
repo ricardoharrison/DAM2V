@@ -7,4 +7,6 @@
     <string name="msg_cpu_scored">Oops, the CPU took this round! (+1 point)</string>
     <string name="msg_tie">That was a tie! No-one gets points</string>
     <string name="cpu_choice">The CPU chose</string>
+    <string name="msg_won">Congratulations, you beat the CPU!</string>
+    <string name="msg_lost">Darn it, you lost! The CPU was too lucky...</string>
 </resources>
