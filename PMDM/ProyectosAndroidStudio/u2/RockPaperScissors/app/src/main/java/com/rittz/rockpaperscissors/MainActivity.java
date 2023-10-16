@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                             textViewFinalMsg.setText(R.string.msg_user_scored);
                             break;
                         case -1:
-                            currentScore = Integer.parseInt(textViewScoreUser.getText().toString());
+                            currentScore = Integer.parseInt(textViewScoreCpu.getText().toString());
                             currentScore++;
                             textViewScoreCpu.setText(String.valueOf(currentScore));
                             textViewFinalMsg.setText(R.string.msg_cpu_scored);
