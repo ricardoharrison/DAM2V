@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">RockPaperScissors</string>
     <string name="restart_button_text">Restart</string>
+    <string name="user_title">YOU</string>
+    <string name="cpu_title">CPU</string>
+    <string name="msg_user_scored">Great, you won this round! (+1 point)</string>
+    <string name="msg_cpu_scored">Oops, the CPU took this round! (+1 point)</string>
+    <string name="msg_tie">That was a tie! No-one gets points</string>
+    <string name="cpu_choice">The CPU chose</string>
 </resources>

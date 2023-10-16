@@ -4,13 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#FFFFFF"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewScoreCpu"
+        android:layout_width="67dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="48dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewPaper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCpu"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewScoreUser"
+        android:layout_width="67dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="44dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textViewScoreCpu"
+        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonRestart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
+        android:backgroundTint="#373232"
         android:text="@string/restart_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,23 +44,103 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:id="@+id/textViewUser"
+        android:layout_width="44dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="16dp"
-        android:text="TextViewUser"
+        android:text="@string/user_title"
+        android:textAlignment="center"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewCPU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textViewCpu"
+        android:layout_width="44dp"
+        android:layout_height="28dp"
         android:layout_marginTop="16dp"
-        android:text="TextViewCPU"
+        android:layout_marginEnd="52dp"
+        android:text="@string/cpu_title"
+        android:textAlignment="center"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.863"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toEndOf="@+id/textViewUser"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewRock"
+        android:layout_width="118dp"
+        android:layout_height="99dp"
+        android:layout_marginStart="68dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325"
+        tools:srcCompat="@drawable/rock" />
+
+    <ImageView
+        android:id="@+id/imageViewPaper"
+        android:layout_width="118dp"
+        android:layout_height="99dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toEndOf="@+id/imageViewRock"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325"
+        tools:srcCompat="@drawable/paper" />
+
+    <ImageView
+        android:id="@+id/imageViewScissors"
+        android:layout_width="118dp"
+        android:layout_height="99dp"
+        android:layout_marginBottom="296dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewPaper"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/imageViewRock"
+        tools:srcCompat="@drawable/scissors" />
+
+    <ImageView
+        android:id="@+id/imageViewCpuChoice"
+        android:layout_width="62dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="53dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewFinalMsg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewCpuChoice"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewScissors"
+        app:layout_constraintVertical_bias="0.294"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/textViewCpuChoice"
+        android:layout_width="175dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="76dp"
+        android:text="@string/cpu_choice"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewScissors" />
+
+    <TextView
+        android:id="@+id/textViewFinalMsg"
+        android:layout_width="320dp"
+        android:layout_height="52dp"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCpuChoice"
+        app:layout_constraintVertical_bias="0.117" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
