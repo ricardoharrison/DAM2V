@@ -16,7 +16,8 @@ import android.content.DialogInterface;
 public class MainActivity extends AppCompatActivity {
 
     private final int INITIAL_SCORE = 0, WINNING_SCORE = 3;
-    private final float SIZE_24 = 24, SIZE_16 = 16;
+    private final float SIZE_BIG = 24, SIZE_MEDIUM = 16;
+    final long WIN_VIBRATION_TIME = 500;
     boolean gameEnded = false;
     Button buttonRestart;
     ImageView imageViewRock, imageViewPaper, imageViewScissors, imageViewChoiceCpu;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         textViewFinalMsg.setText(" ");
         textViewScoreUser.setText(String.valueOf(INITIAL_SCORE));
         textViewScoreCpu.setText(String.valueOf(INITIAL_SCORE));
-        textViewFinalMsg.setTextSize(SIZE_16);
+        textViewFinalMsg.setTextSize(SIZE_MEDIUM);
         gameEnded = false;
     }
 
@@ -132,7 +133,8 @@ public class MainActivity extends AppCompatActivity {
                     Selection userSelection = null, cpuSelection = null;
 
                     //rolling for the CPU
-                    int randomNumber = (int) (Math.random() * 3 + 1);
+
+                    int randomNumber = (int) (Math.random() * Selection.values().length + 1);
                     switch (randomNumber) {
                         case 1:
                             cpuSelection = Selection.ROCK;
@@ -153,20 +155,8 @@ public class MainActivity extends AppCompatActivity {
 
                     //assigning the selection made by the user
                     Selection selection = Selection.valueOf(view.getTag().toString());
+                    userSelection = selection;
                     Integer result = null;
-                    switch (selection) {
-                        case ROCK:
-                            userSelection = Selection.ROCK;
-                            break;
-                        case PAPER:
-                            userSelection = Selection.PAPER;
-                            break;
-                        case SCISSORS:
-                            userSelection = Selection.SCISSORS;
-                            break;
-                        default:
-                            break;
-                    }
                     result = playRockPaperScissors(userSelection, cpuSelection);
                     int currentScore;
                     switch (result) {
@@ -190,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if (Integer.parseInt(textViewScoreUser.getText().toString()) >= WINNING_SCORE) {
                         gameEnded = true;
-                        textViewFinalMsg.setTextSize(SIZE_24);
+                        textViewFinalMsg.setTextSize(SIZE_BIG);
                         textViewFinalMsg.setText(R.string.msg_won);
 
                         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -198,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                         // Check if the device has a vibrator
                         if (vibrator.hasVibrator()) {
                             // Create a VibrationEffect (for Android API 26 and later)
-                            VibrationEffect vibrationEffect = VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE);
+                            VibrationEffect vibrationEffect = VibrationEffect.createOneShot(WIN_VIBRATION_TIME, VibrationEffect.DEFAULT_AMPLITUDE);
 
                             // Vibrate with the created VibrationEffect
                             vibrator.vibrate(vibrationEffect);
@@ -207,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
                     else if(Integer.parseInt(textViewScoreCpu.getText().toString()) >= WINNING_SCORE) {
                         gameEnded = true;
-                        textViewFinalMsg.setTextSize(SIZE_24);
+                        textViewFinalMsg.setTextSize(SIZE_BIG);
                         textViewFinalMsg.setText(R.string.msg_lost);
                     }
 
