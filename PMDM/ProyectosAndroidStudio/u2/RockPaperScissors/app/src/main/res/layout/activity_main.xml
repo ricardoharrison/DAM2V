@@ -77,7 +77,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325"
+        app:layout_constraintVertical_bias="0.245"
         tools:srcCompat="@drawable/rock" />
 
     <ImageView
@@ -86,20 +86,20 @@
         android:layout_height="99dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintHorizontal_bias="0.308"
         app:layout_constraintStart_toEndOf="@+id/imageViewRock"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325"
+        app:layout_constraintVertical_bias="0.245"
         tools:srcCompat="@drawable/paper" />
 
     <ImageView
         android:id="@+id/imageViewScissors"
         android:layout_width="118dp"
         android:layout_height="99dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginBottom="352dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageViewPaper"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="@+id/imageViewRock"
         tools:srcCompat="@drawable/scissors" />
 
@@ -107,40 +107,38 @@
         android:id="@+id/imageViewCpuChoice"
         android:layout_width="62dp"
         android:layout_height="52dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewFinalMsg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textViewCpuChoice"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewScissors"
-        app:layout_constraintVertical_bias="0.294"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/textViewCpuChoice"
         android:layout_width="175dp"
         android:layout_height="48dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="92dp"
         android:text="@string/cpu_choice"
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewScissors" />
 
     <TextView
         android:id="@+id/textViewFinalMsg"
-        android:layout_width="320dp"
-        android:layout_height="52dp"
+        android:layout_width="331dp"
+        android:layout_height="88dp"
         android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCpuChoice"
-        app:layout_constraintVertical_bias="0.117" />
+        app:layout_constraintVertical_bias="0.156" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

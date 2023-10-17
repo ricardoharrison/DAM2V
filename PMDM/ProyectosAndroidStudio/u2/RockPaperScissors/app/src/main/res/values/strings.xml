@@ -9,4 +9,6 @@
     <string name="cpu_choice">The CPU chose</string>
     <string name="msg_won">Congratulations, you beat the CPU!</string>
     <string name="msg_lost">Darn it, you lost! The CPU was too lucky...</string>
+    <string name="alert_dialog_title">Confirm restart</string>
+    <string name="alert_dialog_msg">A game is ongoing, are you sure that you want to restart it?</string>
 </resources>

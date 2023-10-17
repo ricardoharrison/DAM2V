@@ -1,0 +1,14 @@
+import android.os.Vibrator;
+import android.os.VibrationEffect;
+import android.content.Context;
+
+Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+                        // Check if the device has a vibrator
+                        if (vibrator.hasVibrator()) {
+                            // Create a VibrationEffect (for Android API 26 and later) for 500 miliseconds
+                            VibrationEffect vibrationEffect = VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE);
+
+                            // Vibrate with the created VibrationEffect
+                            vibrator.vibrate(vibrationEffect);
+                        }

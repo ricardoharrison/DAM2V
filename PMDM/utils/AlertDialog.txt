@@ -1,3 +1,6 @@
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+
 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setTitle()
                             .setMessage()

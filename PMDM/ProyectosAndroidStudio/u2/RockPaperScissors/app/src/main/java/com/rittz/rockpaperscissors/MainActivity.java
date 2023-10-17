@@ -2,16 +2,21 @@ package com.rittz.rockpaperscissors;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 public class MainActivity extends AppCompatActivity {
 
     private final int INITIAL_SCORE = 0, WINNING_SCORE = 3;
-    private final float SIZE_24 = 24;
+    private final float SIZE_24 = 24, SIZE_16 = 16;
     boolean gameEnded = false;
     Button buttonRestart;
     ImageView imageViewRock, imageViewPaper, imageViewScissors, imageViewChoiceCpu;
@@ -57,6 +62,36 @@ public class MainActivity extends AppCompatActivity {
         return result;
     }
 
+    public void triggerRestartActions(){
+        textViewCpuChoice.setVisibility(View.GONE);
+        imageViewChoiceCpu.setVisibility(View.GONE);
+        textViewFinalMsg.setText(" ");
+        textViewScoreUser.setText(String.valueOf(INITIAL_SCORE));
+        textViewScoreCpu.setText(String.valueOf(INITIAL_SCORE));
+        textViewFinalMsg.setTextSize(SIZE_16);
+        gameEnded = false;
+    }
+
+    public void showConfirmationDialog(){
+        final String ALERT_DIALOG_TITLE = getResources().getString(R.string.alert_dialog_title);
+        final String ALERT_DIALOG_MSG = getResources().getString(R.string.alert_dialog_msg);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle(ALERT_DIALOG_TITLE)
+                .setMessage(ALERT_DIALOG_MSG)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        triggerRestartActions();
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .show();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,11 +114,15 @@ public class MainActivity extends AppCompatActivity {
         textViewScoreUser.setText(String.valueOf(INITIAL_SCORE));
         textViewScoreCpu.setText(String.valueOf(INITIAL_SCORE));
 
-        //tags del enum
+        //enum gets linked to "tag" property
         imageViewRock.setTag(Selection.ROCK);
         imageViewPaper.setTag(Selection.PAPER);
         imageViewScissors.setTag(Selection.SCISSORS);
 
+        //image resources
+        imageViewRock.setImageResource(R.drawable.rock);
+        imageViewPaper.setImageResource(R.drawable.paper);
+        imageViewScissors.setImageResource(R.drawable.scissors);
         View.OnClickListener rockPaperScissorsHandler = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                         default:
                             break;
                     }
+                    imageViewChoiceCpu.setVisibility(View.VISIBLE);
 
                     //assigning the selection made by the user
                     Selection selection = Selection.valueOf(view.getTag().toString());
@@ -148,11 +188,24 @@ public class MainActivity extends AppCompatActivity {
                         default:
                             break;
                     }
-                    if(Integer.parseInt(textViewScoreUser.getText().toString()) >= WINNING_SCORE){
+                    if (Integer.parseInt(textViewScoreUser.getText().toString()) >= WINNING_SCORE) {
                         gameEnded = true;
                         textViewFinalMsg.setTextSize(SIZE_24);
                         textViewFinalMsg.setText(R.string.msg_won);
-                    } else if(Integer.parseInt(textViewScoreCpu.getText().toString()) >= WINNING_SCORE) {
+
+                        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+                        // Check if the device has a vibrator
+                        if (vibrator.hasVibrator()) {
+                            // Create a VibrationEffect (for Android API 26 and later)
+                            VibrationEffect vibrationEffect = VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE);
+
+                            // Vibrate with the created VibrationEffect
+                            vibrator.vibrate(vibrationEffect);
+                        }
+                    }
+
+                    else if(Integer.parseInt(textViewScoreCpu.getText().toString()) >= WINNING_SCORE) {
                         gameEnded = true;
                         textViewFinalMsg.setTextSize(SIZE_24);
                         textViewFinalMsg.setText(R.string.msg_lost);
@@ -170,9 +223,15 @@ public class MainActivity extends AppCompatActivity {
         buttonRestart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textViewCpuChoice.setVisibility(View.GONE);
-                textViewScoreUser.setText(String.valueOf(INITIAL_SCORE));
-                textViewScoreCpu.setText(String.valueOf(INITIAL_SCORE));
+
+                if (!(Integer.parseInt(textViewScoreUser.getText().toString()) == INITIAL_SCORE &&
+                        Integer.parseInt(textViewScoreCpu.getText().toString()) == INITIAL_SCORE) &&
+                        !(Integer.parseInt(textViewScoreUser.getText().toString()) == WINNING_SCORE ||
+                                Integer.parseInt(textViewScoreCpu.getText().toString()) == WINNING_SCORE)) {
+                    showConfirmationDialog();
+                } else {
+                    triggerRestartActions();
+                }
             }
         });
     }
