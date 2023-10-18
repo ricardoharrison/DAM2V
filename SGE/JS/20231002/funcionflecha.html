@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: aquamarine;
+    }
+    input{
+        background-color: orange;
+        font-style: italic;
+    }
+</style>
+<body>
+    <p>
+        Nombre:&nbsp; <input type="text" name="" id="">
+        &nbsp;Apellido:&nbsp; <input type="text" name="" id="">
+        <br>
+        <br>
+        <input type="button" value="Enviar">
+        <div></div>
+        Numero1:&nbsp; <input type="text" name="" id="">
+        &nbsp;Numero2:&nbsp; <input type="text" name="" id="">
+        <br>
+        <br>
+        <input type="button" value="Sumar">
+    </p>
+</body>
+<script>
+    document.getEle
+    //alert
+    let myInputObjects = document.getElementsByTagName("input");
+    myInputObjects[2].addEventListener("click", () => (alert(myInputObjects[0].value + " " + myInputObjects[1].value)));
+
+    //suma
+    myInputObjects[5].addEventListener("click", () => alert(parseInt(myInputObjects[3].value) + parseInt(myInputObjects[4].value)));
+</script>
+</html>
