@@ -7,6 +7,7 @@ package com.rittz.tienda;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -33,6 +34,7 @@ public class Tienda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jProgressBar1 = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -56,12 +58,12 @@ public class Tienda extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "ID", "Potencia", "Modelo", "Autonomía", "Maletero"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButtonSubmit.setText("jButton1");
+        jButtonSubmit.setText("Cargar BBDD");
         jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSubmitActionPerformed(evt);
@@ -111,16 +113,16 @@ public class Tienda extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonSubmit)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(137, 137, 137)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonSubmit)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,9 +130,9 @@ public class Tienda extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonSubmit)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,25 +171,27 @@ public class Tienda extends javax.swing.JFrame {
 
         try {
             // Establish a database connection
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
+            connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
 
             // Define your SQL query to retrieve data
             String query = "SELECT * FROM COCHES";
 
             // Create a statement
-            statement = connection.createStatement();
+            statement = connection.prepareStatement(query);
 
             // Execute the query
             resultSet = statement.executeQuery(query);
 
             // Create a DefaultTableModel to hold the data
-            DefaultTableModel model = new DefaultTableModel();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            /*
             model.addColumn("ID");
             model.addColumn("MODELO");
             model.addColumn("POTENCIA");
             model.addColumn("AUTONOMIA");
             model.addColumn("PRECIO");
             model.addColumn("MALETERO");
+            */
 
             // Populate the table model with the retrieved data
             while (resultSet.next()) {
@@ -262,6 +266,7 @@ public class Tienda extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuLocalizacion;
     private javax.swing.JMenu jMenuProducto;
     private javax.swing.JMenu jMenuSalir;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
