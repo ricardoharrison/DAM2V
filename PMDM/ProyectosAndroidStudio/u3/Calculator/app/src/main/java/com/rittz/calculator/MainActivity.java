@@ -10,7 +10,7 @@ import android.widget.RadioButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    static final String INFO_RESULT = "";
+    static final String INFO_RESULT = "com.rittz.calculator.INFO_RESULT";
     Button buttonCalculate;
     EditText editTextFirstOperator, editTextSecondOperator;
     RadioButton radioAdd, radioSubtract, radioMultiply, radioDivide;
