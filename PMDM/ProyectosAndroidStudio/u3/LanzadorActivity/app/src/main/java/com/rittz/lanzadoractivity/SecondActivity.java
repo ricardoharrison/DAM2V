@@ -2,6 +2,7 @@ package com.rittz.lanzadoractivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -13,10 +14,16 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        Bundle info = getIntent().getExtras();
-        String sInfo = info.getString(MainActivity.INFO_NAME);
+        Intent i = getIntent();
+        String myString = i.getStringExtra(MainActivity.INFO_NAME);
 
-        TextView tv = findViewById(R.id.textViewCenter);
-        tv.setText(tv.getText() + sInfo);
+        textViewCenter = (TextView) findViewById(R.id.textViewCenter);
+        if (myString != null) {
+            textViewCenter.setText(myString);
+        } else {
+            textViewCenter.setText("Default Text");
+        }
+
+
     }
 }

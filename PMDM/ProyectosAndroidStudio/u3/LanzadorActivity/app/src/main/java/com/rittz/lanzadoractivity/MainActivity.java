@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String INFO_NAME = "Elber";
+    public static final String INFO_NAME = "com.rittz.lanzadoractivity.MainActivity.INFO_NAME";
     Button buttonLaunch;
     EditText editTextName;
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonLaunch.setOnClickListener(view -> {
             Intent i = new Intent(this,SecondActivity.class);
-            i.putExtra(INFO_NAME, editTextName.getText());
+            i.putExtra(INFO_NAME, editTextName.getText().toString()); //importante poner toString() o el valor será 'null'
             startActivity(i);
         });
     }

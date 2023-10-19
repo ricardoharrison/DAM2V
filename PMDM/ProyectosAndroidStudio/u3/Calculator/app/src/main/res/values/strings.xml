@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="button_calculate">Calculate</string>
+    <string name="number_too_long_msg">\"The result is too long to display\"</string>
+</resources>
