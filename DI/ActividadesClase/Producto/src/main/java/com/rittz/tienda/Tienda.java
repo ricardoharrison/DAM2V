@@ -58,7 +58,7 @@ public class Tienda extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Potencia", "Modelo", "Autonomía", "Maletero"
+                "ID", "Modelo", "Potencia", "Autonomía", "Precio", "Maletero"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -121,18 +121,18 @@ public class Tienda extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonSubmit)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSubmit)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
@@ -164,34 +164,29 @@ public class Tienda extends javax.swing.JFrame {
 
     private void jButtonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmitActionPerformed
         // TODO add your handling code here:
-        // TODO add your handling code here:
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
-
+      
         try {
             // Establish a database connection
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
-
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
+            //System.out.println("data: " + connection.getMetaData().getDatabaseProductVersion()); //linea para debuggear            
+            
             // Define your SQL query to retrieve data
             String query = "SELECT * FROM COCHES";
 
             // Create a statement
-            statement = connection.prepareStatement(query);
+            statement = connection.createStatement();
 
             // Execute the query
             resultSet = statement.executeQuery(query);
 
-            // Create a DefaultTableModel to hold the data
+            // Get the DefaultTableModel of jTable1
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            /*
-            model.addColumn("ID");
-            model.addColumn("MODELO");
-            model.addColumn("POTENCIA");
-            model.addColumn("AUTONOMIA");
-            model.addColumn("PRECIO");
-            model.addColumn("MALETERO");
-            */
+
+            // Clear the existing rows in the table
+            model.setRowCount(0);
 
             // Populate the table model with the retrieved data
             while (resultSet.next()) {
@@ -205,12 +200,10 @@ public class Tienda extends javax.swing.JFrame {
                 };
                 model.addRow(rowData);
             }
-
-            // Set the JTable's model to the populated model
-            //JTable miTabla = new JTable(model);
-
         } catch (SQLException e) {
             // Handle any database errors
+            System.out.println("Excepción: " + e.getMessage() + " sql " + e.getSQLState());
+           
         } finally {
             // Close resources
             try {
