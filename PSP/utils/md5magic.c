@@ -1,4 +1,5 @@
 #include <openssl/evp.h>
+#include <string.h>
 
 #define MD5_LEN 16
 
