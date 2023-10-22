@@ -58,6 +58,7 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "C_Cpp.errorSquiggles": "enabled",
   "files.associations": {
-    "dup2": "c"
+    "dup2": "c",
+    "2pipe_": "c"
   }
 }

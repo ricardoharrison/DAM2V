@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">IceCream</string>
+    <string name="order">Order</string>
+    <string name="vanilla">Vanilla</string>
+    <string name="strawberry">Strawberry</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="container_selection">Choose container:</string>
+    <string name="order_no">Order no. %d</string>
+
+</resources>
