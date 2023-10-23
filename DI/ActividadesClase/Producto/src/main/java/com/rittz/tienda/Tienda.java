@@ -4,13 +4,21 @@
  */
 package com.rittz.tienda;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.plaf.FileChooserUI;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -35,8 +43,6 @@ public class Tienda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jTextFieldModelo4 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -53,6 +59,7 @@ public class Tienda extends javax.swing.JFrame {
         jLabelMaletero = new javax.swing.JLabel();
         jButtonAdd = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
+        jButtonLoadFromCSV = new javax.swing.JButton();
         jMenuBarTienda = new javax.swing.JMenuBar();
         jMenuProducto = new javax.swing.JMenu();
         jMenuItemProductoSofas = new javax.swing.JMenuItem();
@@ -115,6 +122,14 @@ public class Tienda extends javax.swing.JFrame {
             }
         });
 
+        jButtonLoadFromCSV.setText("Cargar CSV");
+        jButtonLoadFromCSV.setActionCommand("");
+        jButtonLoadFromCSV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoadFromCSVActionPerformed(evt);
+            }
+        });
+
         jMenuProducto.setText("Productos");
 
         jMenuItemProductoSofas.setText("Sofás");
@@ -161,7 +176,7 @@ public class Tienda extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldModelo, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                        .addComponent(jTextFieldModelo, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2Modelo)
@@ -172,7 +187,7 @@ public class Tienda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldAutonomia, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                        .addComponent(jTextFieldAutonomia, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelAutonomia)
@@ -181,13 +196,11 @@ public class Tienda extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelPrecio)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextFieldPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                    .addComponent(jTextFieldPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelMaletero)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jTextFieldMaletero, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))
+                    .addComponent(jLabelMaletero)
+                    .addComponent(jTextFieldMaletero, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -195,14 +208,16 @@ public class Tienda extends javax.swing.JFrame {
                 .addGap(168, 168, 168))
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonLoad)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonAdd)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonDelete)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonLoadFromCSV)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -214,7 +229,9 @@ public class Tienda extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonLoad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonLoadFromCSV, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
@@ -284,7 +301,63 @@ public class Tienda extends javax.swing.JFrame {
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         // TODO add your handling code here:
+        deleteRecord();
+        loadDataBase();
     }//GEN-LAST:event_jButtonDeleteActionPerformed
+
+    private void jButtonLoadFromCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadFromCSVActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("csv", "csv"); //para que solo muestre .csv
+        fileChooser.setFileFilter(filter);
+        
+        int option = fileChooser.showOpenDialog(jButtonLoadFromCSV);
+        
+        File file = fileChooser.getSelectedFile();
+        
+        ArrayList<Coche> listaCoches = new ArrayList<>();
+        
+        try(BufferedReader reader = new BufferedReader(new FileReader(file.getAbsolutePath()))){
+            String line;
+            while((line = reader.readLine()) != null){
+                String[] container = line.split(",");
+                Coche newCoche = new Coche(container[0], Integer.parseInt(container[1]), 
+                        Integer.parseInt(container[2]), Integer.parseInt(container[3]), Integer.parseInt(container[4]));
+                listaCoches.add(newCoche);
+            }
+            
+            Connection conn = null;
+            PreparedStatement ps = null;
+
+            
+            try{
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
+                conn.createStatement();
+                
+                String query = "INSERT into COCHES(modelo, potencia, autonomia, precio, maletero) values (?, ?, ?, ?, ?)";
+                ps = conn.prepareStatement(query);
+               
+                for(Coche coche : listaCoches){
+                    ps.setString(1, coche.getModelo());
+                    ps.setInt(2, coche.getPotencia());
+                    ps.setInt(3, coche.getAutonomia());
+                    ps.setInt(4, coche.getPrecio());
+                    ps.setInt(5, coche.getMaletero());
+                    ps.executeUpdate();
+                }  
+                
+                conn.close();
+
+            } catch (SQLException sqle){
+                sqle.printStackTrace();
+            }
+            
+
+
+        } catch (IOException ioe){
+            ioe.printStackTrace();
+        }
+    }//GEN-LAST:event_jButtonLoadFromCSVActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,6 +398,7 @@ public class Tienda extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonLoad;
+    private javax.swing.JButton jButtonLoadFromCSV;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2Modelo;
     private javax.swing.JLabel jLabelAutonomia;
@@ -337,13 +411,11 @@ public class Tienda extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuLocalizacion;
     private javax.swing.JMenu jMenuProducto;
     private javax.swing.JMenu jMenuSalir;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldAutonomia;
     private javax.swing.JTextField jTextFieldMaletero;
     private javax.swing.JTextField jTextFieldModelo;
-    private javax.swing.JTextField jTextFieldModelo4;
     private javax.swing.JTextField jTextFieldPotencia;
     private javax.swing.JTextField jTextFieldPrecio;
     // End of variables declaration//GEN-END:variables
@@ -404,7 +476,6 @@ public class Tienda extends javax.swing.JFrame {
     private void addNewRecord() {
         Connection conn = null;
         PreparedStatement ps = null;
-        ResultSet resultSet = null;        
         
         try{
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
@@ -428,4 +499,27 @@ public class Tienda extends javax.swing.JFrame {
         }
         
     }
+    
+    private void deleteRecord(){
+        Connection conn = null;
+        PreparedStatement ps = null;
+        
+        try{
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
+            conn.createStatement();
+            
+            String query = "DELETE FROM coches where id = ?";            
+            ps = conn.prepareStatement(query);            
+           
+            int idToDelete = (int) jTable1.getValueAt(jTable1.getSelectedRow(), 0); // 0 = primera columna
+            
+            ps.setInt(1, idToDelete);
+            
+            int rowsAffected = ps.executeUpdate();
+            
+            conn.close();
+           
+        } catch (Exception e){}
+    }
+    
 }
