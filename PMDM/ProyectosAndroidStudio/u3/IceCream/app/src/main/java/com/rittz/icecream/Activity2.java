@@ -20,7 +20,6 @@ public class Activity2 extends AppCompatActivity {
 
         Integer vanillaAmount = null, strawberryAmount = null, chocolateAmount = null;
         String selectedContainerToString = null;
-        int emptyScoopImages = MAX_SCOOPS;
 
         Intent i = getIntent();
 
