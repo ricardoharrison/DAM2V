@@ -11,71 +11,72 @@
         android:id="@+id/imageViewScoop2"
         android:layout_width="87dp"
         android:layout_height="89dp"
-        android:layout_marginBottom="348dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.468"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/imageViewScoop3"
         android:layout_width="87dp"
         android:layout_height="89dp"
-        android:layout_marginEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.755"
-        app:layout_constraintStart_toEndOf="@+id/imageViewScoop2"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewScoop6"
-        app:layout_constraintVertical_bias="0.086"
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.468"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/imageViewScoop4"
         android:layout_width="87dp"
         android:layout_height="89dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewScoop1"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewScoop5"
-        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.839"
+        app:layout_constraintVertical_bias="0.266"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/imageViewScoop5"
         android:layout_width="87dp"
         android:layout_height="89dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewScoop2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.839"
+        app:layout_constraintVertical_bias="0.266"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/imageViewScoop6"
         android:layout_width="87dp"
         android:layout_height="89dp"
-        android:layout_marginTop="172dp"
-        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toEndOf="@+id/imageViewScoop5"
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.266"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/imageViewScoop1"
         android:layout_width="87dp"
         android:layout_height="89dp"
-        android:layout_marginBottom="348dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewScoop2"
-        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.468"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
