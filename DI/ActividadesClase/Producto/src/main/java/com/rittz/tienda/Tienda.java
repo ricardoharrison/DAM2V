@@ -4,10 +4,15 @@
  */
 package com.rittz.tienda;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -60,6 +65,8 @@ public class Tienda extends javax.swing.JFrame {
         jButtonAdd = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         jButtonLoadFromCSV = new javax.swing.JButton();
+        jButtonLoadJson = new javax.swing.JButton();
+        jButtonLoadFromCSV2 = new javax.swing.JButton();
         jMenuBarTienda = new javax.swing.JMenuBar();
         jMenuProducto = new javax.swing.JMenu();
         jMenuItemProductoSofas = new javax.swing.JMenuItem();
@@ -130,6 +137,22 @@ public class Tienda extends javax.swing.JFrame {
             }
         });
 
+        jButtonLoadJson.setText("Crear JSON");
+        jButtonLoadJson.setActionCommand("");
+        jButtonLoadJson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoadJsonActionPerformed(evt);
+            }
+        });
+
+        jButtonLoadFromCSV2.setText("Crear CSV");
+        jButtonLoadFromCSV2.setActionCommand("");
+        jButtonLoadFromCSV2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoadFromCSV2ActionPerformed(evt);
+            }
+        });
+
         jMenuProducto.setText("Productos");
 
         jMenuItemProductoSofas.setText("Sofás");
@@ -176,62 +199,68 @@ public class Tienda extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldModelo, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2Modelo)
-                        .addGap(68, 68, 68)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldPotencia, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelPotencia))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldAutonomia, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelAutonomia)
-                        .addGap(48, 48, 48)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelPrecio)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextFieldPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelMaletero)
-                    .addComponent(jTextFieldMaletero, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(168, 168, 168))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonLoad)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextFieldModelo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2Modelo)
+                                .addGap(68, 68, 68)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldPotencia, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelPotencia))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextFieldAutonomia)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelAutonomia)
+                                .addGap(48, 48, 48)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelPrecio)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jTextFieldPrecio))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonAdd)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonDelete)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonLoadFromCSV)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelMaletero)
+                            .addComponent(jTextFieldMaletero)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonLoadJson))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonLoad)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonAdd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonLoadFromCSV)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonLoadFromCSV2)))
+                        .addGap(55, 55, 55)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonLoad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonLoadJson, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonLoadFromCSV, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButtonLoad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonLoadFromCSV, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonLoadFromCSV2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
@@ -307,57 +336,18 @@ public class Tienda extends javax.swing.JFrame {
 
     private void jButtonLoadFromCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadFromCSVActionPerformed
         // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("csv", "csv"); //para que solo muestre .csv
-        fileChooser.setFileFilter(filter);
-        
-        int option = fileChooser.showOpenDialog(jButtonLoadFromCSV);
-        
-        File file = fileChooser.getSelectedFile();
-        
-        ArrayList<Coche> listaCoches = new ArrayList<>();
-        
-        try(BufferedReader reader = new BufferedReader(new FileReader(file.getAbsolutePath()))){
-            String line;
-            while((line = reader.readLine()) != null){
-                String[] container = line.split(",");
-                Coche newCoche = new Coche(container[0], Integer.parseInt(container[1]), 
-                        Integer.parseInt(container[2]), Integer.parseInt(container[3]), Integer.parseInt(container[4]));
-                listaCoches.add(newCoche);
-            }
-            
-            Connection conn = null;
-            PreparedStatement ps = null;
-
-            
-            try{
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
-                conn.createStatement();
-                
-                String query = "INSERT into COCHES(modelo, potencia, autonomia, precio, maletero) values (?, ?, ?, ?, ?)";
-                ps = conn.prepareStatement(query);
-               
-                for(Coche coche : listaCoches){
-                    ps.setString(1, coche.getModelo());
-                    ps.setInt(2, coche.getPotencia());
-                    ps.setInt(3, coche.getAutonomia());
-                    ps.setInt(4, coche.getPrecio());
-                    ps.setInt(5, coche.getMaletero());
-                    ps.executeUpdate();
-                }  
-                
-                conn.close();
-
-            } catch (SQLException sqle){
-                sqle.printStackTrace();
-            }
-            
-
-
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }
+            loadFromCsv();
+            loadDataBase();
     }//GEN-LAST:event_jButtonLoadFromCSVActionPerformed
+
+    private void jButtonLoadJsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadJsonActionPerformed
+        // TODO add your handling code here:
+        exportToJson();
+    }//GEN-LAST:event_jButtonLoadJsonActionPerformed
+
+    private void jButtonLoadFromCSV2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadFromCSV2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLoadFromCSV2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -399,6 +389,8 @@ public class Tienda extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonLoad;
     private javax.swing.JButton jButtonLoadFromCSV;
+    private javax.swing.JButton jButtonLoadFromCSV2;
+    private javax.swing.JButton jButtonLoadJson;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2Modelo;
     private javax.swing.JLabel jLabelAutonomia;
@@ -521,5 +513,133 @@ public class Tienda extends javax.swing.JFrame {
            
         } catch (Exception e){}
     }
-    
+
+    private void loadFromCsv() {
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("csv", "csv"); //para que solo muestre .csv
+        fileChooser.setFileFilter(filter);
+        
+        int option = fileChooser.showOpenDialog(jButtonLoadFromCSV);
+        
+        File file = fileChooser.getSelectedFile();
+        
+        ArrayList<Coche> listaCoches = new ArrayList<>();
+        
+        try(BufferedReader reader = new BufferedReader(new FileReader(file.getAbsolutePath()))){
+        String line;
+            while((line = reader.readLine()) != null){
+                String[] container = line.split(",");
+                Coche newCoche = new Coche(container[0], Integer.parseInt(container[1]), 
+                        Integer.parseInt(container[2]), Integer.parseInt(container[3]), Integer.parseInt(container[4]));
+                listaCoches.add(newCoche);
+            }
+            
+            Connection conn = null;
+            PreparedStatement ps = null;
+
+            
+            try{
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
+                conn.createStatement();
+                
+                String query = "INSERT into COCHES(modelo, potencia, autonomia, precio, maletero) values (?, ?, ?, ?, ?)";
+                ps = conn.prepareStatement(query);
+               
+                for(Coche coche : listaCoches){
+                    ps.setString(1, coche.getModelo());
+                    ps.setInt(2, coche.getPotencia());
+                    ps.setInt(3, coche.getAutonomia());
+                    ps.setInt(4, coche.getPrecio());
+                    ps.setInt(5, coche.getMaletero());
+                    ps.executeUpdate();
+                }  
+                
+                conn.close();
+               
+            } catch (SQLException sqle){
+                sqle.printStackTrace();
+            }
+            
+
+
+        } catch (IOException ioe){
+            ioe.printStackTrace();
+        }
+    }    
+
+    private void exportToCsv() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        System.out.println("Working Directory: " + System.getProperty("user.dir")); //ChatGPT at its finest
+        
+        try{
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
+            String query = "SELECT * from coches";
+            ps = conn.prepareStatement(query);
+            ps.executeQuery();
+            
+            rs = ps.getResultSet();
+            
+            ArrayList<Coche> listaCoches = new ArrayList<>();
+           
+            while(rs.next()){             
+                Coche coche = new Coche(rs.getString("MODELO"), rs.getInt("POTENCIA"),
+                                    rs.getInt("AUTONOMIA"), rs.getInt("PRECIO"),rs.getInt("MALETERO"));
+                listaCoches.add(coche);
+            }
+            
+            try(BufferedWriter writer = new BufferedWriter(new FileWriter("salida.txt"))){
+                for(Coche coche : listaCoches){
+                    String csvLine = coche.toCsvLine();
+                    writer.write(csvLine);
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+            }           
+            
+               
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void exportToJson() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        System.out.println("Working Directory: " + System.getProperty("user.dir")); //ChatGPT at its finest
+        
+        try{
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tesla", "root", "");
+            String query = "SELECT * from coches";
+            ps = conn.prepareStatement(query);
+            ps.executeQuery();
+            
+            rs = ps.getResultSet();
+            
+            ArrayList<Coche> listaCoches = new ArrayList<>();
+           
+            while(rs.next()){             
+                Coche coche = new Coche(rs.getString("MODELO"), rs.getInt("POTENCIA"),
+                                    rs.getInt("AUTONOMIA"), rs.getInt("PRECIO"),rs.getInt("MALETERO"));
+                listaCoches.add(coche);
+            }
+          /*  
+        Gson gson = new Gson();
+        String json = gson.toJson(coche);  //imprime JSON de 1 solo objeto
+        System.out.println("");
+            */
+            
+        Gson gson = new GsonBuilder().setPrettyPrinting().create(); //imprime el JSON entero
+        String json = gson.toJson(listaCoches);
+        System.out.println(json);
+        
+               
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

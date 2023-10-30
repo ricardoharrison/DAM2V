@@ -4,6 +4,8 @@
  */
 package com.rittz.tienda;
 
+import com.google.gson.Gson;
+
 /**
  *
  * @author at1DAM2
@@ -45,4 +47,15 @@ public class Coche {
     public String toString() {
         return "Coche{" + "id=" + id + ", potencia=" + potencia + ", autonomia=" + autonomia + ", precio=" + precio + ", maletero=" + maletero + ", modelo=" + modelo + '}';
     }
+    
+    public String toCsvLine() {
+        return modelo + "," + potencia + "," + autonomia + "," + precio + "," + maletero + "\n";
+    }
+    
+    public String toJsonFile() {
+        Gson gson = new Gson();
+        String json = gson.toJson(this);
+        return json;
+    }
+    
 }
