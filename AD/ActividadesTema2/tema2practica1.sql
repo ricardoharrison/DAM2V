@@ -15,7 +15,7 @@ CREATE OR REPLACE TYPE Persona AS OBJECT (
 );
 /
 
---3 & 4
+--3 & 4a
 CREATE TABLE alumnos OF persona;
 
 DECLARE
@@ -36,17 +36,18 @@ END;
 /
 
 
---5
+--4b
 SELECT * FROM alumnos a where a.direc.ciudad = 'Guadalajara';
 
---6
+--4c
 SELECT codigo, direc from alumnos;
 
---7
+--4d
 UPDATE alumnos a SET a.direc.ciudad = LOWER(a.direc.ciudad)
 WHERE a.direc.ciudad = 'Guadalajara';
 
---8
+--4e
+select nombre, a.direc.calle from alumnos a;
 
---9
+--4f
 DELETE FROM alumnos WHERE a.direc.ciudad = 'Guadalajara';
