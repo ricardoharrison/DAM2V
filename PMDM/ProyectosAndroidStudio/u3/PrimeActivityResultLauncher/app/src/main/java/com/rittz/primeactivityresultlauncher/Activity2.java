@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class Activity2 extends AppCompatActivity {
-    private static final String INFO_NUMBER = "Activity2.INFO_NUMBER";
+    static final String INFO_NUMBER = "Activity2.INFO_NUMBER";
     Button buttonAccept, buttonCancel;
     EditText editTextNumber;
 

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">PrimeActivityResultLauncher</string>
+    <string name="OP_CANCEL_MSG">Operation cancelled</string>
+    <string name="IS_NOT_PRIME">The number is NOT prime</string>
+    <string name="IS_PRIME">The number is prime!</string>
 </resources>
