@@ -1,3 +1,5 @@
+//EN LA PRIMERA ACTIVIDAD:
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -9,11 +11,24 @@ ActivityResultLauncher<Intent> launcher = registerForActivityResult(new Activity
                 if(result.getResultCode() == Activity.RESULT_OK){
 		    Intent data = result.getData();
 		    //[ViewVaribaleName].setText(data.getStringExtra([ActivityName].[CONSTANT]));
-                } if (result.getResultCode() == Activity.RESULT_OK){
+                } if (result.getResultCode() == Activity.RESULT_CANCELED){
 
                 } else {
                     //otro error
                 }
 
             }
+        });
+
+
+
+____
+____
+//EN LA SEGUNDA ACTIVIDAD (EJEMPLO DENTRO DE UN BOTÓN Y PASANDO INFO DE UN EDITTEXT):
+
+myButton.setOnClickListener(view -> {
+            Intent data = new Intent();
+            data.putExtra(INFO_NUMBER, editTextMyEditText.getText().toString());
+            setResult(Activity2.RESULT_OK, data);
+            finish();
         });

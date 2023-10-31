@@ -44,14 +44,16 @@ public class MainActivity extends AppCompatActivity {
             public void onActivityResult(ActivityResult result) {
                 if(result.getResultCode() == Activity.RESULT_OK){
                     Intent data = result.getData();
-                    String receivedNumber = data.getStringExtra(Activity2.INFO_NUMBER);
-                    textViewNumber.setText(receivedNumber);
-                    int receivedParsedNumber = Integer.parseInt(receivedNumber);
-                    if(isPrime(receivedParsedNumber)){
-                        textViewMsg.setText(R.string.IS_PRIME);
-                    } else {
-                        textViewMsg.setText(R.string.IS_NOT_PRIME);
-                    }
+                    try{
+                        String receivedNumber = data.getStringExtra(Activity2.INFO_NUMBER);
+                        textViewNumber.setText(receivedNumber);
+                        int receivedParsedNumber = Integer.parseInt(receivedNumber);
+                        if(isPrime(receivedParsedNumber)){
+                            textViewMsg.setText(R.string.IS_PRIME);
+                        } else {
+                            textViewMsg.setText(R.string.IS_NOT_PRIME);
+                        }
+                    } catch (Exception e) {}
 
                 } if (result.getResultCode() == Activity.RESULT_CANCELED){
                     Toast.makeText(MainActivity.this, R.string.OP_CANCEL_MSG, Toast.LENGTH_LONG).show();

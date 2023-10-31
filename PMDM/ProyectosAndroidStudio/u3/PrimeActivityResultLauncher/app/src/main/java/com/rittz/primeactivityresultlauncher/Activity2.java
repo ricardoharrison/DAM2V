@@ -22,10 +22,12 @@ public class Activity2 extends AppCompatActivity {
         editTextNumber = findViewById(R.id.editTextNumber);
 
         buttonAccept.setOnClickListener(view -> {
-            Intent data = new Intent();
-            data.putExtra(INFO_NUMBER, editTextNumber.getText().toString());
-            setResult(Activity2.RESULT_OK);
-            finish();
+            if(!editTextNumber.getText().toString().trim().isEmpty()){
+                Intent data = new Intent();
+                data.putExtra(INFO_NUMBER, editTextNumber.getText().toString());
+                setResult(Activity2.RESULT_OK, data);
+                finish();
+            }
         });
 
         buttonCancel.setOnClickListener(view -> {
