@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FibonacciLauncher</string>
+    <string name="error_msg">Error while retrieving data</string>
 </resources>

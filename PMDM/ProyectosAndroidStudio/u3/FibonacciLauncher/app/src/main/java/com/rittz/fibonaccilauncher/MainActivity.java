@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,16 +38,22 @@ public class MainActivity extends AppCompatActivity {
             public void onActivityResult(ActivityResult result) {
                 if(result.getResultCode() == Activity2.RESULT_OK){
                     Intent data = result.getData();
-                    data.putExtra(Activity2.INFO_RESULT, result);
+                    int resultSent = data.getIntExtra(Activity2.INFO_RESULT, DEFAULT_VALUE);
+                    String N1 = textViewN2.getText().toString();
+                    String N2 = String.valueOf(resultSent);
+                    textViewN1.setText(N1);
+                    textViewN2.setText(N2);
+                } else {
+                    Toast.makeText(MainActivity.this, R.string.error_msg, Toast.LENGTH_LONG).show();
                 }
             }
         });
 
         buttonNext.setOnClickListener(view -> {
-            Intent intent = new Intent();
+            Intent intent = new Intent(this, Activity2.class);
             intent.putExtra(INFO_N1, textViewN1.getText().toString());
-            intent.putExtra(INFO_N2, textViewN1.getText().toString());
-            startActivity(intent);
+            intent.putExtra(INFO_N2, textViewN2.getText().toString());
+            launcher.launch(intent);
         });
     }
 

@@ -21,6 +21,18 @@ create table triangulos(
 
 --4
 insert into triangulos values(1, triangulo(5, 5));
+insert into triangulos values(2, triangulo(10, 10));
 
+--5
+select t.id_tri, t.tri.base, t.tri.altura from triangulos t;
 
-select id_tri, tri.base, tri.altura from triangulos;
+--6
+begin
+    for i in (select * from triangulos) loop
+        dbms_output.put_line('El triangulo con id = ' || i.id_tri);
+        dbms_output.put_line('con base = ' || i.tri.base);
+        dbms_output.put_line('y altura = ' || i.tri.altura);
+        dbms_output.put_line('tiene un area de = ' || i.tri.area);
+    end loop;
+end;
+/
