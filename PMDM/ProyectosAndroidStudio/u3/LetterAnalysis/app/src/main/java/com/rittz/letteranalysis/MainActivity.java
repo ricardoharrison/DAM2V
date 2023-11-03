@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,13 +35,15 @@ public class MainActivity extends AppCompatActivity {
             public void onActivityResult(ActivityResult result) {
                 if(result.getResultCode() == Activity2.RESULT_OK){
                     Intent data = result.getData();
-                    //[ViewVaribaleName].setText(data.getStringExtra([ActivityName].[CONSTANT]));
-                } if (result.getResultCode() == Activity2.RESULT_CANCELED){
-
+                    String receivedString = data.getStringExtra(Activity2.INFO_SENT_STRING);
+                    textViewInfo.setText(receivedString);
+                    Toast.makeText(MainActivity.this, "Information received correctly", Toast.LENGTH_LONG).show();
+                } else if (result.getResultCode() == Activity2.RESULT_CANCELED){
+                    textViewInfo.setText("");
+                    Toast.makeText(MainActivity.this, "operation cancelled", Toast.LENGTH_LONG).show();
                 } else {
-                    //otro error
+                    Toast.makeText(MainActivity.this, "Unknown error", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 

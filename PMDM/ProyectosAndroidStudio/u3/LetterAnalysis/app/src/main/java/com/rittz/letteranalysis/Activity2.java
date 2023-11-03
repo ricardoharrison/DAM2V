@@ -12,8 +12,8 @@ import java.util.Map;
 
 public class Activity2 extends AppCompatActivity {
     private static final Integer INITIAL_VALUE = 1;
-    static final String INFO_ARRAY = "Activity2.myList";
     private static final int TOTAL_TOP_LETTERS = 3;
+    static final String INFO_SENT_STRING = "Activity2.sentString";
     Button buttonReturn;
     TextView textViewDisplay;
 
@@ -26,7 +26,7 @@ public class Activity2 extends AppCompatActivity {
         textViewDisplay = findViewById(R.id.textViewDisplay);
 
         Intent intent = getIntent();
-        String receivedText = intent.getStringExtra(MainActivity.INFO_TEXT);
+        String receivedText = intent.getStringExtra(MainActivity.INFO_TEXT).toLowerCase();
 
         char[] receivedCharacters = receivedText.toCharArray();
 
@@ -44,22 +44,25 @@ public class Activity2 extends AppCompatActivity {
             }
         }
 
-        String displayedText = "The text contains the following letters:";
+        String displayedText = "The text contains the following letters:\n";
 
         for(Map.Entry entry : myMap.entrySet()){
-            displayedText = displayedText + "\nLetter " + myMap.get(entry) + " was found " + myMap.getOrDefault(entry, INITIAL_VALUE) + " time/s";
+            displayedText = displayedText + "\n · Letter " + entry.getKey() + " was found " + entry.getValue() + " time/s";
         }
 
         textViewDisplay.setText(displayedText);
 
         buttonReturn.setOnClickListener(view -> {
-            Intent data = new Intent(this, MainActivity.class);
+            Intent data = new Intent();
             ArrayList<Map.Entry<Character, Integer>> myList = new ArrayList<>(myMap.entrySet());
             myList.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue()));
-            String sentString = "The top " + TOTAL_TOP_LETTERS + " letters are: ";
-            for(int i = 0; i > TOTAL_TOP_LETTERS; i++){
-                sentString = sentString + "/nLetter " + myList.get(i).getKey() + " was found " + myList.get(i).getValue() + " times.";
+            String sentString = "The top " + TOTAL_TOP_LETTERS + " letters are: \n";
+            for(int i = 0; i < TOTAL_TOP_LETTERS; i++){
+                sentString = sentString + "\n · Letter " + myList.get(i).getKey() + " was found " + myList.get(i).getValue() + " times.";
             }
+            data.putExtra(INFO_SENT_STRING, sentString);
+            setResult(Activity2.RESULT_OK, data);
+            finish();
         });
 
     }
