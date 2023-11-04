@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ImplicitIntents</string>
+    <string name="button_browser">Open Browser</string>
+    <string name="button_dial">Open Phone Dialer</string>
+    <string name="button_sms">Open SMS</string>
+    <string name="button_fourth">Magic</string>
+    <string name="sample_msg">Hello, this is a sample message!</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ImplicitIntents</string>
+    <string name="button_browser">Abrir Navegador</string>
+    <string name="button_dial">Abrir Teléfono</string>
+    <string name="button_sms">Abrir SMS</string>
+    <string name="sample_msg">¡Hola, esto es un mensaje de prueba!</string>
+    <string name="button_fourth">Magia</string>
+</resources>

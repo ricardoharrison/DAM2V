@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SelectCharacterAndWeapon</string>
+    <string name="main_title">Select a character and their weapon</string>
+    <string name="player1">Player 1</string>
+    <string name="player2">Player 2</string>
+    <string name="character_title">Select a character</string>
+    <string name="weapon_title">Select a weapon</string>
+</resources>
