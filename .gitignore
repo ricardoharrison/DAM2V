@@ -13,3 +13,4 @@ DI/Producto/target/
 # Ignore .env files
 .env
 >>>>>>> 1cc9374a17d6e04a88ba819c6805e178b2558102
+/DI/Prueba/Prueba/target/

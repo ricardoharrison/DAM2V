@@ -288,7 +288,7 @@ public class Tienda extends javax.swing.JFrame {
         int choice = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres salir?", "Confirma tu selección", JOptionPane.YES_NO_OPTION);
         if(choice == JOptionPane.YES_NO_OPTION){
             dispose();
-        }        
+        }   
     }//GEN-LAST:event_jMenuSalirMouseClicked
 
     private void jMenuLocalizacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuLocalizacionMouseClicked
