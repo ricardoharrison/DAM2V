@@ -3,6 +3,7 @@ package com.rittz.selectcharacterandweapon;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -12,7 +13,10 @@ import java.util.ArrayList;
 
 public class Activity2 extends AppCompatActivity {
     static final int DEFAULT_VALUE = -1;
-    static final String INFO_SELECTED_CHAR = "Activity2.selectedChar";
+    static final String INFO_SELECTED_PLAYER = "Activity2.selectedPlayer";
+    public enum PlayableCharacter {
+        HERO, MAGE, ELF, ZOMBIE;
+    }
     ImageButton imageButtonCharSel1, imageButtonCharSel2, imageButtonCharSel3, imageButtonCharSel4;
 
     @Override
@@ -25,44 +29,55 @@ public class Activity2 extends AppCompatActivity {
         imageButtonCharSel3 = findViewById(R.id.imageButtonCharSel3);
         imageButtonCharSel4 = findViewById(R.id.imageButtonCharSel4);
 
-        ArrayList<ImageButton> imageButtonsList = new ArrayList<>();
-        imageButtonsList.add(imageButtonCharSel1);
-        imageButtonsList.add(imageButtonCharSel2);
-        imageButtonsList.add(imageButtonCharSel3);
-        imageButtonsList.add(imageButtonCharSel4);
-
-
         imageButtonCharSel1.setImageResource(R.drawable.heroe);
         imageButtonCharSel2.setImageResource(R.drawable.mage);
         imageButtonCharSel3.setImageResource(R.drawable.elf);
         imageButtonCharSel4.setImageResource(R.drawable.zombie);
 
-        Intent intent = getIntent();
-        ArrayList<Integer> selectedCharacterImages = intent.getIntegerArrayListExtra(MainActivity.INFO_SELECTED_CHAR_IMAGES);
-        Integer selectedPlayer = intent.getIntExtra(MainActivity.INFO_PLAYER_CALLING, DEFAULT_VALUE);
+        imageButtonCharSel1.setTag(PlayableCharacter.HERO);
+        imageButtonCharSel2.setTag(PlayableCharacter.MAGE);
+        imageButtonCharSel3.setTag(PlayableCharacter.ELF);
+        imageButtonCharSel4.setTag(PlayableCharacter.ZOMBIE);
 
+        Intent intent = getIntent();
+        ArrayList<String> selectedCharacterImages = intent.getStringArrayListExtra(MainActivity.INFO_SELECTED_CHAR_IMAGES);
+        int selectedPlayer = intent.getIntExtra(MainActivity.INFO_PLAYER_CALLING, DEFAULT_VALUE);
+
+        //set current player selection position to null so it lets choose the same character again
         selectedCharacterImages.set(selectedPlayer, null);
 
-        for(int i = 0; i < selectedCharacterImages.size(); i++){
-            if(i == selectedPlayer){
+        //adding filters for other players' active selections
+        for(String selectedCharacterImage : selectedCharacterImages){
+            if(selectedCharacterImage == null){
                 continue;
-            } else {
-                imageButtonsList.get(i).setClickable(false);
+            }
+            if(PlayableCharacter.valueOf(selectedCharacterImage) == PlayableCharacter.HERO){
+                imageButtonCharSel1.setColorFilter(Color.GRAY);
+            } else if (PlayableCharacter.valueOf(selectedCharacterImage) == PlayableCharacter.MAGE){
+                imageButtonCharSel2.setColorFilter(Color.GRAY);
+            } else if (PlayableCharacter.valueOf(selectedCharacterImage) == PlayableCharacter.ELF){
+                imageButtonCharSel3.setColorFilter(Color.GRAY);
+            } else if (PlayableCharacter.valueOf(selectedCharacterImage) == PlayableCharacter.ZOMBIE){
+                imageButtonCharSel4.setColorFilter(Color.GRAY);
             }
         }
 
-
         View.OnClickListener handler = view -> {
-            Toast.makeText(Activity2.this, "Clicked", Toast.LENGTH_LONG).show();
-            if(!selectedCharacterImages.contains(view.getId())){
-                selectedCharacterImages.set(selectedPlayer, view.getId());
+            if(!selectedCharacterImages.contains(view.getTag().toString())){
+                selectedCharacterImages.set(selectedPlayer, view.getTag().toString());
                 Intent data = new Intent();
-                data.putExtra(INFO_SELECTED_CHAR, view.getId());
-                setResult(Activity2.RESULT_OK);
+                data.putExtra(INFO_SELECTED_PLAYER, selectedPlayer);
+                data.putExtra(MainActivity.INFO_SELECTED_CHAR_IMAGES, selectedCharacterImages);
+                setResult(Activity2.RESULT_OK, data);
                 finish();
+            } else {
+                Toast.makeText(Activity2.this, "This character is already selected by other player", Toast.LENGTH_LONG).show();
             }
         };
 
-
+        imageButtonCharSel1.setOnClickListener(handler);
+        imageButtonCharSel2.setOnClickListener(handler);
+        imageButtonCharSel3.setOnClickListener(handler);
+        imageButtonCharSel4.setOnClickListener(handler);
     }
 }
