@@ -8,10 +8,10 @@ import androidx.activity.result.contract.ActivityResultContracts;
 ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
-                if(result.getResultCode() == Activity.RESULT_OK){
+                if(result.getResultCode() == Activity2.RESULT_OK){
 		    Intent data = result.getData();
-		    //[ViewVaribaleName].setText(data.getStringExtra([ActivityName].[CONSTANT]));
-                } if (result.getResultCode() == Activity.RESULT_CANCELED){
+		    //[ViewVaribaleName].setText(data.getStringExtra([Activity2].[CONSTANT]));
+                } else if (result.getResultCode() == Activity2.RESULT_CANCELED){
 
                 } else {
                     //otro error

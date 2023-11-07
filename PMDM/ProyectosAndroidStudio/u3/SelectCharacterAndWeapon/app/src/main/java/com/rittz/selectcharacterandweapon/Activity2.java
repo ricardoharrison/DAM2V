@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ public class Activity2 extends AppCompatActivity {
         HERO, MAGE, ELF, ZOMBIE;
     }
     ImageButton imageButtonCharSel1, imageButtonCharSel2, imageButtonCharSel3, imageButtonCharSel4;
+    Button buttonClear, buttonCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,9 @@ public class Activity2 extends AppCompatActivity {
         imageButtonCharSel2 = findViewById(R.id.imageButtonCharSel2);
         imageButtonCharSel3 = findViewById(R.id.imageButtonCharSel3);
         imageButtonCharSel4 = findViewById(R.id.imageButtonCharSel4);
+
+        buttonClear = findViewById(R.id.buttonClear);
+        buttonCancel = findViewById(R.id.buttonCancel);
 
         imageButtonCharSel1.setImageResource(R.drawable.heroe);
         imageButtonCharSel2.setImageResource(R.drawable.mage);
@@ -70,8 +75,6 @@ public class Activity2 extends AppCompatActivity {
                 data.putExtra(MainActivity.INFO_SELECTED_CHAR_IMAGES, selectedCharacterImages);
                 setResult(Activity2.RESULT_OK, data);
                 finish();
-            } else {
-                Toast.makeText(Activity2.this, "This character is already selected by other player", Toast.LENGTH_LONG).show();
             }
         };
 
@@ -79,5 +82,17 @@ public class Activity2 extends AppCompatActivity {
         imageButtonCharSel2.setOnClickListener(handler);
         imageButtonCharSel3.setOnClickListener(handler);
         imageButtonCharSel4.setOnClickListener(handler);
+
+        buttonClear.setOnClickListener(view -> {
+            Intent data = new Intent();
+            data.putExtra(INFO_SELECTED_PLAYER, selectedPlayer);
+            setResult(Activity2.RESULT_FIRST_USER, data);
+            finish();
+        });
+
+        buttonCancel.setOnClickListener(view -> {
+            setResult(Activity2.RESULT_CANCELED);
+            finish();
+        });
     }
 }

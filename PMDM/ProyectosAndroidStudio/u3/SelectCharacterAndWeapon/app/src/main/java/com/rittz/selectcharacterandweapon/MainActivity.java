@@ -75,8 +75,10 @@ public class MainActivity extends AppCompatActivity {
                     selectedCharacterImages = data.getStringArrayListExtra(INFO_SELECTED_CHAR_IMAGES);
                     String selectedCharacter = selectedCharacterImages.get(selectedPlayer);
                     loadCharacterImage(selectedCharacter, selectedPlayer, selectedCharacterImages);
-                } if (result.getResultCode() == Activity2.RESULT_CANCELED){
-
+                } else if(result.getResultCode() == Activity2.RESULT_FIRST_USER) {
+                    Intent data = result.getData();
+                    int selectedPlayer = data.getIntExtra(Activity2.INFO_SELECTED_PLAYER, Activity2.DEFAULT_VALUE);
+                    resetInitialCharacterImage(selectedPlayer, selectedCharacterImages);
                 } else {
                     //otro error
                 }
@@ -110,6 +112,16 @@ public class MainActivity extends AppCompatActivity {
         imageButtonWeapP1.setOnClickListener(handler);
         imageButtonWeapP2.setOnClickListener(handler);
 
+    }
+
+    private void resetInitialCharacterImage(int selectedPlayer, ArrayList<String> selectedCharacterImages) {
+        if(selectedPlayer == PLAYER1_TAG_NUMBER){
+            imageButtonCharP1.setImageResource(R.drawable.character);
+            selectedCharacterImages.set(PLAYER1_TAG_NUMBER, null);
+        } else if(selectedPlayer == PLAYER2_TAG_NUMBER){
+            imageButtonCharP2.setImageResource(R.drawable.character);
+            selectedCharacterImages.set(PLAYER2_TAG_NUMBER, null);
+        }
     }
 
     private void loadCharacterImage(String selectedCharacter, int selectedPlayer, ArrayList<String> selectedCharacterImages) {

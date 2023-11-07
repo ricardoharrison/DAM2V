@@ -5,4 +5,6 @@
     <string name="player2">Player 2</string>
     <string name="character_title">Select a character</string>
     <string name="weapon_title">Select a weapon</string>
+    <string name="button_clear">Clear</string>
+    <string name="button_cancel">Cancel</string>
 </resources>
