@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,8 +42,11 @@ public class MainActivity extends AppCompatActivity {
             Intent implicit = new Intent(Intent.ACTION_VIEW);
             implicit.setData(Uri.parse("smsto:" + phoneNumber));
             implicit.putExtra("sms_body", message);
-
-            startActivity(implicit);
+            if(getIntent().resolveActivity(getPackageManager()) != null){
+                startActivity(implicit);
+            } else {
+                Toast.makeText(MainActivity.this, "Error launching SMS app", Toast.LENGTH_LONG).show();
+            }
         });
 
         buttonCamera.setOnClickListener(view -> {
