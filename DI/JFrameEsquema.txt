@@ -1,0 +1,46 @@
+public class PruebaJFrame {
+	psvm(){
+		//crear el JFrame
+		JFrame miVentana = new Jframe("mi app");
+		miVentana.setVisible(); //muy importante, ya que si no no se ve
+		miVentana.setSize(500, 500); //dar tamaño a la ventana
+		
+		//crear el panel (marco intermedio en el que irán los botones)
+		JPanel mipanel = new JPanel();
+		
+		//creamos los elementos
+		JButton botonSaludar = new JButton("Saludar"); //se añade como param el atributo text
+		JTextField recuadroNombre = new JTextField(50); //se añade como param el atributo columns
+		JLabel etiqueta = new JLabel("mi primera app"); //se añade como param el atributo text
+		JCheckBox miCheckBox = new JCheckBox("Coca-Cola"); //se añade como param el atributo text
+		
+		JRadioButton miRadioButton1 = newRadioButton("fresa");
+		JRadioButton miRadioButton1 = newRadioButton("limón");
+		ButtonGroup miGrupo = new ButtonGroup();
+
+		miGrupo.add(miRadioButton1);
+		miGrupo.add(miRadioButton1);
+
+		ArrayList<String> colores = List.of("verde", "amarillo", "rojo");
+
+		JComboBox combo = new JComboBox();
+		
+		
+
+		//añadir todos los elementos al panel, ya que si no no serán visible
+		miPanel.add(botonSaludar);
+		miPanel.add(recuadroNombre);
+		miPanel.add...
+		(...)
+
+		
+		
+
+		
+
+
+
+		
+	}
+
+}
