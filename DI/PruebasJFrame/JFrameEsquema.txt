@@ -21,17 +21,25 @@ public class PruebaJFrame {
 		miGrupo.add(miRadioButton1);
 		miGrupo.add(miRadioButton1);
 
-		ArrayList<String> colores = List.of("verde", "amarillo", "rojo");
 
 		JComboBox combo = new JComboBox();
+		combo.addItem("verde");
+		combo.addItem("rojo");
+		combo.addItem("azul");
 		
 		
 
-		//añadir todos los elementos al panel, ya que si no no serán visible
+		//añadir todos los elementos al panel, ya que si no no serán visibles
 		miPanel.add(botonSaludar);
 		miPanel.add(recuadroNombre);
 		miPanel.add...
 		(...)
+
+		//añadir los eventListener
+		botonSaludar.addActionListener((ActionEvent e) -> {
+			
+		});
+		
 
 		
 		
