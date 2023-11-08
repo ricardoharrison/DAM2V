@@ -60,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
                     selectedWeaponImages = data.getStringArrayListExtra(INFO_SELECTED_WEAP_IMAGES);
                     String selectedWeapon = selectedWeaponImages.get(selectedPlayer);
                     loadWeaponImage(selectedWeapon, selectedPlayer, selectedWeaponImages);
-                } else {
-                    //otro error
+                } else if (result.getResultCode() == Activity3.RESULT_FIRST_USER) {
+                    Intent data = new Intent();
+                    data.getIntExtra(Activity3.INFO_SELECTED_PLAYER, Activity3.DEFAULT_VALUE);
+                    resetInitialWeaponImage(selectedPlayer, selectedWeaponImages);
                 }
             }
         });
@@ -121,6 +123,16 @@ public class MainActivity extends AppCompatActivity {
         } else if(selectedPlayer == PLAYER2_TAG_NUMBER){
             imageButtonCharP2.setImageResource(R.drawable.character);
             selectedCharacterImages.set(PLAYER2_TAG_NUMBER, null);
+        }
+    }
+
+    private void resetInitialWeaponImage(int selectedPlayer, ArrayList<String> selectedWeaponImages) {
+        if(selectedPlayer == PLAYER1_TAG_NUMBER){
+            imageButtonWeapP1.setImageResource(R.drawable.weapon);
+            selectedWeaponImages.set(PLAYER1_TAG_NUMBER, null);
+        } else if (selectedPlayer == PLAYER2_TAG_NUMBER) {
+            imageButtonWeapP2.setImageResource(R.drawable.weapon);
+            selectedWeaponImages.set(PLAYER2_TAG_NUMBER, null);
         }
     }
 

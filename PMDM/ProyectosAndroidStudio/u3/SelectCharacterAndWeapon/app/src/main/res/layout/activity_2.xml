@@ -79,7 +79,7 @@
         app:layout_constraintVertical_bias="0.091" />
 
     <Button
-        android:id="@+id/buttonClear"
+        android:id="@+id/buttonClearChar"
         android:layout_width="117dp"
         android:layout_height="47dp"
         android:backgroundTint="#FFF9C4"
@@ -93,7 +93,7 @@
         app:layout_constraintVertical_bias="0.573" />
 
     <Button
-        android:id="@+id/buttonCancel"
+        android:id="@+id/buttonCancelChar"
         android:layout_width="117dp"
         android:layout_height="47dp"
         android:backgroundTint="#FFF9C4"

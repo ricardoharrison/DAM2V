@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -31,8 +30,8 @@ public class Activity2 extends AppCompatActivity {
         imageButtonCharSel3 = findViewById(R.id.imageButtonCharSel3);
         imageButtonCharSel4 = findViewById(R.id.imageButtonCharSel4);
 
-        buttonClear = findViewById(R.id.buttonClear);
-        buttonCancel = findViewById(R.id.buttonCancel);
+        buttonClear = findViewById(R.id.buttonClearChar);
+        buttonCancel = findViewById(R.id.buttonCancelChar);
 
         imageButtonCharSel1.setImageResource(R.drawable.heroe);
         imageButtonCharSel2.setImageResource(R.drawable.mage);

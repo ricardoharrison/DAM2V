@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ public class Activity3 extends AppCompatActivity {
         BLASTER, TRIDENT, STAFF, SHURIKEN;
     }
     ImageButton imageButtonWeapSel1, imageButtonWeapSel2, imageButtonWeapSel3, imageButtonWeapSel4;
+    Button buttonCancelWeap, buttonClearWeap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,9 @@ public class Activity3 extends AppCompatActivity {
         imageButtonWeapSel2 = findViewById(R.id.imageButtonWeapSel2);
         imageButtonWeapSel3 = findViewById(R.id.imageButtonWeapSel3);
         imageButtonWeapSel4 = findViewById(R.id.imageButtonWeapSel4);
+
+        buttonClearWeap = findViewById(R.id.buttonClearWeap);
+        buttonCancelWeap = findViewById(R.id.buttonCancelWeap);
 
         imageButtonWeapSel1.setImageResource(R.drawable.blaster);
         imageButtonWeapSel2.setImageResource(R.drawable.trident);
@@ -79,5 +84,18 @@ public class Activity3 extends AppCompatActivity {
         imageButtonWeapSel2.setOnClickListener(handler);
         imageButtonWeapSel3.setOnClickListener(handler);
         imageButtonWeapSel4.setOnClickListener(handler);
+
+        buttonClearWeap.setOnClickListener(view -> {
+            Intent data = new Intent();
+            data.putExtra(INFO_SELECTED_PLAYER, selectedPlayer);
+            setResult(RESULT_FIRST_USER, data);
+            finish();
+        });
+
+        buttonCancelWeap.setOnClickListener(view -> {
+            setResult(Activity3.RESULT_CANCELED);
+            finish();
+        });
+
     }
 }
