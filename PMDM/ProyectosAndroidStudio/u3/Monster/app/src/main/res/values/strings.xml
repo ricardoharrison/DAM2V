@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Monster</string>
+    <string name="main_title">Pick the features of your monster</string>
+    <string name="monster_name">Name:</string>
+    <string name="monster_limbs">Number of limbs:</string>
+    <string name="monster_color">Color:</string>
+    <string name="button_create">Create</string>
+</resources>
