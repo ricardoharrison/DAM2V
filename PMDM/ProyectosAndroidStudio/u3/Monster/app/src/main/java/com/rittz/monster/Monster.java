@@ -9,13 +9,17 @@ public class Monster implements Serializable {
     static final String HEAD = "*", BODY = "O", LEFT_LIMB = "/", RIGHT_LIMB = "\\";
     static final int LEFT_ARMS_POSITION = 0, RIGHT_ARMS_POSITION = 1, LEFT_LEGS_POSITION = 2, RIGHT_LEGS_POSITION = 3;
     String name;
-    int numberOfLimbs;
-    int color;
+    int numberOfLimbs, leftArms, rightArms, leftLegs, rightLegs, color;
 
     public Monster(String name, int numberOfLimbs, int color) {
-        this.name = name;
+        this.name = name.toUpperCase();
         this.numberOfLimbs = numberOfLimbs;
         this.color = color;
+        ArrayList<Integer> limbsDistribution = distributeLimbs();
+        this.leftArms = limbsDistribution.get(LEFT_ARMS_POSITION);
+        this.rightArms = limbsDistribution.get(RIGHT_ARMS_POSITION);
+        this.leftLegs = limbsDistribution.get(LEFT_LEGS_POSITION);
+        this.rightLegs = limbsDistribution.get(RIGHT_LEGS_POSITION);
     }
 
     public String getName() {
@@ -55,31 +59,45 @@ public class Monster implements Serializable {
 
     @Override
     public String toString() {
-        int remainingLimbs = numberOfLimbs;
-        ArrayList<Integer> limbsDistribution = distributeLimbs();
-        int leftArms = limbsDistribution.get(LEFT_ARMS_POSITION);
-        int rightArms = limbsDistribution.get(RIGHT_ARMS_POSITION);
-        int leftLegs = limbsDistribution.get(LEFT_LEGS_POSITION);
-        int rightLegs = limbsDistribution.get(RIGHT_LEGS_POSITION);
 
         //drawing upper limbs
-        String result = HEAD + "\n";
+        String result = name + "\n\n" + HEAD + "\n";
+        if(leftArms < rightArms){
+            for (int i = 0; i < rightArms - leftArms; i++){
+                result = result + " ";
+            }
+        }
         for (int i = 0; i < leftArms; i++){
             result = result + LEFT_LIMB;
         }
-        result = result + BODY;
+        result = result + " " + BODY + " ";
         for (int i = 0; i < rightArms; i++){
             result = result + RIGHT_LIMB;
+        }
+        if(rightArms < leftArms){
+            for (int i = 0; i < leftArms - rightArms; i++){
+                result = result + " ";
+            }
         }
         result = result + "\n";
 
         //drawing lower limbs
+        if(leftLegs < rightLegs){
+            for (int i = 0; i < rightLegs - leftLegs; i++){
+                result = result + " ";
+            }
+        }
         for (int i = 0; i < leftLegs; i++){
             result = result + LEFT_LIMB;
         }
-        result = result + " ";
+        result = result + "   ";
         for (int i = 0; i < rightLegs; i++){
             result = result + RIGHT_LIMB;
+        }
+        if(rightLegs < leftLegs){
+            for (int i = 0; i < leftLegs - rightLegs; i++){
+                result = result + " ";
+            }
         }
         result = result + "\n";
 
