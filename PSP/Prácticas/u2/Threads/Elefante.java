@@ -44,7 +44,7 @@ public class Elefante implements Runnable  {
     } else {
       System.out.println("llamaron a otro elefante y...");
       System.out.println("...");
-      //throw new Exception("¡SE CAYERON!");
+      throw new Exception("¡SE CAYERON!");
     }
     
   }
