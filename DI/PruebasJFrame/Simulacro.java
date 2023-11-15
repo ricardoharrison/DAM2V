@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 
 public class Simulacro {
     public static void main(String[] args) {
@@ -18,6 +19,8 @@ public class Simulacro {
         JButton buttonCambia = new JButton("Cambia!");
         JButton buttonMinimizar = new JButton("Minimizar");
         JButton buttonCerrar = new JButton("Cerrar");
+        JLabel pwd = new JLabel("Contraseña: ");
+        JPasswordField pwdf = new JPasswordField(30);
         
         JComboBox<String> comboColores = new JComboBox<>();
         comboColores.addItem("rojo");
@@ -39,6 +42,8 @@ public class Simulacro {
         myPanel.add(labelColor);
         myPanel.add(comboColores);
         myPanel.add(buttonMensaje);
+        myPanel.add(pwd);
+        myPanel.add(pwdf);
         
         myFrame.add(myPanel);
         comboColores.setSelectedItem(comboColores.getItemAt(3));

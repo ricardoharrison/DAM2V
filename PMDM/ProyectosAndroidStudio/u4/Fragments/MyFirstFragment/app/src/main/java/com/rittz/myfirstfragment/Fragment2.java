@@ -72,7 +72,7 @@ public class Fragment2 extends Fragment {
             String text = textViewNumber.getText().toString();
             int num = Integer.parseInt(text);
             num += 1;
-            textViewNumber.setText(num);
+            textViewNumber.setText(String.valueOf(num));
         });
 
         return layout;
