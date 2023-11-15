@@ -13,11 +13,12 @@ public class Simulacro {
         JPanel myPanel = new JPanel();        
 
         JLabel labelTitulo = new JLabel("Escribe tu título:");
+        JLabel labelColor = new JLabel("Selecciona el color de fondo");
         JTextField textTitulo = new JTextField(20);
         JButton buttonCambia = new JButton("Cambia!");
         JButton buttonMinimizar = new JButton("Minimizar");
         JButton buttonCerrar = new JButton("Cerrar");
-        JLabel labelColor = new JLabel("Selecciona el color de fondo");
+        
         JComboBox<String> comboColores = new JComboBox<>();
         comboColores.addItem("rojo");
         comboColores.addItem("azul");

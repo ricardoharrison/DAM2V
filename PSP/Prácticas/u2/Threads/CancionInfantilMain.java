@@ -12,21 +12,23 @@ Crea un programa principal que gestion 3 canciones infantiles de forma concurren
 /**
  * Elefantes
  */
-public class ElefantesSeBalanceaban {
+public class CancionInfantilMain {
 
   public static void main(String[] args) {
-    int i = 1;
+    CancionInfantil cancion1 = new CancionInfantil(CancionInfantil.Animal.ELEFANTE, 10);
+    CancionInfantil cancion2 = new CancionInfantil(CancionInfantil.Animal.OSO, 3);
+    CancionInfantil cancion3 = new CancionInfantil(CancionInfantil.Animal.PATO, 15);
 
-    while (true){
-      Elefante elefante = new Elefante(i);
-      Thread hilo = new Thread(elefante);
-      hilo.start();
-      i++;
-      try{
-        Thread.sleep(2000);
-      } catch (InterruptedException e) {}
-      
-    }
-  } 
-  
+    Thread hilo1 = new Thread(cancion1);
+    Thread hilo2 = new Thread(cancion2);
+    Thread hilo3 = new Thread(cancion3);
+
+    hilo1.setPriority(Thread.MAX_PRIORITY);   // == 10
+    hilo2.setPriority(Thread.NORM_PRIORITY);  // == 5
+    hilo3.setPriority(Thread.MIN_PRIORITY);   // == 1
+
+    hilo1.start();
+    hilo2.start();
+    hilo3.start();    
+  }   
 }
