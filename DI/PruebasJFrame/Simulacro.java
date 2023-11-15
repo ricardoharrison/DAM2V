@@ -41,6 +41,7 @@ public class Simulacro {
         myPanel.add(buttonMensaje);
         
         myFrame.add(myPanel);
+        comboColores.setSelectedItem(comboColores.getItemAt(3));
 
         buttonCambia.addActionListener(e -> {
             if(!textTitulo.getText().trim().isEmpty()){
