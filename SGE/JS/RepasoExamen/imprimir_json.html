@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    let cliente = {
+        "Cliente": 1233,
+        "Nombre": "Pedro Ramirez",
+        "Dirección": "Calle de la piruleta 14",
+        "ultimo_pedido": {
+            "id_pedido": 2,
+            "Productos": [
+                {
+                    "id_producto": 77,
+                    "Nombre": "Impresora Láser",
+                    "Fabricante": "Canon",
+                    "Cantidad": 3,
+                    "precio_uni": 80
+                },
+                {
+                    "id_producto": 22,
+                    "Nombre": "Ratón Gamer",
+                    "Fabricante": "Logitech",
+                    "Cantidad": 2,
+                    "precio_uni": 55
+                }
+            ]
+        }
+    }
+
+    //mensaje para alert
+    let mensajeAlert = ("El cliente " + cliente.Nombre + " que vive en la " + cliente.Dirección + " ha comprado:\n\n" +
+            cliente.ultimo_pedido.Productos[0].Cantidad + " " +
+            cliente.ultimo_pedido.Productos[0].Nombre + " " +
+            cliente.ultimo_pedido.Productos[0].Fabricante + "\n" +
+            cliente.ultimo_pedido.Productos[1].Cantidad + " " +
+            cliente.ultimo_pedido.Productos[1].Nombre + " " +
+            cliente.ultimo_pedido.Productos[1].Fabricante + "\n\n" +
+            "Por un importe total de " + 
+            (cliente.ultimo_pedido.Productos[0].Cantidad * cliente.ultimo_pedido.Productos[0].precio_uni +
+            cliente.ultimo_pedido.Productos[1].Cantidad * cliente.ultimo_pedido.Productos[1].precio_uni));
+
+    alert(mensajeAlert);
+
+
+    //mensaje para incrustar en el <div>
+    let mensajeDiv = ("El cliente " + cliente.Nombre + " que vive en la " + cliente.Dirección + " ha comprado:<br><br>" +
+            cliente.ultimo_pedido.Productos[0].Cantidad + " " +
+            cliente.ultimo_pedido.Productos[0].Nombre + " " +
+            cliente.ultimo_pedido.Productos[0].Fabricante + "<br>" +
+            cliente.ultimo_pedido.Productos[1].Cantidad + " " +
+            cliente.ultimo_pedido.Productos[1].Nombre + " " +
+            cliente.ultimo_pedido.Productos[1].Fabricante + "<br><br>" +
+            "Por un importe total de " + 
+            (cliente.ultimo_pedido.Productos[0].Cantidad * cliente.ultimo_pedido.Productos[0].precio_uni +
+            cliente.ultimo_pedido.Productos[1].Cantidad * cliente.ultimo_pedido.Productos[1].precio_uni))
+
+
+    let div = document.getElementsByTagName("div")[0];
+    let p = document.createElement("p");
+    p.innerHTML = mensajeDiv;
+    div.appendChild(p);
+    p.style.backgroundColor = "aquamarine";
+    p.style.fontWeight = "bold";
+    
+</script>
+</html>

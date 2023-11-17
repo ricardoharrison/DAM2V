@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="contar"/>
+    <div id="div1"></div>
+    <br>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore sunt veritatis ut, quam earum porro necessitatibus sit ullam est consequatur? Necessitatibus reprehenderit, minima vero officia nisi modi officiis fuga asperiores?</p>
+    <a href="https://www.google.es">Google</a>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, consequatur cupiditate dolores sapiente voluptates expedita labore, perspiciatis deleniti maxime temporibus deserunt quis, earum qui voluptatem rerum reiciendis recusandae minima culpa.</p>
+    <a href="https://www.reddit.com">Reddit</a>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis facere, dolorem commodi rerum impedit deserunt ipsam soluta? Architecto perspiciatis, voluptatum veritatis eligendi nemo reprehenderit, dicta dolorem repellat molestias inventore tenetur.</p>
+    <a href="https://www.marca.com">Marca</a>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et illum optio qui! Odit, optio! Error eos dignissimos at quia beatae doloremque, veniam doloribus quod itaque magni reprehenderit amet tenetur eligendi!</p>
+    <a href="https://www.elpais.com">El País</a>
+</body>
+<script>
+    let boton = document.getElementsByTagName("input");
+    boton[0].addEventListener("click", () => {
+        console.log(document.getElementsByTagName("p").length);
+        alert(document.getElementsByTagName("a").length);
+
+        let myDiv = document.getElementById("div1");
+        let myLink = document.getElementsByTagName("a")[3];
+        let src = myLink.getAttribute("href");
+        let pObject = document.createElement("p");
+        pObject.innerHTML = src;
+        myDiv.appendChild(pObject);
+    });    
+</script>
+</html>
