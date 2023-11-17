@@ -1,6 +1,6 @@
 public class SyncronizedWith5Threads {
     static int count = 0;
-    final static int OPERAT_NUM = 5000;
+    final static int OPERAT_NUM = 3000;
 
     public static synchronized void increment() {
         count++;

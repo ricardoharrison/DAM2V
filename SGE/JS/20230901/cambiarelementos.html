@@ -6,11 +6,11 @@
     <title>Prueba guarrindonga</title>
 </head>
 <body>
-    <p id="p1">Este es el texto del PRIMER párrafo</p>
+    <p id="p1" class="parrafosNegrita">Este es el texto del PRIMER párrafo</p>
     <a href="http://www.google.com" id="link1">Google</a>
-    <p id="p2">Este es el texto del SEGUNDO párrafo</p>
+    <p id="p2" class="parrafosNegrita">Este es el texto del SEGUNDO párrafo</p>
     <a href="http://www.youtube.com" id="link2">YouTube</a>
-    <p id="p3">Este es el texto del TERCER párrafo</p>
+    <p id="p3" class="parrafosNegrita">Este es el texto del TERCER párrafo</p>
     <a href="http://www.gmail.com" id="link3">Gmail</a>    
 </body>
 <script>
@@ -24,6 +24,10 @@
     } */
     Array.from(document.getElementsByTagName("a")).forEach(element => {
         console.log(element.href + " " + element.innerHTML);
+    });
+    let parrafos = document.getElementsByClassName("parrafosNegrita");
+    Array.from(parrafos).forEach(parrafo => {
+        parrafo.style.fontWeight = "bold";
     });
 </script>
 <style>
