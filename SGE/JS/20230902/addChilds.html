@@ -11,39 +11,44 @@
 </body>
 <script>
     var parent = document.getElementById("parent");
-
-    function showImage() {        
-        let child = document.createElement("img");
-        child.setAttribute("src","https://upload.wikimedia.org/wikipedia/commons/3/35/Luis_Rubiales_2018.jpg");
-        //child.setAttribute("src","../img/HorarioDAM2V.jpg");
-        /* child.setAttribute("height","500");
-        child.setAttribute("width","500");            // estas líneas serían para ajustar el tamaño de la img */
-        parent.appendChild(child);
-        let secondChild = document.createElement("input");
-        secondChild.setAttribute("id", "removeButton");
-        secondChild.setAttribute("type", "button");
-        secondChild.setAttribute("value", "Quítame a este tío");
-        parent.appendChild(secondChild);
-        document.getElementById("removeButton").addEventListener("click", removeImage);
-    }
-
-    function removeImage(){
-        // alert("Hola");  linea añadida para probar si la función está escuchando
-        parent.removeChild(parent.lastChild);
-        parent.removeChild(parent.lastChild);
-    }
+    let childrenArray = [];
 
     document.getElementById("actionButton").addEventListener("click", showImage);
-    
+
+    function showImage() {     
+        let container = document.createElement("div");
+        container.style.display = "flex";
+        container.style.flexDirection = "column";
+
+        let child = document.createElement("img");
+        let secondChild = document.createElement("input");  
+        child.src = "https://upload.wikimedia.org/wikipedia/commons/3/35/Luis_Rubiales_2018.jpg";
+        secondChild.setAttribute("class", "removeButton");
+        secondChild.setAttribute("type", "button");
+        secondChild.setAttribute("value", "Quítame a este tío");
+        childrenArray.push(child);
+        childrenArray.push(secondChild);
+        
+        container.appendChild(childrenArray[childrenArray.length - 2]);
+        container.appendChild(childrenArray[childrenArray.length - 1]);
+        
+        parent.appendChild(container);
+        secondChild.addEventListener("click", function() {
+            removeImage(container);
+        });
+    }    
+
+    function removeImage(container) {
+        parent.removeChild(container);
+    }
 </script>
 <style>
     #parent {
-        display: flex; /* Use a flex container to align items */
-        /* flex-direction: column; */ /* Align items vertically (top to bottom) */
-        align-items: center; /* Center items horizontally */
-        justify-content: center; /* Center items vertically */
-        height: 100vh; /* Ensure the body takes up the full viewport height */
-        margin: 0; /* Remove default body margin */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
     }
 </style>
 </html>

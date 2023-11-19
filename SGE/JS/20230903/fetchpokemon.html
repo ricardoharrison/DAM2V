@@ -12,7 +12,7 @@
 </body>
 <script>
     let nombre = prompt("Inserta el nombre de un pokémon:");
-    fetch('https://pokeapi.co/api/v2/pokemon/' + nombre)    //hacemos la petición a la API
+    fetch("https://pokeapi.co/api/v2/pokemon/" + nombre)    //hacemos la petición a la API
         .then(response => response.json())                  //guardamos la respuesta en un json
         .then(data => formatear(data));                     //los datos de la respuesta los tratamos con la función data
         //.then(data => consol.log(data))                   //esta línea se podría usar en vez de la anterior si queremos imprimir a capón

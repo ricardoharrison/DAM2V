@@ -15,9 +15,9 @@
     <input type="text" id="text">
     <input type="button" id="button" value="Enviar">
     
-    <li id="list">
+    <ul id="list">
 
-    </li>
+    </ul>
     <script>
         
         document.getElementById("button").addEventListener("click",createItem);
@@ -37,13 +37,17 @@
             } else if (document.getElementById("image").checked) {
                 linea = document.createElement("img");
                 linea.setAttribute("src", myText);
+                linea.style.width = "100px";
+                linea.style.height = "100px";
+                /* linea.setAttribute("width", "100px");
+                linea.setAttribute("height", "100px"); */
                 
             } else if (document.getElementById("plainText").checked) {
                 linea = document.createElement("span");
                 linea.innerText=myText;
             }
-            elemento.appendChild(linea)
-            myList.appendChild(elemento)
+            elemento.appendChild(linea);
+            myList.appendChild(elemento);
         }       
         
     </script>
