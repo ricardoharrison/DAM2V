@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="texto">
+    <input type="button" value="Arriba">
+    <input type="button" value="Debajo">
+    <ul id="lista"></ul>
+    <br>
+    <br>
+    <br>
+    <input type="text" value="Nombre">
+    <input type="text" value="Apellido">
+        <input type="checkbox">Verde</input>
+        <input type="checkbox">Rojo</input>
+        <input type="checkbox">Azul</input>
+    <input type="button" value="Enviar">
+
+    <script>
+        let listaInputs = document.getElementsByTagName("input");
+        let lista = document.getElementById("lista");
+        listaInputs[1].addEventListener("click", () => {
+            let nuevaEntrada = document.createElement("li");
+            nuevaEntrada.innerHTML = listaInputs[0].value;
+            lista.appendChild(nuevaEntrada);
+        })
+    </script>
+</body>
+</html>
