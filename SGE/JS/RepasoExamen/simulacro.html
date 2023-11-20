@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simulacro</title>
 </head>
 <body>
     <input type="text" name="texto">
@@ -13,8 +13,8 @@
     <br>
     <br>
     <br>
-    <input type="text" value="Nombre">
-    <input type="text" value="Apellido">
+    <input type="text">
+    <input type="text">
         <input type="checkbox">Verde</input>
         <input type="checkbox">Rojo</input>
         <input type="checkbox">Azul</input>
@@ -26,8 +26,35 @@
         listaInputs[1].addEventListener("click", () => {
             let nuevaEntrada = document.createElement("li");
             nuevaEntrada.innerHTML = listaInputs[0].value;
+            lista.insertBefore(nuevaEntrada, lista.firstChild);
+        });
+        listaInputs[2].addEventListener("click", () => {
+            let nuevaEntrada = document.createElement("li");
+            nuevaEntrada.innerHTML = listaInputs[0].value;
             lista.appendChild(nuevaEntrada);
-        })
+        });
+
+        function validar() {
+            let listaInputs = document.getElementsByTagName("input");
+            for (let i = 3; i < 2; i++) {
+                if(listaInputs[i].value === ""){
+                    return false;
+                }                
+            }
+            if(listaInputs[3].value.length < 5 || listaInputs[3].value.length > 40){
+                return false;
+            }
+            if(!listaInputs[5].checked && !listaInputs[6].checked && !listaInputs[7].checked){
+                return false;
+            }
+            return true;
+        }
+
+        listaInputs[8].addEventListener("click", () => {
+            if(!validar()){
+                alert("Faltan campos por rellenar");
+            }
+        });
     </script>
 </body>
 </html>
