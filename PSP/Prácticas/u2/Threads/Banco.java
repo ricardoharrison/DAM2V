@@ -10,7 +10,7 @@ Crea dos threads, uno para cada usuario. Cada thread intentará realizar 1000 tr
 public class Banco {
     static int balance = 0;
 
-    public static void transferir(int cantidad){
+    public static synchronized void transferir(int cantidad){
         balance = balance + cantidad;
     }
 
@@ -24,15 +24,15 @@ public class Banco {
             }
         };
 
-        Thread usuario1 = new Thread(runnable);
-        Thread usuario2 = new Thread(runnable);
+        Thread alice = new Thread(runnable);
+        Thread bob = new Thread(runnable);
 
-        usuario1.start();
-        usuario2.start();
+        alice.start();
+        bob.start();
 
         try{
-            usuario1.join();
-            usuario2.join();
+            alice.join();
+            bob.join();
         } catch (InterruptedException e) {}
 
         System.out.println("El balance esperado es de " + NUM_TRANSFERENCIAS * CANTIDAD_PREDEFINIDA * 2 + " euros");
