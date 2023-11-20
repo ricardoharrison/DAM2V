@@ -19,11 +19,11 @@ let anotherObject = {
 let arrayOfObjects = [object, anotherObject];
 
 //funcionalidades básicas
-/* alert("Esto es un mensaje alert");
+alert("Esto es un mensaje alert");
 console.log("Este mensaje se imprime por consola");
 console.table(arrayOfObjects);  //imprime tabla por consola
 let userInput = prompt("Ventana para introducir texto:")
-isUserCultured = confirm("¿Te gusta Breaking Bad?");  //aceptar = true | cancelar = false */
+isUserCultured = confirm("¿Te gusta Breaking Bad?");  //aceptar = true | cancelar = false
 
 let header = document.getElementById("header");
 let italicParagraphs = document.getElementsByClassName("italicParagraphsClass");
@@ -132,6 +132,3 @@ buttonPikachu.addEventListener("click", () => {
         .then(response => response.json())                      //almacenar la respuesta en formato JSON
         .then(data => console.log(data));                       //impresión por consola de los datos recibidos
 });
-
-
-

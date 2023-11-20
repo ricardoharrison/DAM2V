@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chuleta Javascript</title>
+</head>
+<body>
+    <script>
+        //funciones básicas
+        alert("msg");
+        console.log("msg");
+        let bool = confirm("msg");
+        let str = prompt("msg");
+
+        document.getElementById("obj1");
+        document.getElementsByClassName("cls1");
+        document.getElementsByName("btnGrp");
+        document.getElementsByTagName("div");
+
+        document.createElement("a");
+        parent.appendChild();
+        parent.removeChild(parent.lastChild);
+
+        //atributos básicos
+        myObject.innerHTML;
+        myObject.tagName;
+        myObject.id;
+        myObject.checked;
+        myObject.disabled;
+        myObject.type;
+        myObject.value;
+        myObject.style;
+        myObject.href;
+        myObject.src;
+
+        //arrays
+        Array.from();
+        myArray.forEach(elem => action);
+
+        myArray.push("item");
+        myArray.pop();
+        myArray.splice(x, y); //eliminar, desde x, un total de y elementos
+
+        myArray.length;
+
+        //arrays de strings
+        str.length;
+        str.toLowerCase();
+        str.toUpperCase();
+        str.substring(x, y);
+        str.charAt(x);
+
+        //listeners
+        myObject.addEventListener("click", action);
+
+        //llamadas API
+        fetch(url)
+            .then(response => response.json())
+            .then(data => console.log(data));
+
+    </script>
+</body>
+</html>
