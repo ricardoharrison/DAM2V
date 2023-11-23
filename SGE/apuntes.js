@@ -57,7 +57,7 @@ let buttonSubmitAge = document.getElementById("buttonSubmitAge");
 let textField = document.getElementById("textField");
 
 textField.addEventListener("input", () => {
-    if (textField.value.trim() !== '') {
+    if (textField.value.trim() !== "") {
         buttonSubmitAge.disabled = false;
     } else {
         buttonSubmitAge.disabled = true;
