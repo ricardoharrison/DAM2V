@@ -10,7 +10,7 @@ ActivityResultLauncher<Intent> launcher = registerForActivityResult(new Activity
             public void onActivityResult(ActivityResult result) {
                 if(result.getResultCode() == Activity2.RESULT_OK){
 		    Intent data = result.getData();
-		    //[ViewVaribaleName].setText(data.getStringExtra([Activity2].[CONSTANT]));
+		    //EJEMPLO: [ViewVariableName].setText(data.getStringExtra([Activity2].[CONSTANT]));
                 } else if (result.getResultCode() == Activity2.RESULT_CANCELED){
 
                 } else {

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PingPong</string>
+    <string name="final_msg">The game has ended (%s-%s)</string>
+
+</resources>
