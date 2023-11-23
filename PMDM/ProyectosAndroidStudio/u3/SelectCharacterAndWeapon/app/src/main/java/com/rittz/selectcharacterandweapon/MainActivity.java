@@ -106,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(INFO_SELECTED_WEAP_IMAGES, selectedWeaponImages);
                 launcherActivity3.launch(intent);
             }
-
         };
 
         imageButtonCharP1.setOnClickListener(handler);

@@ -6,20 +6,25 @@ import java.util.ArrayList;
 public class CarreraNotifyAll {
 
     public static void main(String[] args) {
-        Object lock = new Object();
-        Object lock2 = new Object();
+        Object salida = new Object();
+        Object llegada = new Object();
         ArrayList<Thread> lista = new ArrayList<>();
         for (int i = 0; i < CarreraCorredor.NUM_CORREDORES; i++) {
-            Thread thread = new Thread(new CarreraCorredor(i + 1, lock, lock2));
+            Thread thread = new Thread(new CarreraCorredor(i + 1, salida, llegada));
             lista.add(thread);
             thread.start();
         }
-        synchronized (lock) {
-            lock.notifyAll();
+        try {
+            Thread.sleep(CarreraCorredor.TIEMPO_ESPERA);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        synchronized(lock2) {
+        synchronized (salida) {
+            salida.notifyAll();
+        }
+        synchronized(llegada) {
             try{
-                lock2.wait();
+                llegada.wait();
             } catch (InterruptedException e) {}            
         }
         for(Thread thread : lista){
