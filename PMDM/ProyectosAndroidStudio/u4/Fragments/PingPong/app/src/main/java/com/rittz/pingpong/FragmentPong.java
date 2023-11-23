@@ -78,6 +78,7 @@ public class FragmentPong extends Fragment {
         buttonRed.setText(String.valueOf(INITIAL_SCORE));
         buttonBlue.setText(String.valueOf(INITIAL_SCORE));
 
+
         View.OnClickListener handler = view -> {
             Button button = (Button) view;
             String currentScore = button.getText().toString();
