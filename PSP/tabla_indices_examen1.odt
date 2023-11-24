@@ -1,0 +1,118 @@
+
+ejercicio
+tema
+Practicas/u1/binariosleerescribir.c
+Leer ficheros binarios, usar struct
+Practicas/u1/calculadorargv.c
+Usar argumentos (argc), comparar strings, atof, switch
+Practicas/u1/contarcadena.c
+Contar vocales y cons. en cadena, toupper
+Practicas/u1/dup2.c
+Redirigir salida(dup2), ejecutar comandos (execvp), pid_t, fork, descriptor de ficheros (int file), open, close, perror
+Practicas/u1/execvp.c/execvpfecha.c
+Practicas/u1/execvp.c/execvpIP.c
+ejecutar comando (execvp)
+
+Practicas/u1/farenheit.c
+Scanf, printf, función auxiliar sencilla
+Practicas/u1/md5.c/md5crack.c
+Md5, incluir archivo auxiliar, argc, argv[], iterar caracteres
+Practicas/u1/md5.c/md5crackclock.c
+clock
+Practicas/u1/md5.c/md5crackclock.c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+función/elemento
+localización
+Struct
+Practicas/u1/bibariosleerescribir.c
+FILE*, fopen, fwrite, fclose
+Practicas/u1/binariosleerescribir.c
+strcpy
+Practicas/u1/binariosleerescribir.c
+strcmp
+Practicas/u1/calculadorargv.c
+Practicas/u1/md5.c/md5crack.c
+atof
+Practicas/u1/calculadorargv.c
+Printf, fgets, toupper, strlen
+Practicas/u1/contarcadena.c
+Int file, open, close
+Practicas/u1/dup2.c
+execvp
+Practicas/u1/execvp.c/execvpfecha.c
+Practicas/u1/execvp.c/execvpIP.c
+Practicas/u1/dup2.c
+dup2
+Practicas/u1/dup2.c
+Scanf, printf
+Practicas/u1/farenheit.c
+Argc, argv[]
+Practicas/u1/calculadorargv.c
+Practicas/u1/md5.c/md5crack.c
+clock
+Practicas/u1/md5.c/md5crackclock.c
+
+
+
+
+
+
+
+librería
+funciones
+<stdio.h>
+scanf(), printf()
+<unistd.h>
+fork(), 
+<sys/types.h>
+Pid, pid_t
+<stdlib.h>
+
+<string.h>
+
+<fcntl.h>
+
+<openssl/evp.h>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Puntos de especial atención
+
+- Comparar strings ? strcmp(s1, s2) // ( 0 ? == | 1 ? !=)  
+- Convertir ascii/string a integer/float ? atoi(s), atof(s)
+- printf, scanf ? mismo formato que System.out.printf en Java. Scan incluye ‘&’
+- Placeholders ? %i/%d/%u ? int | %f ? float, double | %c ? char | %s ? char[]/char*
+		      %p ? puntero | %h ? hex | %ld ? long
+- Convertir variables en cadena ? sprintf(s, “%f”, f) | sprintf(s, “%d”, i)
+- Longitud de cadena ? strlen(s) | Devuelve el valor real, no el buffer size
+

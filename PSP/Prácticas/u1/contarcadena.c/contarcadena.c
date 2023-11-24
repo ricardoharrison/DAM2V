@@ -8,7 +8,10 @@ int main(void){
   int consonantes = 0;
   
   printf("Introduce una cadena: \n");
-  scanf("%s", &cadena);
+  //scanf("%s", &cadena);
+  //IMPORTANTE: USAR FGETS PARA TAMAÑO TOTAL (SI NO NO PILLA LAS PALABRAS DESPUÉS DEL PRIMER ESPACIO)
+
+  fgets(cadena, sizeof(cadena), stdin);
   
   for(int i; i < strlen(cadena); i++){
       if ((toupper(cadena[i]) >= 'A' && toupper(cadena[i]) <= 'Z')) {
