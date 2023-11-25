@@ -15,8 +15,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/Users/34634/OneDrive/Escritorio/DAMsincMEGA/DAM2V/PSP/Prácticas/u1EntrenamientoC",
+      "program": "c:/Users/34634/OneDrive/Escritorio/DAMsincMEGA/DAM2V/PSP/Prácticas/u1EntrenamientoC/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
