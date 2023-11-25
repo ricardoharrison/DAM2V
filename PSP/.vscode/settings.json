@@ -59,6 +59,8 @@
   "C_Cpp.errorSquiggles": "enabled",
   "files.associations": {
     "dup2": "c",
-    "2pipe_": "c"
+    "2pipe_": "c",
+    "signal.h": "c",
+    "stdlib.h": "c"
   }
 }
