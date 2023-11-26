@@ -1,5 +1,5 @@
 public class CarreraCorredor implements Runnable {
-    int num;
+    int dorsal;
     int distanciaRecorrida;
     Long tiempo = null;
     static final int DISTANCIA_TOTAL = 100, INTERVALO = 10, NUM_CORREDORES = 10;
@@ -9,7 +9,7 @@ public class CarreraCorredor implements Runnable {
     Object llegada;
 
     public CarreraCorredor(int num, Object salida, Object llegada) {
-        this.num = num;
+        this.dorsal = num;
         this.salida = salida;
         this.llegada = llegada;
         this.distanciaRecorrida = 0;
@@ -32,11 +32,11 @@ public class CarreraCorredor implements Runnable {
                 llegada.notify();
             }
             tiempo = tiempoLlegada - tiempoInicio;
-            System.out.printf("Soy el corredor nº %d y he llegado a la meta en %d milisegundos, y he recorrido %d kilómetros.\n", num, tiempo, distanciaRecorrida);
+            System.out.printf("Soy el corredor nº %d y he llegado a la meta en %d milisegundos, y he recorrido %d kilómetros.\n", dorsal, tiempo, distanciaRecorrida);
         } catch (InterruptedException e) {
             tiempoLlegada = System.currentTimeMillis();
             tiempo = tiempoLlegada - tiempoInicio;
-            System.out.printf(MSG_PERDEDOR, num, distanciaRecorrida, tiempo);
+            System.out.printf(MSG_PERDEDOR, dorsal, distanciaRecorrida, tiempo);
         }
     }
 }

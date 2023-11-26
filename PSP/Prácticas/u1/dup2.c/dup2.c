@@ -8,7 +8,7 @@ int main(void)
   char *arguments[] = {"ls", "/", NULL};
   int myFile = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
   if(myFile < 0){
-    perror("open");
+    perror("No fue posible abrir el fichero");
     return 1;
   }
 

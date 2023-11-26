@@ -61,6 +61,7 @@
     "dup2": "c",
     "2pipe_": "c",
     "signal.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "stdio.h": "c"
   }
 }
