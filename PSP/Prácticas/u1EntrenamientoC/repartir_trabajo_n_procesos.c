@@ -61,5 +61,12 @@ int main(int argc, char const *argv[])
        }
     }
 
+    if(child_id != 0){
+        for(int k = 0; k < procesos; k++){
+            wait(NULL);
+    }
+    }
+    
+
     return 0;
 }

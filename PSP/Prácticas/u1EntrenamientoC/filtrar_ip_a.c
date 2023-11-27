@@ -1,4 +1,18 @@
 #include <stdio.h>
+#include <unistd.h>
+
+int main()
+{
+    // Comando a ejecutar
+    char *args[] = {"bash", "-c", "ifconfig | grep -oE '\\b([0-9]{1,3}\\.){3}[0-9]{1,3}\\b'", NULL};
+
+    // Ejecutar el comando
+    execvp(args[0], args);
+
+    return 0;
+}
+
+/* #include <stdio.h>
 #include <stdlib.h>
 #include <regex.h>
 #include <string.h>
@@ -44,4 +58,4 @@ int main() {
     regfree(&regex);
 
     return EXIT_SUCCESS;
-}
+} */
