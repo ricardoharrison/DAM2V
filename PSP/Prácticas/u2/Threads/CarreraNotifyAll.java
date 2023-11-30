@@ -15,20 +15,21 @@ public class CarreraNotifyAll {
             thread.start();
         }
         try {
-            Thread.sleep(CarreraCorredor.TIEMPO_ESPERA);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         synchronized (salida) {
             salida.notifyAll();
         }
-        synchronized(llegada) {
-            try{
+        synchronized (llegada) {
+            try {
                 llegada.wait();
-            } catch (InterruptedException e) {}            
+            } catch (InterruptedException e) {
+            }
         }
-        for(Thread thread : lista){
-            if(thread.isAlive()){
+        for (Thread thread : lista) {
+            if (thread.isAlive()) {
                 thread.interrupt();
             }
         }

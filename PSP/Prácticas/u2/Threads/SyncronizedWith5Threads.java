@@ -12,13 +12,13 @@ public class SyncronizedWith5Threads {
 
     public static void main(String[] args) {
         Runnable myAddingRunnable = () -> {
-            for(int i = 0; i < OPERAT_NUM; i++){
+            for (int i = 0; i < OPERAT_NUM; i++) {
                 increment();
             }
         };
 
         Runnable mySubtractingRunnable = () -> {
-            for(int i = 0; i < OPERAT_NUM; i++){
+            for (int i = 0; i < OPERAT_NUM; i++) {
                 decrease();
             }
         };
@@ -45,8 +45,8 @@ public class SyncronizedWith5Threads {
         thread8.start();
         thread9.start();
         thread10.start();
-        
-        try{
+
+        try {
             thread1.join();
             thread2.join();
             thread3.join();
@@ -57,7 +57,8 @@ public class SyncronizedWith5Threads {
             thread8.join();
             thread9.join();
             thread10.join();
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+        }
 
         System.out.println("Contador = " + count);
     }

@@ -2,21 +2,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "java",
-      "name": "Ejercicio3",
-      "request": "launch",
-      "mainClass": "Ejercicio3",
-      "projectName": "Prácticas_e4613e43"
-    },
-    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "c:/Users/34634/OneDrive/Escritorio/DAMsincMEGA/DAM2V/PSP/Prácticas/u1/dup2.c",
-      "program": "c:/Users/34634/OneDrive/Escritorio/DAMsincMEGA/DAM2V/PSP/Prácticas/u1/dup2.c/build/Debug/outDebug",
+      "externalConsole": false,
+      "cwd": "/home/iesjdc/Escritorio/PSP/zharrisonromeroricardo/Ejercicio1",
+      "program": "/home/iesjdc/Escritorio/PSP/zharrisonromeroricardo/Ejercicio1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
