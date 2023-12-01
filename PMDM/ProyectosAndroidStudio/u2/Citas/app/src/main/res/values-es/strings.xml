@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Citas</string>
+    <string name="text_view_top">¡Pide tu cita ya y lo fliparás en colores!</string>
+    <string name="insert_id">Indica tu DNI:</string>
+    <string name="day">Día:</string>
+    <string name="time">Hora:</string>
+    <string name="report_planned_date">Fecha</string>
+    <string name="pick_date">Elige la fecha de tu cita</string>
+    <string name="pick_time">Elige la hora de tu cita</string>
+    <string name="submit">Pedir cita</string>
+    <string name="regex_id">^[0-9]{8,8}[-]?[a-zA-Z]$</string>
+    <string name="alert_id_regex_title">DNI no válido</string>
+    <string name="alert_id_regex_msg">Un DNI válido contiene 8 números y 1 letra</string>
+    <string name="alert_closed_msg">El establecimiento está cerrado a esa hora</string>
+    <string name="alert_closed_title">Fuera de horario</string>
+    <string name="final_msg">Cita reservada con éxito para el día %2d/%2d/%4d a las %2d:%2d</string>
+    <string name="alert_null_title">Datos incompletos</string>
+    <string name="alert_null_msg">Selecciona una fecha y hora e indica el DNI</string>
+    <string name="alert_date_in_past_title">Fecha inválida</string>
+</resources>
