@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NameColors</string>
+    <string name="white_text">White text</string>
+    <string name="accesibility_user_input">Insert the text here</string>
+    <string name="red_text_view">Red</string>
+    <string name="green_text_view">Green</string>
+    <string name="blue_text_view">Blue</string>
+</resources>

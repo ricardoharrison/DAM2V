@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NombrarColores</string>
+    <string name="white_text">Texto blanco</string>
+    <string name="accesibility_user_input">Introduce texto aquí</string>
+    <string name="red_text_view">Rojo</string>
+    <string name="green_text_view">Verde</string>
+    <string name="blue_text_view">Azul</string>
+</resources>

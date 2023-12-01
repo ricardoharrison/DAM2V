@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
     Button buttonDate, buttonTime;
     TextView textViewResult;
-
     Calendar myCalendar = Calendar.getInstance();
 
     @Override
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
             int year = myDate.get(Calendar.YEAR);
             int month = myDate.get(Calendar.MONTH);
             int day = myDate.get(Calendar.DAY_OF_MONTH);
-            int dayOfWeek = myDate.get(Calendar.DAY_OF_WEEK);
 
             // on below line we are creating a variable for date picker dialog.
             DatePickerDialog datePickerDialog = new DatePickerDialog(
@@ -83,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                             // on below line we are setting selected time
                             // in our text view.
                             try{
+                                myCalendar = myTime;
                                 myCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);    //pasamos los valores a variable externa (myCalendar)
                                 myCalendar.set(Calendar.MINUTE, minute);
                                 myCalendar.set(Calendar.SECOND, 0);
