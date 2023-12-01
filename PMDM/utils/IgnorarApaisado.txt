@@ -1,0 +1,7 @@
+//DENTRO DEL MANIFEST, en <activity>
+
+
+<activity
+	android:name="x"
+	android:exported="true"
+	android:screenOrientation="portrait">

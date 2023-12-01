@@ -39,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
             String phoneNumber = DIAL_OUT;
             String message = getString(R.string.sample_msg);;
 
+
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setData(Uri.parse("smsto:"+ phoneNumber));  // This ensures only SMS apps respond
+            intent.putExtra("sms_body", message);
+            intent.putExtra(Intent.EXTRA_STREAM, message);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+
+            /*
             Intent implicit = new Intent(Intent.ACTION_VIEW);
             implicit.setData(Uri.parse("smsto:" + phoneNumber));
             implicit.putExtra("sms_body", message);
@@ -47,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(MainActivity.this, "Error launching SMS app", Toast.LENGTH_LONG).show();
             }
+            */
         });
 
         buttonCamera.setOnClickListener(view -> {
