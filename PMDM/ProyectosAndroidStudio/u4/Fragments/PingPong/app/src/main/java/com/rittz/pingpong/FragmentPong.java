@@ -1,8 +1,10 @@
 package com.rittz.pingpong;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -28,6 +30,17 @@ public class FragmentPong extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    TextView textViewField, textViewCourt;
+    Button buttonRed, buttonBlue;
+
+    private boolean isViewCreated = false;
+    private String courtName = "";
+    public interface OnGameEndListener {
+        void onGameEnd(CharSequence score);
+    }
+
+    OnGameEndListener listener;
 
     public FragmentPong() {
         // Required empty public constructor
@@ -60,8 +73,7 @@ public class FragmentPong extends Fragment {
         }
     }
 
-    TextView textViewResult;
-    Button buttonRed, buttonBlue;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,8 +81,14 @@ public class FragmentPong extends Fragment {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_pong, container, false);
 
-        textViewResult = layout.findViewById(R.id.textViewResult);
-        textViewResult.setBackgroundColor(generateRandomColor());
+        textViewField = layout.findViewById(R.id.textViewField);
+        textViewCourt = layout.findViewById(R.id.textViewCourt);
+
+        int randomColor = generateRandomColor();
+        textViewField.setBackgroundColor(randomColor);
+        textViewCourt.setBackgroundColor(randomColor);
+
+        textViewCourt.setText(courtName);
 
         buttonRed = layout.findViewById(R.id.buttonTeamRed);
         buttonBlue = layout.findViewById(R.id.buttonTeamBlue);
@@ -86,26 +104,49 @@ public class FragmentPong extends Fragment {
             currenIntScore += 1;
             button.setText(String.valueOf(currenIntScore));
             if(currenIntScore >= MAX_SCORE){
-                textViewResult.setText(String.format(getResources().getString(R.string.final_msg), buttonRed.getText(), buttonBlue.getText()));
+                textViewField.setVisibility(View.GONE);
                 buttonRed.setVisibility(View.GONE);
                 buttonBlue.setVisibility(View.GONE);
-                textViewResult.setVisibility(View.VISIBLE);
+                textViewCourt.setVisibility(View.GONE);
+                listener.onGameEnd(courtName + " ->  Red " + buttonRed.getText() + " - " + buttonBlue.getText() + " Blue");
             }
         };
 
+
+
         buttonRed.setOnClickListener(handler);
         buttonBlue.setOnClickListener(handler);
+
+        isViewCreated = true;
 
         return layout;
 
     }
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(context instanceof OnGameEndListener){
+            listener = (OnGameEndListener) context;
+        } else {
+            throw new ClassCastException(context.toString() + " must implement gameEndListener interface");
+        }
+    }
+
+    public void setCourtName(String name) {
+        courtName = name;
+        if (isViewCreated && textViewCourt != null) {
+            textViewCourt.setText(courtName); // Set court name if view is created
+        }
+    }
+
     private int generateRandomColor() {
-        int randomA = (int)(Math.random() * MAX_COLOR_RANGE);
         int randomR = (int)(Math.random() * MAX_COLOR_RANGE);
         int randomG = (int)(Math.random() * MAX_COLOR_RANGE);
         int randomB = (int)(Math.random() * MAX_COLOR_RANGE);
 
-        return Color.argb(randomA, randomR, randomG, randomB);
+        return Color.rgb(randomR, randomG, randomB);
     }
+
+
 }

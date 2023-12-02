@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">RadioSpinnerLauncher</string>
+    <string name="title">Starter Creator</string>
+    <string name="main_type">Choose a main type:</string>
+    <string name="secondary_type">Choose a secondary type:</string>
+    <string name="radio_grass">Grass</string>
+    <string name="radio_fire">Fire</string>
+    <string name="radio_water">Water</string>
+    <string name="final_selection">Final Selection</string>
+    <string name="Continue">Continue creating starter</string>
+
+
+</resources>

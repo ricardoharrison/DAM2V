@@ -13,7 +13,7 @@
         android:backgroundTint="#7986CB">
 
         <TextView
-            android:id="@+id/textViewResult"
+            android:id="@+id/textViewField"
             android:layout_width="300dp"
             android:layout_height="0dp"
             android:gravity="center"
@@ -50,6 +50,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonTeamRed"
             app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textViewCourt"
+            android:layout_width="350dp"
+            android:layout_height="88dp"
+            android:background="#373131"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewField"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewField" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
