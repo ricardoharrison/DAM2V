@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class Activity2 extends AppCompatActivity {
 
     private static final int MIN_NAME_LEN = 3;
-    private static final String INFO_STARTER = "Activity2.starter";
+    static final String INFO_STARTER = "Activity2.starter";
     Button buttonColor, buttonSubmit;
     TextView textViewDone, textViewWarning;
     EditText editTextName;

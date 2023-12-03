@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton buttonGrass, buttonFire, buttonWater;
     Button buttonContinue;
     Spinner spinner;
+    TextView textViewDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         buttonWater = findViewById(R.id.radioButtonWater);
         buttonContinue = findViewById(R.id.buttonContinue);
 
+        textViewDisplay = findViewById(R.id.textViewDisplay);
+
         buttonGrass.setTag(PokemonStarterType.GRASS);
         buttonFire.setTag(PokemonStarterType.FIRE);
         buttonWater.setTag(PokemonStarterType.WATER);
@@ -53,7 +57,9 @@ public class MainActivity extends AppCompatActivity {
             public void onActivityResult(ActivityResult result) {
                 if(result.getResultCode() == Activity2.RESULT_OK){
                     Intent data = result.getData();
-                    //EJEMPLO: [ViewVariableName].setText(data.getStringExtra([Activity2].[CONSTANT]));
+                    Starter starter = (Starter) data.getSerializableExtra(Activity2.INFO_STARTER);
+
+
                 } else if (result.getResultCode() == Activity2.RESULT_CANCELED){
 
                 } else {

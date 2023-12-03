@@ -20,6 +20,13 @@ ActivityResultLauncher<Intent> launcher = registerForActivityResult(new Activity
             }
         });
 
+//en el OnClickListener que lanza la Activity2
+
+		Intent intent = new Intent(MainActivity.this, Activity2.class);
+                intent.putExtra(INFO_EXTRA_1, extra1);
+                intent.putExtra(INFO_EXTRA_2, extra2);
+                launcher.launch(intent);
+
 
 
 ____
