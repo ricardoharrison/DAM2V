@@ -1,5 +1,5 @@
 package com.rittz.radiospinnerlauncher;
 
 public enum PokemonStarterType {
-    GRASS, FIRE, WATER;
+    GRASS, FIRE, WATER
 }

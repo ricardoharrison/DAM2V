@@ -12,8 +12,6 @@
         android:layout_height="100dp"
         android:layout_marginTop="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/fragmentContainerView1"
-        app:layout_constraintHorizontal_bias="0.582"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPlayer2"
         app:layout_constraintVertical_bias="0.065"
@@ -25,8 +23,6 @@
         android:layout_height="29dp"
         android:layout_marginTop="160dp"
         android:text="Player2"
-        app:layout_constraintEnd_toStartOf="@+id/fragmentContainerView1"
-        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 
@@ -37,8 +33,6 @@
         android:layout_height="29dp"
         android:layout_marginTop="72dp"
         android:text="Player1"
-        app:layout_constraintEnd_toStartOf="@+id/fragmentContainerView1"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,28 +40,31 @@
         android:id="@+id/imageView1"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintEnd_toStartOf="@+id/fragmentContainerView1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPlayer1"
         tools:srcCompat="@tools:sample/avatars" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView1"
-        android:layout_width="180dp"
-        android:layout_height="366dp"
-        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
+        android:id="@+id/fragmentContainerView2"
+        android:name="com.rittz.fragmentscharacters.MyFragment"
+        android:layout_width="221dp"
+        android:layout_height="355dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toEndOf="@+id/imageView1"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
-        android:layout_width="180dp"
-        android:layout_height="0dp"
+        android:id="@+id/fragmentContainerView3"
+        android:name="com.rittz.fragmentscharacters.MyFragment"
+        android:layout_width="221dp"
+        android:layout_height="355dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.988"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView1" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView2"
+        app:layout_constraintVertical_bias="0.823" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

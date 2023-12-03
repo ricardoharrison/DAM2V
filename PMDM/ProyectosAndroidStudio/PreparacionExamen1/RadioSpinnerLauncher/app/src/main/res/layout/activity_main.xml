@@ -18,7 +18,7 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/buttonContinue"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
@@ -124,7 +124,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSecondaryType" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonContinue"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
