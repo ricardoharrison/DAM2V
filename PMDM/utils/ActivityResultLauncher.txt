@@ -10,7 +10,9 @@ ActivityResultLauncher<Intent> launcher = registerForActivityResult(new Activity
             public void onActivityResult(ActivityResult result) {
                 if(result.getResultCode() == Activity2.RESULT_OK){
 		    Intent data = result.getData();
-		    //EJEMPLO: [ViewVariableName].setText(data.getStringExtra([Activity2].[CONSTANT]));
+		    //ejemplo con String
+		    String stringReceived = data.getStringExtra(Activity2.[CONSTANT]);
+		    //hacer algo con el objeto recibido
                 } else if (result.getResultCode() == Activity2.RESULT_CANCELED){
 
                 } else {
@@ -22,10 +24,12 @@ ActivityResultLauncher<Intent> launcher = registerForActivityResult(new Activity
 
 //en el OnClickListener que lanza la Activity2
 
+{
 		Intent intent = new Intent(MainActivity.this, Activity2.class);
                 intent.putExtra(INFO_EXTRA_1, extra1);
                 intent.putExtra(INFO_EXTRA_2, extra2);
                 launcher.launch(intent);
+}
 
 
 
@@ -35,7 +39,9 @@ ____
 
 myButton.setOnClickListener(view -> {
             Intent data = new Intent();
-            data.putExtra(INFO_NUMBER, editTextMyEditText.getText().toString());
+            data.putExtra(INFO_EXTRA, extra);
             setResult(Activity2.RESULT_OK, data);
             finish();
         });
+
+

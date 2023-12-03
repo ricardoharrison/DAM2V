@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     static final String INFO_SEC_TYPE = "MainActivity.selectedSecType";
     RadioButton buttonGrass, buttonFire, buttonWater;
     Button buttonContinue;
-    Spinner spinner;
+    Spinner spinnerSecTypes;
     TextView textViewDisplay;
 
     @Override
@@ -32,10 +32,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //SPINNER
-        ArrayList<SecondaryPokemonType> containersList = new ArrayList<>();
+        spinnerSecTypes = findViewById(R.id.spinnerSecTypes);
+        ArrayList<SecondaryPokemonType> secTypesList = new ArrayList<>();
+        for(SecondaryPokemonType type : SecondaryPokemonType.values()){
+            secTypesList.add(type);
+        }
 
-        ArrayAdapter<SecondaryPokemonType> adapter = new ArrayAdapter<>(this, com.google.android.material.R.layout.support_simple_spinner_dropdown_item, containersList);
-        spinner.setAdapter(adapter);
+        ArrayAdapter<SecondaryPokemonType> adapter = new ArrayAdapter<>(this, com.google.android.material.R.layout.support_simple_spinner_dropdown_item, secTypesList);
+        spinnerSecTypes.setAdapter(adapter);
 
 
         //BUTTONS
@@ -84,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
             }
             if(selectedRadioButton != null){
                 Intent intent = new Intent(MainActivity.this, Activity2.class);
-                String selectedMainType = selectedRadioButton.getTag().toString();
-                String selectedSecondaryType = spinner.getSelectedItem().toString();
+                String selectedMainType = String.valueOf(selectedRadioButton.getTag());
+                String selectedSecondaryType = spinnerSecTypes.getSelectedItem().toString();
                 intent.putExtra(INFO_MAIN_TYPE, selectedMainType);
                 intent.putExtra(INFO_SEC_TYPE, selectedSecondaryType);
                 launcher.launch(intent);

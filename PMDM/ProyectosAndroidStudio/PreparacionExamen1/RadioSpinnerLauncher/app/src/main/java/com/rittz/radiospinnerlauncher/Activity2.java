@@ -35,6 +35,7 @@ public class Activity2 extends AppCompatActivity {
 
         textViewDone = findViewById(R.id.textViewDone);
         textViewWarning = findViewById(R.id.textViewWarning);
+        editTextName = findViewById(R.id.editTextName);
 
         textViewDone.setVisibility(View.GONE);
 
@@ -67,7 +68,8 @@ public class Activity2 extends AppCompatActivity {
 
             if(validateMessage == false){
                 textViewWarning.setText(message);
-            } else {
+            }
+            if(validateMessage){
                 Starter starter = new Starter(editTextName.getText().toString(), PokemonStarterType.valueOf(receivedMainType),
                         SecondaryPokemonType.valueOf(receivedSecType), color);
                 Intent data = new Intent();

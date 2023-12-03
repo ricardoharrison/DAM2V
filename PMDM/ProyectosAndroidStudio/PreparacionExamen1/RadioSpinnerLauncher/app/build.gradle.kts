@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.rittz.radiospinnerlauncher"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.rittz.radiospinnerlauncher"

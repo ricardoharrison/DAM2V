@@ -51,7 +51,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextName"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.496" />
 
     <TextView
         android:id="@+id/textViewDone"
@@ -67,13 +67,12 @@
 
     <TextView
         android:id="@+id/textViewWarning"
-        android:layout_width="213dp"
-        android:layout_height="50dp"
+        android:layout_width="277dp"
+        android:layout_height="150dp"
         android:textColor="#C11A1A"
         app:layout_constraintBottom_toTopOf="@+id/buttonSubmit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextName"
-        app:layout_constraintVertical_bias="0.091" />
+        app:layout_constraintVertical_bias="0.222" />
 </androidx.constraintlayout.widget.ConstraintLayout>
