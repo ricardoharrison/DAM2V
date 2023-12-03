@@ -9,5 +9,5 @@
         ArrayAdapter<Container> adapterContainer = new ArrayAdapter<>(this, com.google.android.material.R.layout.support_simple_spinner_dropdown_item, containersList);
         spinnerContainer.setAdapter(adapterContainer);
 
-//
+//PARA RECUPERAR SELECCION EN OTRA PARTE DEL CÓDIGO:
 Container selectedContainer = (Container) spinnerContainer.getSelectedItem();

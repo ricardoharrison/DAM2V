@@ -133,6 +133,7 @@ public class FragmentPong extends Fragment {
         }
     }
 
+
     public void setCourtName(String name) {
         courtName = name;
         if (isViewCreated && textViewCourt != null) {
