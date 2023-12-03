@@ -4,4 +4,4 @@
 <activity
 	android:name="x"
 	android:exported="true"
-	android:screenOrientation="portrait">
+	android:screenOrientation="portrait">   //ESTA ES LA UNICA LINEA QUE HAY QUE METER
