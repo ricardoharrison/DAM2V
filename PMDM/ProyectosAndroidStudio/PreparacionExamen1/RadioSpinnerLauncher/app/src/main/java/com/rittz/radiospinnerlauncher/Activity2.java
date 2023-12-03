@@ -56,13 +56,13 @@ public class Activity2 extends AppCompatActivity {
             }
             for(int i = 0; i < currentName.length(); i++){
                 if (!Character.isLetter(currentName.charAt(i))) {
-                    message += ("\t- Name has to contain only letters)");
+                    message += ("\t- Name has to contain only letters\n");
                     validateMessage = false;
                     break;
                 }
             }
             if(color == null){
-                message += ("\t- You must generate a color before submitting");
+                message += ("\t- You must generate a color before submitting\n");
                 validateMessage = false;
             }
 

@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 if(result.getResultCode() == Activity2.RESULT_OK){
                     Intent data = result.getData();
                     Starter starter = (Starter) data.getSerializableExtra(Activity2.INFO_STARTER);
+                    textViewDisplay.setText(starter.toString());
 
 
                 } else if (result.getResultCode() == Activity2.RESULT_CANCELED){
@@ -80,11 +81,11 @@ public class MainActivity extends AppCompatActivity {
             if(buttonGrass.isChecked()){
                 selectedRadioButton = buttonGrass;
             }
-            if(buttonGrass.isChecked()){
-                selectedRadioButton = buttonGrass;
+            if(buttonFire.isChecked()){
+                selectedRadioButton = buttonFire;
             }
-            if(buttonGrass.isChecked()){
-                selectedRadioButton = buttonGrass;
+            if(buttonWater.isChecked()){
+                selectedRadioButton = buttonWater;
             }
             if(selectedRadioButton != null){
                 Intent intent = new Intent(MainActivity.this, Activity2.class);
