@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFD54F"
+    android:backgroundTint="#1B5E20"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/buttonBrowser"
+        android:layout_width="169dp"
+        android:layout_height="49dp"
+        android:backgroundTint="#D4E157"
+        android:text="@string/button_browser"
+        android:textColor="#1B5E20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.192" />
+
+    <Button
+        android:id="@+id/buttonDial"
+        android:layout_width="169dp"
+        android:layout_height="49dp"
+        android:backgroundTint="#D4E157"
+        android:text="@string/button_dial"
+        android:textColor="#1B5E20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.378" />
+
+    <Button
+        android:id="@+id/buttonSms"
+        android:layout_width="169dp"
+        android:layout_height="49dp"
+        android:backgroundTint="#D4E157"
+        android:text="@string/button_sms"
+        android:textColor="#1B5E20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.565" />
+
+    <Button
+        android:id="@+id/buttonMagic"
+        android:layout_width="169dp"
+        android:layout_height="49dp"
+        android:backgroundTint="#D4E157"
+        android:text="@string/button_fourth"
+        android:textColor="#1B5E20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.752" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,37 @@
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
+
+
 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                    builder.setTitle()
-                            .setMessage()
+                    builder.setTitle("put your title here")
+                            .setMessage("put your message here")
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
+                                    dialog.cancel(); //cerrar el diálogo al pulsar el botón
                                 }
                             })
                             .show();
+
+
+//EJEMPLO CON DOBLE BOTON (OK y CANCEL) DENTRO DE UN METODO PROPIO (showConfirmationDialog())
+
+public void showConfirmationDialog(){
+        final String ALERT_DIALOG_TITLE = getResources().getString(R.string.your_alert_dialog_title);
+        final String ALERT_DIALOG_MSG = getResources().getString(R.string.your_alert_dialog_msg);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle(ALERT_DIALOG_TITLE)
+                .setMessage(ALERT_DIALOG_MSG)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        //triggerRestartActions(); //función creada por mí, cambiar por lo que sea que quieras que haga
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .show();
+    }
