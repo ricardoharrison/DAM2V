@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Examen</string>
+    <string name="origen_label">Origin</string>
+    <string name="destino_label">Destination</string>
+    <string name="ida_label">One-way</string>
+    <string name="reservar_label">Book</string>
+    <string name="volver_label">Return</string>
+    <string name="reiniciar_label">Restart</string>
+    <string name="Error_fechas">There\'s an error in the dates</string>
+    <string name="Error_destino">There\'s an error in the destination</string>
+    <string name="button_fecha_salida">Choose departure date</string>
+    <string name="button_fecha_llegada">Choose return date</string>
+    <string name="cabecera_error">The selection has the following issues:</string>
+</resources>
