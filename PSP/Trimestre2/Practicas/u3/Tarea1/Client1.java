@@ -13,7 +13,7 @@ public class Client1 {
         }
 
         String ip;
-        int port;
+        Integer port = null;
         String msg;
 
         try{
@@ -28,12 +28,9 @@ public class Client1 {
             byte[] sentData = new byte[MAX_LENGTH];
             String sentence = args[2]; // Mensaje a enviar
             
-
-            //TO-DO
-            
             sentData = sentence.getBytes();
 
-            DatagramPacket sendPacket = new DatagramPacket(sentData, sentData.length, ipAddress, PORT);
+            DatagramPacket sendPacket = new DatagramPacket(sentData, sentData.length, ipAddress, port);
             socket.send(sendPacket); // Envía el paquete al servidor
             socket.close();
         } catch (Exception e) {
