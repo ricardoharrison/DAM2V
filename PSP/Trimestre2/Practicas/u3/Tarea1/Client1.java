@@ -5,7 +5,6 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public class Client1 {
-    private static final int MAX_LENGTH = (int)(Math.pow(2, 14));
 
     public static void main(String[] args) {
         if(args.length != 3){
@@ -15,6 +14,7 @@ public class Client1 {
         String ip;
         Integer port = null;
         String msg;
+        final int MAX_LENGTH = (int)(Math.pow(2, 14));
 
         try{
             port = Integer.parseInt(args[1]);

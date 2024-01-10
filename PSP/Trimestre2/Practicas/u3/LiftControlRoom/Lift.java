@@ -82,7 +82,7 @@ public class Lift {
                     }
                 }
             }).start();
-        });
+        }); 
     }
 
     void goUp() {
