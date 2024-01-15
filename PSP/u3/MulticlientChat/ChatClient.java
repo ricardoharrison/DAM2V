@@ -1,5 +1,3 @@
-package MulticlientChat;
-
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -9,6 +7,11 @@ public class ChatClient {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        String username = args[0].replaceAll(";", "");
+        if(args.length != 1){
+            System.out.println("Argumentos insuficientes");
+            return;
+        }
 
         String ip = "localhost";
         Integer port = 8000;
@@ -22,7 +25,8 @@ public class ChatClient {
                 byte[] sentData = new byte[MAX_LENGTH];
                 String sentence = sc.nextLine(); // Mensaje a enviar
                 
-                sentData = sentence.getBytes();
+                String encodedMessage = username + ";" + sentence;
+                sentData = encodedMessage.getBytes();
 
                 DatagramPacket sendPacket = new DatagramPacket(sentData, sentData.length, ipAddress, port);
                 socket.send(sendPacket); // Envía el paquete al servidor
@@ -37,7 +41,7 @@ public class ChatClient {
                 DatagramSocket socket = new DatagramSocket();
                 InetAddress ipAddress = InetAddress.getByName(ip); // Dirección del servidor
                 byte[] sentData = new byte[MAX_LENGTH];
-                String sentence = "DESC"; // Mensaje a enviar
+                String sentence = ChatServer.DESC_MSG; // Mensaje a enviar ("DESC")
                 
                 sentData = sentence.getBytes();
 
