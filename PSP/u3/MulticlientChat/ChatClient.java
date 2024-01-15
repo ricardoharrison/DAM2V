@@ -7,24 +7,29 @@ public class ChatClient {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String username = args[0].replaceAll(";", "");
-        if(args.length != 1){
-            System.out.println("Argumentos insuficientes");
-            return;
+        String username;
+        if (args.length != 1) {
+            username = "GUEST";
+        } else {
+            username = args[0].replaceAll(";", "");
         }
 
         String ip = "localhost";
         Integer port = 8000;
-        String msg = "!";
-        final int MAX_LENGTH = (int)(Math.pow(2, 14));
+        String msg = "lorem ipsum";
+        final int MAX_LENGTH = (int) (Math.pow(2, 14));
 
-        while (!msg.trim().isEmpty()){
+        while (!msg.trim().isEmpty()) {
             try {
                 DatagramSocket socket = new DatagramSocket();
                 InetAddress ipAddress = InetAddress.getByName(ip); // Dirección del servidor
                 byte[] sentData = new byte[MAX_LENGTH];
                 String sentence = sc.nextLine(); // Mensaje a enviar
-                
+
+                if (sentence.trim().isEmpty()) {
+                    break;
+                }
+
                 String encodedMessage = username + ";" + sentence;
                 sentData = encodedMessage.getBytes();
 
@@ -36,25 +41,24 @@ public class ChatClient {
             }
         }
 
-        //Desconexión
+        // Desconexión
         try {
-                DatagramSocket socket = new DatagramSocket();
-                InetAddress ipAddress = InetAddress.getByName(ip); // Dirección del servidor
-                byte[] sentData = new byte[MAX_LENGTH];
-                String sentence = ChatServer.DESC_MSG; // Mensaje a enviar ("DESC")
-                
-                sentData = sentence.getBytes();
+            DatagramSocket socket = new DatagramSocket();
+            InetAddress ipAddress = InetAddress.getByName(ip); // Dirección del servidor
+            byte[] sentData = new byte[MAX_LENGTH];
+            String sentence = ChatServer.DESC_MSG; // Mensaje a enviar ("DESC")
 
-                DatagramPacket sendPacket = new DatagramPacket(sentData, sentData.length, ipAddress, port);
-                socket.send(sendPacket); // Envía el paquete al servidor
-                socket.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            String encodedSentence = username + ";" + sentence;
 
+            sentData = encodedSentence.getBytes();
+
+            DatagramPacket sendPacket = new DatagramPacket(sentData, sentData.length, ipAddress, port);
+            socket.send(sendPacket); // Envía el paquete al servidor
+            socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
-    
-
 
 }
