@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class Tema5Practica1 {
 
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/alumno";
+        String url = "jdbc:mysql://localhost:3306/alumnos";
         String user = "root";
         String password = "";
 
@@ -25,7 +25,8 @@ public class Tema5Practica1 {
         }
     }
 
-    public static void altaNuevoAlumno(Connection connection, String numExpdte, String nombre, String ciclo, String dni) throws SQLException {
+    public static void altaNuevoAlumno(Connection connection, String numExpdte, String nombre, String ciclo, String dni)
+            throws SQLException {
         String sql = "INSERT INTO alumno VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -41,7 +42,8 @@ public class Tema5Practica1 {
         }
     }
 
-    public static void modificarAlumno(Connection connection, String numExpdte, String nuevoNombre, String nuevoDni, String nuevoCiclo) throws SQLException {
+    public static void modificarAlumno(Connection connection, String numExpdte, String nuevoNombre, String nuevoDni,
+            String nuevoCiclo) throws SQLException {
         String sql = "UPDATE alumno SET nombre = ?, dni = ?, ciclo = ? WHERE numexpdte = ?";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
