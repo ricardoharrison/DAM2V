@@ -35,9 +35,5 @@ public class MainActivity extends AppCompatActivity {
 
         Adapter adapter = new Adapter(contacts, getApplicationContext());
         recyclerView.setAdapter(adapter);
-
-
-
-
     }
 }

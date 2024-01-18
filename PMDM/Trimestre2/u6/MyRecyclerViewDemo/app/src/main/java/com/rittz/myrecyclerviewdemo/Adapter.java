@@ -34,7 +34,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             // Define click listener for the ViewHolder's View
 
             textViewName = (TextView) view.findViewById(R.id.textViewName);
-            textViewName = (TextView) view.findViewById(R.id.textViewEmail);
+            textViewEmail = (TextView) view.findViewById(R.id.textViewEmail);
             imageView = (ImageView) view.findViewById(R.id.imageView);
         }
 
