@@ -2,7 +2,6 @@ package Broadcast;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
 
 public class ServerBroadcast {
     private static final int MAX_LENGTH = 65535;
@@ -12,7 +11,7 @@ public class ServerBroadcast {
         try {
             DatagramSocket socket = new DatagramSocket(PORT, null); // Abre el socket en el
                                                                     // puerto 8000
-            socket.setBroadcast(true);
+            socket.setBroadcast(true); // imprescindible para que sea broadcast
             byte[] receivedData = new byte[MAX_LENGTH];
 
             while (true) {

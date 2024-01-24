@@ -1,6 +1,5 @@
-package Ascensor;
+package LiftControlRoom;
 
-import java.awt.Color;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -82,7 +81,7 @@ public class Lift {
                     }
                 }
             }).start();
-        }); 
+        });
     }
 
     void goUp() {

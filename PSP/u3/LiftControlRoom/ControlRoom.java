@@ -1,4 +1,4 @@
-package Ascensor;
+package LiftControlRoom;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
