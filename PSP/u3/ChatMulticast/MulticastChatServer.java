@@ -1,9 +1,9 @@
-package u3.ClienteServidorBasico;
+package ChatMulticast;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
-public class UdpServer {
+public class MulticastChatServer {
     private static final int MAX_LENGTH = 65535;
     private static final int PORT = 8000;
 
