@@ -16,6 +16,23 @@ public class MulticastChatClient {
             InetAddress ipAddress = InetAddress.getByName("localhost"); // Dirección del servidor
             byte[] sendData = new byte[MAX_LENGTH];
             String sentence = ""; // Mensaje a enviar
+            new Thread(() -> {
+                try {
+                    DatagramSocket socket2 = new DatagramSocket(PORT); // Abre el socket en el puerto 8000
+                    byte[] receivedData = new byte[MAX_LENGTH];
+
+                    while (true) {
+                        DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);
+                        socket2.receive(receivedPacket); // Espera y recibe el paquete
+
+                        // Extrae la información del paquete
+                        String message = new String(receivedPacket.getData(), 0, receivedPacket.getLength());
+                        System.out.println(receivedPacket.getAddress() + ": " + message);
+                    }
+                } catch (Exception e) {
+                }
+            }).start();
+
             while (true) {
                 sentence = sc.nextLine();
                 sendData = sentence.getBytes();

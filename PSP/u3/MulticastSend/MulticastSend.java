@@ -32,10 +32,9 @@ public class MulticastSend {
 
             s.joinGroup(group, netIf);
 
-            /*
-             * byte[] msgBytes = msg.getBytes(); DatagramPacket hi = new
-             * DatagramPacket(msgBytes, msgBytes.length, group); s.send(hi);
-             */
+            byte[] msgBytes = msg.getBytes();
+            DatagramPacket hi = new DatagramPacket(msgBytes, msgBytes.length, group);
+            s.send(hi);
 
             // get their responses!
             byte[] buf = new byte[1000];

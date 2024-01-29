@@ -9,7 +9,7 @@ public class MulticastChatServer {
 
     public static void main(String[] args) {
         try {
-            DatagramSocket socket = new DatagramSocket(PORT); // Abre el socket en el puerto 9876
+            DatagramSocket socket = new DatagramSocket(PORT); // Abre el socket en el puerto 8000
             byte[] receivedData = new byte[MAX_LENGTH];
 
             while (true) {
