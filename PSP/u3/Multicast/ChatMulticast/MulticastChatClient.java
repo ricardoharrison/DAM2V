@@ -1,8 +1,8 @@
-package ChatMulticast;
-
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.MulticastSocket;
+import java.net.NetworkInterface;
 import java.util.Scanner;
 
 public class MulticastChatClient {
@@ -18,12 +18,15 @@ public class MulticastChatClient {
             String sentence = ""; // Mensaje a enviar
             new Thread(() -> {
                 try {
-                    DatagramSocket socket2 = new DatagramSocket(PORT); // Abre el socket en el puerto 8000
+                    MulticastSocket multicastSocket = new MulticastSocket(PORT); // Abre el socket multicast en el
+                                                                                 // puerto 8000
                     byte[] receivedData = new byte[MAX_LENGTH];
+                    InetAddress group = InetAddress.getByName("230.0.0.1");
+                    multicastSocket.joinGroup(group);
 
                     while (true) {
                         DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);
-                        socket2.receive(receivedPacket); // Espera y recibe el paquete
+                        multicastSocket.receive(receivedPacket); // Espera y recibe el paquete
 
                         // Extrae la información del paquete
                         String message = new String(receivedPacket.getData(), 0, receivedPacket.getLength());

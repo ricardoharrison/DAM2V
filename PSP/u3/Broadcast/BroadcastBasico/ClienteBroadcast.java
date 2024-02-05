@@ -1,4 +1,4 @@
-package Broadcast;
+package Broadcast.BroadcastBasico;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
