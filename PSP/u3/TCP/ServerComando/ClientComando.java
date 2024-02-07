@@ -9,11 +9,13 @@ public class ClientComando {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String msg = "";
-        System.out.println("Pulsa ENTER para solicitar el listado de ficheros:");
-        sc.nextLine();
+
         try {
             Socket socket = new Socket("localhost", 1234);
             DataInputStream in = new DataInputStream(socket.getInputStream());
+
+            System.out.println("Pulsa ENTER para solicitar el listado de ficheros:");
+            sc.nextLine();
 
             msg = in.readUTF();
 
