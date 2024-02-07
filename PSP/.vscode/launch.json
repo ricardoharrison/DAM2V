@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ClientComando",
+      "request": "launch",
+      "mainClass": "ServerComando.ClientComando",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
       "name": "CarreraNotifyAll",
       "request": "launch",
       "mainClass": "CarreraNotifyAll",
