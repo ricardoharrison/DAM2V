@@ -17,6 +17,7 @@ public class ServerComando {
                 // Espera cliente
                 System.out.println("Servidor preparado.");
                 Socket socket = server.accept();
+                System.out.println("Me ha llegado un cliente, voy a mandarle el mensaje");
 
                 ProcessBuilder builder = new ProcessBuilder("dir", "C:\\");
                 Process process = builder.start();
@@ -39,6 +40,7 @@ public class ServerComando {
 
                 socket.close();
                 out.close();
+                System.out.println("Mensaje enviado, lo leerá cuando el quiera");
             }
         } catch (IOException e) {
             e.printStackTrace();
