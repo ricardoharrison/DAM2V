@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonApiCall;
     EditText editTextInput;
     TextView textViewInfo;
+    ImageView imageViewSprite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +30,15 @@ public class MainActivity extends AppCompatActivity {
         buttonApiCall = findViewById(R.id.buttonCallApi);
         editTextInput = findViewById(R.id.editTextInput);
         textViewInfo = findViewById(R.id.textViewInfo);
+        imageViewSprite = findViewById(R.id.imageViewSprite);
 
         buttonApiCall.setOnClickListener((v)->{
 
             PokemonService service = PokemonService.getInstance();
+            textViewInfo.setText(editTextInput.getText().toString().toLowerCase().trim());
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e){}
             Call<Pokemon> llamada =  service.getRepo().getPokemon(editTextInput.getText().toString().toLowerCase().trim());
 
             llamada.enqueue(new Callback<Pokemon>() {
@@ -37,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
                 public void onResponse(Call<Pokemon> call, Response<Pokemon> response) {
                     Pokemon pokemon = response.body();
                     textViewInfo.setText(pokemon.toString());
+                    String imageUrl = pokemon.sprites.get(0);
+
+                    Glide.with(getApplicationContext())
+                            .load(imageUrl)
+                            .into(imageViewSprite);
+
                 }
 
                 @Override
