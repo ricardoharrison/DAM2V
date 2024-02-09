@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 public void onResponse(Call<Pokemon> call, Response<Pokemon> response) {
                     Pokemon pokemon = response.body();
                     textViewInfo.setText(pokemon.toString());
-                    String imageUrl = pokemon.sprites.get(0);
+                    String imageUrl = pokemon.getSprites().getFront_default();
+                    //Toast.makeText(getApplicationContext(), imageUrl, Toast.LENGTH_LONG).show();
 
                     Glide.with(getApplicationContext())
                             .load(imageUrl)

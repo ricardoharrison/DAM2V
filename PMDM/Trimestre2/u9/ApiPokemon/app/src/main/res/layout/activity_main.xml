@@ -8,12 +8,14 @@
 
     <TextView
         android:id="@+id/textViewInfo"
-        android:layout_width="369dp"
+        android:layout_width="0dp"
         android:layout_height="115dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="84dp"
         android:gravity="center_horizontal"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextInput"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,6 +27,7 @@
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewSprite"
         app:layout_constraintVertical_bias="1.0" />
@@ -36,17 +39,21 @@
         android:layout_marginTop="48dp"
         android:ems="10"
         android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewSprite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewInfo" />
 
     <ImageView
         android:id="@+id/imageViewSprite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCallApi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextInput"
-        tools:layout_editor_absoluteX="141dp"
         tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>
