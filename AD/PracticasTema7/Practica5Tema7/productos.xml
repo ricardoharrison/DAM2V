@@ -1,0 +1,42 @@
+<productos>
+    <producto>
+        <cod_prod>001</cod_prod>
+        <denominacion>Placa base ASUS ROG Strix B550-F</denominacion>
+        <precio>149.99</precio>
+        <stock_actual>25</stock_actual>
+        <stock_minimo>10</stock_minimo>
+        <cod_zona>20</cod_zona>
+    </producto>
+    <producto>
+        <cod_prod>002</cod_prod>
+        <denominacion>Procesador AMD Ryzen 7 5800X</denominacion>
+        <precio>449.99</precio>
+        <stock_actual>15</stock_actual>
+        <stock_minimo>5</stock_minimo>
+        <cod_zona>10</cod_zona>
+    </producto>
+    <producto>
+        <cod_prod>003</cod_prod>
+        <denominacion>Memoria RAM Corsair Vengeance LPX 16GB DDR4</denominacion>
+        <precio>89.99</precio>
+        <stock_actual>30</stock_actual>
+        <stock_minimo>15</stock_minimo>
+        <cod_zona>10</cod_zona>
+    </producto>
+    <producto>
+        <cod_prod>004</cod_prod>
+        <denominacion>Tarjeta gráfica NVIDIA GeForce RTX 3080</denominacion>
+        <precio>799.99</precio>
+        <stock_actual>10</stock_actual>
+        <stock_minimo>8</stock_minimo>
+        <cod_zona>20</cod_zona>
+    </producto>
+    <producto>
+        <cod_prod>005</cod_prod>
+        <denominacion>Disco duro SSD Samsung 970 EVO Plus 1TB</denominacion>
+        <precio>199.99</precio>
+        <stock_actual>20</stock_actual>
+        <stock_minimo>10</stock_minimo>
+        <cod_zona>40</cod_zona>
+    </producto>
+</productos>

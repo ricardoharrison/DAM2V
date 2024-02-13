@@ -1,0 +1,32 @@
+<empleados>
+    <empleado>
+        <nombre>Juan Pérez</nombre>
+        <oficio>Programador</oficio>
+        <departamento>Desarrollo</departamento>
+        <salario>3000</salario>
+    </empleado>
+    <empleado>
+        <nombre>Maria González</nombre>
+        <oficio>Analista</oficio>
+        <departamento>Desarrollo</departamento>
+        <salario>3500</salario>
+    </empleado>
+    <empleado>
+        <nombre>Luis Martínez</nombre>
+        <oficio>Programador</oficio>
+        <departamento>Desarrollo</departamento>
+        <salario>3200</salario>
+    </empleado>
+    <empleado>
+        <nombre>Carlos Sánchez</nombre>
+        <oficio>Programador</oficio>
+        <departamento>Ventas</departamento>
+        <salario>2800</salario>
+    </empleado>
+    <empleado>
+        <nombre>Sara López</nombre>
+        <oficio>Analista</oficio>
+        <departamento>Ventas</departamento>
+        <salario>3300</salario>
+    </empleado>
+</empleados>

@@ -1,0 +1,18 @@
+<departamentos>
+    <departamento>
+        <num_dep>10</num_dep>
+        <nombre_dep>Ventas</nombre_dep>
+    </departamento>
+    <departamento>
+        <num_dep>20</num_dep>
+        <nombre_dep>Marketing</nombre_dep>
+    </departamento>
+    <departamento>
+        <num_dep>30</num_dep>
+        <nombre_dep>Desarrollo</nombre_dep>
+    </departamento>
+    <departamento>
+        <num_dep>40</num_dep>
+        <nombre_dep>Recursos Humanos</nombre_dep>
+    </departamento>
+</departamentos>

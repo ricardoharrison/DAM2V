@@ -1,0 +1,68 @@
+<sucursales>
+    <sucursal telefono="123456789" codigo="SUC1">
+        <director>Juan Pérez</director>
+        <poblacion>Madrid</poblacion>
+        <cuenta tipo="AHORRO">
+            <nombre>Cuenta de Ahorro 1</nombre>
+            <numero>001</numero>
+            <saldohaber>15000</saldohaber>
+            <saldodebe>0</saldodebe>
+        </cuenta>
+        <cuenta tipo="PENSIONES">
+            <nombre>Cuenta de Pensiones 1</nombre>
+            <numero>002</numero>
+            <saldohaber>20000</saldohaber>
+            <saldodebe>0</saldodebe>
+        </cuenta>
+    </sucursal>
+    <sucursal telefono="987654321" codigo="SUC2">
+        <director>Maria González</director>
+        <poblacion>Barcelona</poblacion>
+        <cuenta tipo="AHORRO">
+            <nombre>Cuenta de Ahorro 2</nombre>
+            <numero>003</numero>
+            <saldohaber>8000</saldohaber>
+            <saldodebe>0</saldodebe>
+        </cuenta>
+        <cuenta tipo="AHORRO">
+            <nombre>Cuenta de Ahorro 3</nombre>
+            <numero>004</numero>
+            <saldohaber>12000</saldohaber>
+            <saldodebe>0</saldodebe>
+        </cuenta>
+        <cuenta tipo="PENSIONES">
+            <nombre>Cuenta de Pensiones 2</nombre>
+            <numero>005</numero>
+            <saldohaber>30000</saldohaber>
+            <saldodebe>0</saldodebe>
+        </cuenta>
+    </sucursal>
+    <sucursal telefono="555555555" codigo="SUC3">
+        <director>Luis Martínez</director>
+        <poblacion>Madrid</poblacion>
+        <cuenta tipo="AHORRO">
+            <nombre>Cuenta de Ahorro 4</nombre>
+            <numero>006</numero>
+            <saldohaber>9000</saldohaber>
+            <saldodebe>0</saldodebe>
+        </cuenta>
+        <cuenta tipo="PENSIONES">
+            <nombre>Cuenta de Pensiones 3</nombre>
+            <numero>007</numero>
+            <saldohaber>25000</saldohaber>
+            <saldodebe>0</saldodebe>
+        </cuenta>
+        <cuenta tipo="PENSIONES">
+            <nombre>Cuenta de Pensiones 4</nombre>
+            <numero>008</numero>
+            <saldohaber>18000</saldohaber>
+            <saldodebe>0</saldodebe>
+        </cuenta>
+        <cuenta tipo="PENSIONES">
+            <nombre>Cuenta de Pensiones 5</nombre>
+            <numero>009</numero>
+            <saldohaber>21000</saldohaber>
+            <saldodebe>0</saldodebe>
+        </cuenta>
+    </sucursal>
+</sucursales>
