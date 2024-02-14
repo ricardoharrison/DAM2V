@@ -1,4 +1,4 @@
-package persona;
+package com.example.demoapi.persona;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
