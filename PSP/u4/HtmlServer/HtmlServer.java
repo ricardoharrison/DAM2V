@@ -1,4 +1,4 @@
-package HtmlServer;
+//package HtmlServer;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -14,23 +14,28 @@ public class HtmlServer {
     private static final int DEFAULT_PORT = 8765;
     private static final int RESOURCE_POSITION = 1;
 
+    // peticion HTTP desde browser para hacer funcionar este server ->
+    // http://localhost:8765/index.html
+    // (es una ruta relativa, ejecutar este fichero java desde la misma carpeta que
+    // aloja)
+
     public static void main(String[] args) throws IOException {
         ServerSocket server = new ServerSocket(DEFAULT_PORT);
 
         while (true) {
-            Socket connCliente = server.accept();
+            Socket clientConnexion = server.accept();
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(
-                            connCliente.getInputStream()));
+                            clientConnexion.getInputStream()));
             String header = reader.readLine();
             System.out.println(header);
             // GET ________ HTTP/1.1
-            String info = extraerInformacion(header);
-            String html = generarPagina(info);
+            String info = extractInfo(header);
+            String html = generateWebPage(info);
 
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(
-                            connCliente.getOutputStream()));
+                            clientConnexion.getOutputStream()));
 
             // Escribir cabecera
             writer.write(html);
@@ -38,11 +43,11 @@ public class HtmlServer {
 
             reader.close();
             writer.close();
-            connCliente.close();
+            clientConnexion.close();
         }
     }
 
-    private static String generarPagina(String info) {
+    private static String generateWebPage(String info) {
         String str = "HTTP/1.1 200 OK\n\n";
         String line = "";
         try (BufferedReader reader = new BufferedReader(new FileReader(info))) {
@@ -56,7 +61,7 @@ public class HtmlServer {
         return str;
     }
 
-    private static String extraerInformacion(String header) {
+    private static String extractInfo(String header) {
         return header.split(" ")[RESOURCE_POSITION];
     }
 }
