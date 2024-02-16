@@ -1,0 +1,24 @@
+<zonas>
+    <zona cod_zona="10">
+        <nombre_zona>Zona 10</nombre_zona>
+        <producto>
+            <nombre>Procesador Intel Core i7 10700K</nombre>
+        </producto>
+        <producto>
+            <nombre>Memoria RAM Corsair Vengeance LPX 16GB DDR4</nombre>
+        </producto>
+    </zona>
+    <zona cod_zona="20">
+        <nombre_zona>Zona 20</nombre_zona>
+        <producto>
+            <nombre>Placa base ASUS ROG Strix B550-F</nombre>
+            <nombre>Disco duro SSD Samsung 970 EVO Plus 1TB</nombre>
+        </producto>
+    </zona>
+    <zona cod_zona="40">
+        <nombre_zona>Zona 40</nombre_zona>
+        <producto>
+            <nombre>Tarjeta gráfica NVIDIA GeForce RTX 3080</nombre>
+        </producto>
+    </zona>
+</zonas>

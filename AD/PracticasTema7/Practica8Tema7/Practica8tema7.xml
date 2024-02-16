@@ -1,0 +1,56 @@
+xquery version "3.1";
+
+--1
+
+insert node
+<zona cod_zona="60">
+    <nombre_zona>Zona 60</nombre_zona>
+</zona>
+into /zonas;
+
+
+--2
+
+insert node
+<cuenta tipo="PENSIONES">
+    <nombre>Cuenta de Pensiones 6</nombre>
+    <numero>010</numero>
+    <saldohaber>30000</saldohaber>
+    <saldodebe>0</saldodebe>
+</cuenta>
+into /sucursales/sucursal[@codigo='SUC1'];
+
+--3
+
+update replace /zonas/zona[@cod_zona='50']/nombre_zona with <directora>Zona 50</directora>;
+
+--4
+
+update replace /DEP_ROW[DEPTNO=10]
+with
+<DEP_ROW>
+    <DEPTNO>10</DEPTNO>
+    <DNAME>Contabilidad</DNAME>
+    <LOC>Madrid</LOC>
+</DEP_ROW>;
+
+--5
+
+update value /EMP_ROW[EMPNO=7369]/ENAME with "Alberto Montes Ramos";
+
+
+--6
+
+update value /sucursales/sucursal[@codigo='SUC3']/cuenta[1]/@tipo with "NUEVOTIPO";
+
+--7
+
+update value /EMP_ROW[DEPTNO=10]/SAL with SAL + 200;
+
+--8
+
+delete node /zonas/zona[@cod_zona='50'];
+
+--9
+
+update rename element EMP_ROW as EMPLOYEE_ROW;
