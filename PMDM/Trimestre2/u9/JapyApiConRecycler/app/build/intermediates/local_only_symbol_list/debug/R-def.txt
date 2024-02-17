@@ -1,0 +1,20 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id buttonFilms
+id recyclerView
+id textViewDescripcion
+id textViewEstrellas
+id textViewNombre
+layout activity_main
+layout item_view
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme.JapyApiConRecycler
+style Theme.JapyApiConRecycler
+xml backup_rules
+xml data_extraction_rules
