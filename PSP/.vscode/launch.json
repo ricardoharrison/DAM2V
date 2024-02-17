@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ServerSubject",
+      "request": "launch",
+      "mainClass": "u3.TCP.PruebaObserver.ServerSubject",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
       "name": "ClientComando",
       "request": "launch",
       "mainClass": "ServerComando.ClientComando",
