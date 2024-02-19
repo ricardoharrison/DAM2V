@@ -1,4 +1,4 @@
-package com.example.demoapi.persona;
+package com.example.trabajospring.rharrison;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,12 +22,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RequestMapping("/persona")
 
 @RequiredArgsConstructor
-public class PersonaController {
+public class RHarrisonController {
 
-    private final PersonaService personaService;
+    private final RHarrisonService personaService;
 
     @PostMapping("/crear") // http://localhost:8080/persona/crear
-    public void insertarPersona(@RequestBody Persona persona) {
+    public void insertarPersona(@RequestBody RHarrison persona) {
         personaService.crearPersona(persona);
     }
 
@@ -45,21 +45,21 @@ public class PersonaController {
     }
 
     @GetMapping("obtenerPersona/{id}")
-    public ResponseEntity<Optional<Persona>> obtenerPersona(
+    public ResponseEntity<Optional<RHarrison>> obtenerPersona(
             @PathVariable String id) {
         return ResponseEntity.ok(
                 personaService.obtenerPersona(Integer.parseInt(id)));
     }
 
     @GetMapping("obtenerTodas")
-    public ResponseEntity<List<Persona>> obtenerTodas() {
+    public ResponseEntity<List<RHarrison>> obtenerTodas() {
         return ResponseEntity.ok(personaService.obtenerTodas());
     }
 
     @PostMapping("actualizarPersona/{id}") // http://localhost:8080/persona/actualizarPersona
-    public ResponseEntity<Optional<Persona>> actualizarPersona(
+    public ResponseEntity<Optional<RHarrison>> actualizarPersona(
             @PathVariable String id,
-            @RequestBody Persona persona) {
+            @RequestBody RHarrison persona) {
         personaService.actualizarPersona(Integer.parseInt(id), persona);
 
         return ResponseEntity.ok(

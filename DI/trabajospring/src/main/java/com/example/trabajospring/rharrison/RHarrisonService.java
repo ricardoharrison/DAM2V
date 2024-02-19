@@ -1,4 +1,4 @@
-package com.example.demoapi.persona;
+package com.example.trabajospring.rharrison;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,11 +10,11 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class PersonaService {
+public class RHarrisonService {
     @Autowired
-    private PersonaRepository personaRepository;
+    private RHarrisonRepo personaRepository;
 
-    public void crearPersona(Persona persona) {
+    public void crearPersona(RHarrison persona) {
         personaRepository.save(persona);
     }
 
@@ -27,16 +27,16 @@ public class PersonaService {
         }
     }
 
-    public Optional<Persona> obtenerPersona(Integer id) {
+    public Optional<RHarrison> obtenerPersona(Integer id) {
         return personaRepository.findById(id);
     }
 
-    public List<Persona> obtenerTodas() {
+    public List<RHarrison> obtenerTodas() {
         return personaRepository.findAll();
     }
 
-    public Optional<Persona> actualizarPersona(Integer id, Persona persona) {
-        Optional<Persona> p = personaRepository.findById(id);
+    public Optional<RHarrison> actualizarPersona(Integer id, RHarrison persona) {
+        Optional<RHarrison> p = personaRepository.findById(id);
         if (p.isPresent()) {
             p.get().setNombre(persona.getNombre());
             p.get().setApellidos(persona.getApellidos());
