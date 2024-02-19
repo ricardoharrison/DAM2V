@@ -46,7 +46,7 @@ public class ServerSubject implements Subject {
         observers.add(observer);
     }
 
-    private void notifyObservers() {
+    public void notifyObservers() {
         for (Observer observer : observers) {
             observer.update();
         }

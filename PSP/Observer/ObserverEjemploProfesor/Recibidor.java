@@ -10,7 +10,8 @@ public class Recibidor implements Runnable {
     private MensajeRecibido manejadorInterno; /// PIEZA 2 DEL OBSERVER
 
     public void setManejadorMensaje(MensajeRecibido manejador) { /// PIEZA 3 DEL OBSERVER
-        manejadorInterno = manejador;
+        manejadorInterno = manejador; // método del interfaz Subject que es similar a subscribe()
+        // por simplicidad, solo hay un único observer
     }
 
     @Override

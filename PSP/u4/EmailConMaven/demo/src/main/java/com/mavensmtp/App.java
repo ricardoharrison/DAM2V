@@ -1,5 +1,7 @@
 package com.mavensmtp;
 
+import java.util.Scanner;
+
 import org.simplejavamail.api.email.Email;
 import org.simplejavamail.api.mailer.Mailer;
 import org.simplejavamail.api.mailer.config.TransportStrategy;
@@ -9,6 +11,11 @@ import org.simplejavamail.mailer.MailerBuilder;
 
 public class App {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Usuario: ");
+        String user = sc.nextLine();
+        System.out.println("Contraseña: ");
+        String password = sc.nextLine();
 
         Email email = EmailBuilder.startingBlank()
                 .to("Jorge", "jorge.duenas@educa.madrid.org")
@@ -23,7 +30,7 @@ public class App {
                 .buildEmail();
 
         Mailer mailer = MailerBuilder
-                .withSMTPServer("smtp.educa.madrid.org", 587, "alumno.falso", "SECRETO")
+                .withSMTPServer("smtp.educa.madrid.org", 587, user, password)
                 .withTransportStrategy(TransportStrategy.SMTP_TLS)
                 .clearEmailValidator() // turns off email validation
                 .buildMailer();
