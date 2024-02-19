@@ -3,6 +3,55 @@
   "configurations": [
     {
       "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "com.mavensmtp.App",
+      "projectName": "demo"
+    },
+    {
+      "type": "java",
+      "name": "HtmlServerMain",
+      "request": "launch",
+      "mainClass": "u4.HtmlServer.HtmlServerMain",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
+      "name": "HtmlServer",
+      "request": "launch",
+      "mainClass": "u4.HtmlServer.HtmlServer.HtmlServer",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
+      "name": "HtmlServer",
+      "request": "launch",
+      "mainClass": "HtmlServer.HtmlServer",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
+      "name": "HtmlServer",
+      "request": "launch",
+      "mainClass": "u4.HtmlServer.HtmlServer",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
+      "name": "ClienteQueObserva",
+      "request": "launch",
+      "mainClass": "Observer.ObserverServer.ClienteQueObserva",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
+      "name": "ServerSubject",
+      "request": "launch",
+      "mainClass": "Observer.ObserverServer.ServerSubject",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
       "name": "ServerSubject",
       "request": "launch",
       "mainClass": "u3.TCP.PruebaObserver.ServerSubject",

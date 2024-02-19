@@ -1,7 +1,7 @@
 public class Tester {
     public static void main(String[] args) {
         Recibidor recibidorUDP = new Recibidor();
-        recibidorUDP.setManejadorMensaje(
+        recibidorUDP.setManejadorMensaje( // PIEZA 4 DEL OBSERVER
                 new Recibidor.MensajeRecibido() {
 
                     @Override

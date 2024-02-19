@@ -1,5 +1,5 @@
 public class Recibidor implements Runnable {
-    public interface MensajeRecibido {
+    public interface MensajeRecibido { /// PIEZA 1 DEL OBSERVER
         public void haLlegadoMensaje(String s);
     }
 
@@ -7,9 +7,9 @@ public class Recibidor implements Runnable {
 
     private static final double MAX_NUM = 1001;
 
-    private MensajeRecibido manejadorInterno;
+    private MensajeRecibido manejadorInterno; /// PIEZA 2 DEL OBSERVER
 
-    public void setManejadorMensaje(MensajeRecibido manejador) {
+    public void setManejadorMensaje(MensajeRecibido manejador) { /// PIEZA 3 DEL OBSERVER
         manejadorInterno = manejador;
     }
 
@@ -25,7 +25,7 @@ public class Recibidor implements Runnable {
 
             System.out.println(String.format("Generado %d", i));
             if (esPrimo(i)) {
-                if (manejadorInterno != null) {
+                if (manejadorInterno != null) { // LLAMADA AL UPDATE
                     manejadorInterno.haLlegadoMensaje(Integer.toString(i));
                 }
             }
