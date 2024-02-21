@@ -1,6 +1,5 @@
-package TCP.EnviarPdf;
+//package TCP.EnviarPdf;
 
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +12,7 @@ public class ServerPdf {
 
     public static void main(String[] args) {
         ServerSocket server;
+        /* final int DATABYTE = 1024; */
         try {
             server = new ServerSocket(1234);
             while (true) {
@@ -27,16 +27,19 @@ public class ServerPdf {
 
                         // Read the PDF file into a byte array
                         File file = new File(
-                                "D:\\\\Perfiles\\\\at1DAM2\\\\Desktop\\\\DAM2V\\\\PSP\\\\u3\\\\TCP\\\\EnviarPdf\\\\example.pdf");
+                                "D:\\Perfiles\\at1DAM2\\Desktop\\DAM2V\\PSP\\u3\\TCP\\EnviarPdf\\example.pdf");
                         FileInputStream fileInputStream = new FileInputStream(file);
-                        byte[] buffer = new byte[(int) file.length()];
-                        fileInputStream.read(buffer);
-                        fileInputStream.close();
+                        byte[] buffer = new byte[(int) (file.length())];
+                        int bytesRead;
 
-                        // Send the length of the file first
-                        dataOutputStream.writeInt(buffer.length);
-                        // Send the PDF file
-                        dataOutputStream.write(buffer, 0, buffer.length);
+                        while ((bytesRead = fileInputStream.read()) != -1) {
+                            dataOutputStream.write(buffer, 0, bytesRead);
+                        }
+
+                        fileInputStream.close();
+                        dataOutputStream.close();
+                        socket.close();
+
                         System.out.println("File sent successfully.");
                     } catch (IOException e) {
                         e.printStackTrace();
