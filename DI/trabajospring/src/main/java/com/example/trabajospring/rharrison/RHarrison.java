@@ -19,6 +19,7 @@ public class RHarrison {
     private Integer id;
     @Basic
     private String nombre;
-    private String apellidos;
-    private String email;
+    private Integer edad;
+    private String habilidad;
+    private Float saldo;
 }
