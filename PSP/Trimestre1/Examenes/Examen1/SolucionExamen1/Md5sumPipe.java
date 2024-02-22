@@ -1,3 +1,5 @@
+package Trimestre1.Examenes.Examen1.SolucionExamen1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,6 +15,7 @@ public class Md5sumPipe {
         String palabra = args[0];
 
         try {
+            // echo -ne "hola" | md5sum
             ProcessBuilder processBuilder = new ProcessBuilder("bash", "-c", "echo -ne " + palabra + " | md5sum");
             Process process = processBuilder.start();
 
