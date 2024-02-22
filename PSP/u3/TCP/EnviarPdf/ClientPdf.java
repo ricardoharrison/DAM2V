@@ -18,7 +18,8 @@ public class ClientPdf {
             FileOutputStream outputStream = new FileOutputStream(file);
 
             while ((bytesRead = in.read(pdf)) != -1) {
-                outputStream.write(pdf, 0, bytesRead);
+                outputStream.write(bytesRead);
+                // (pdf, 0, bytesRead); no hacer así
             }
 
             in.close();

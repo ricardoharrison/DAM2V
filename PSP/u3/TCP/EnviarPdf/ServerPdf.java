@@ -33,7 +33,8 @@ public class ServerPdf {
                         int bytesRead;
 
                         while ((bytesRead = fileInputStream.read()) != -1) {
-                            dataOutputStream.write(buffer, 0, bytesRead);
+                            dataOutputStream.write(bytesRead);
+                            // (buffer, 0, file.length());
                         }
 
                         fileInputStream.close();
