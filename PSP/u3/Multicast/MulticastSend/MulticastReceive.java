@@ -31,7 +31,7 @@ public class MulticastReceive {
             InetSocketAddress group = new InetSocketAddress(multicastAddress, port);
             MulticastSocket multicastSocket = new MulticastSocket(port);
 
-            multicastSocket.joinGroup(group, netIf);
+            multicastSocket.joinGroup(group, netIf); // "se suscribe"
 
             /* Código de lectura */
             byte[] buf = new byte[1000];

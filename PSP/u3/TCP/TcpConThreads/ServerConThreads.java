@@ -14,6 +14,7 @@ public class ServerConThreads {
             server = new ServerSocket(1234);
             while (true) {
                 // Espera cliente
+                // accept() dentro del while para liberar el socket
                 Socket socket = server.accept();
 
                 RunnableServer runnable = new RunnableServer(socket);

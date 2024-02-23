@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
-class DescansilloDeLaEscalera {
+class DescansilloDeLaEscalera implements SujetoObservado {
+
+    // esta interfaz debería ir fuera o en la clase Persona si acaso
     public interface MarujaMarujo {
         void update(String event);
     }
@@ -43,10 +45,12 @@ class DescansilloDeLaEscalera {
          */
     }
 
+    @Override
     public void addObserver(MarujaMarujo observer) {
         observers.add(observer);
     }
 
+    @Override
     public void seAbreElDescansillo() {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {

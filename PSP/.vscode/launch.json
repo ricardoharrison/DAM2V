@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Test",
+      "request": "launch",
+      "mainClass": "u4.ApiOperaciones.Test",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
       "name": "Md5sumPipe",
       "request": "launch",
       "mainClass": "Trimestre1.Examenes.Examen1.SolucionExamen1.Md5sumPipe",

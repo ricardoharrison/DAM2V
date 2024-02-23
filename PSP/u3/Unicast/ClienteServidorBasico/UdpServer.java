@@ -4,7 +4,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
 public class UdpServer {
-    private static final int MAX_LENGTH = 65535;
+    private static final int MAX_LENGTH = (int) (Math.pow(2, 16) - 1); // = 65535
     private static final int PORT = 8000;
 
     public static void main(String[] args) {
@@ -18,7 +18,8 @@ public class UdpServer {
 
                 // Extrae la información del paquete
                 String message = new String(receivedPacket.getData(), 0, receivedPacket.getLength());
-                System.out.println("Mensaje recibido: " + message);
+                System.out.println("Mensaje recibido: " + message); // Imprimir o hacer lo que sea con el mensaje
+                                                                    // recibido
             }
         } catch (Exception e) {
             e.printStackTrace();

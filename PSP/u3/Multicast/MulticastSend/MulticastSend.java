@@ -18,9 +18,9 @@ public class MulticastSend {
             for (NetworkInterface netInt : Collections.list(nets)) {
                 System.out.println(netInt);
             }
-            Scanner in = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
             System.out.println("Especifica el nombre del interfaz"); // portatil = wlan1
-            interfaceName = in.nextLine();
+            interfaceName = scanner.nextLine();
 
             NetworkInterface netIf = NetworkInterface.getByName(interfaceName);
             System.out.println(netIf);
@@ -33,7 +33,7 @@ public class MulticastSend {
 
             while (true) {
                 /* Código de envío */
-                String msg = in.nextLine();
+                String msg = scanner.nextLine();
                 byte[] msgBytes = msg.getBytes();
                 DatagramPacket sentPacket = new DatagramPacket(msgBytes, msgBytes.length, group);
                 multicastSocket.send(sentPacket);

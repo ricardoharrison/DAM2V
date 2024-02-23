@@ -12,9 +12,11 @@ public class ClienteBroadcast {
         try {
             DatagramSocket socket = new DatagramSocket();
             InetAddress ipAddress = InetAddress.getByName("192.168.20.255"); // Dirección del servidor
+            // todos los que estén en la red 192.168.20.0 pueden recibir mi mensaje
+
             byte[] sendData = new byte[MAX_LENGTH];
             String sentence = ""; // Mensaje a enviar
-            sentence = "Envio de mensaje broadcast (Eloy)";
+            sentence = "Envio de mensaje broadcast desde el ordenador de Ricardo";
 
             sendData = sentence.getBytes();
 

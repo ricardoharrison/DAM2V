@@ -1,9 +1,9 @@
 //package ut03comunicaciones.observer;
 
-public class ObserverDemo {
+public class Main {
     public static void main(String[] args) {
         System.out.println("Enter Text : ");
-        DescansilloDeLaEscalera descansillo = new DescansilloDeLaEscalera();
+        SujetoObservado descansillo = new DescansilloDeLaEscalera();
 
         Persona amparo = new Persona("Amparo");
         Persona joaquin = new Persona("Joaquin");
@@ -27,6 +27,7 @@ public class ObserverDemo {
          * });
          */
 
+        // necesario para desencadenar la acción observable
         descansillo.seAbreElDescansillo();
     }
 }

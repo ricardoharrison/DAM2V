@@ -14,7 +14,7 @@ public class ServerPdf {
         try {
             server = new ServerSocket(1234);
             while (true) {
-                Socket socket = server.accept();
+                Socket socket = server.accept(); // accept() dentro del while para liberar el socket
 
                 new Thread(() -> {
 
