@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ServerSalaDeControl",
+      "request": "launch",
+      "mainClass": "PracticaExamen.AscensorConObserver.ServerSalaDeControl",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
+      "name": "ClienteAscensor",
+      "request": "launch",
+      "mainClass": "PracticaExamen.AscensorConObserver.ClienteAscensor",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
       "name": "Test",
       "request": "launch",
       "mainClass": "u4.ApiOperaciones.Test",
