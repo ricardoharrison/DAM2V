@@ -1,0 +1,19 @@
+Exam Exercise: Implementing a UDP Server
+Instructions: You are tasked with implementing a UDP server that continuously receives messages
+ from clients. The server will perform different actions based on the type of message received.
+Requirements:
+1.	Implement a UDP server that listens for incoming messages.
+2.	Upon receiving a message, the server will determine its type:
+•	If the message is a number, the server will check if it is prime and respond accordingly.
+•	If the message is a string, the server will count the number of words, vowels, and consonants 
+and respond with the counts.
+3.	The server should be capable of handling multiple clients simultaneously.
+4.	Implement error handling for invalid inputs.
+Example Output:
+•	If the server receives the message "37":
+•	Server Responses and Client prints: "The number 37 is prime."
+•	If the server receives the message "Hello, how are you?":
+•	Server Responses and Client Prints: "Message contains 5 words, 8 vowels, and 10 consonants."
+Additional Notes:
+•	Consider edge cases and handle them gracefully.
+•	Avoid using built-in functions for checking prime numbers and counting characters.
