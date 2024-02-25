@@ -1,6 +1,6 @@
 //CAMBIAR 'Container' por la clase que se esté usando
 //creando spinner
-        spinnerContainer = findViewById(R.id.spinnerContainer);
+        spinner = findViewById(R.id.spinner);
         ArrayList<Container> containersList = new ArrayList<>();
         containersList.add(new Container(CONE_CONTAINER_NAME));
         containersList.add(new Container(CHOCO_CONE_CONTAINER_NAME));
