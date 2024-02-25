@@ -1,0 +1,44 @@
+EJEMPLO REDUCIDO 
+---------------------
+
+(En MainActivity)
+
+buttonAddPlayers.setOnClickListener(v -> {
+            
+               playersList.add(new PlayerSelectionItem("Player " + (playersList.size()))); // Corrected parentheses
+               playerSelectionAdapter.notifyItemInserted(playersList.size() - 1); // Notify adapter of the insertion
+           
+        });
+
+
+
+
+================================================================
+
+EJEMPLO COMPLETO
+----------------------
+
+playersList.add(new PlayerSelectionItem("Player " + (playersCounter + 1))); // Corrected parentheses
+                playerSelectionAdapter.notifyItemInserted(playersList.size() - 1); // Notify adapter of the insertion
+
+
+buttonAddPlayers.setOnClickListener(v -> {
+            Settings settings = Settings.getInstance();
+            settings.playClickSound(getApplicationContext());
+            settings.activateVibration(getApplicationContext());
+            if (playersList.size() < MAX_NUMBER_OF_PLAYERS) {
+                playersList.add(new PlayerSelectionItem("Player " + (playersCounter + 1))); // Corrected parentheses
+                playerSelectionAdapter.notifyItemInserted(playersList.size() - 1); // Notify adapter of the insertion
+                playersCounter++;
+            } else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(PlayerSelectionActivity.this);
+                builder.setTitle(TOO_MANY_PLAYERS_TITLE)
+                        .setMessage(TOO_MANY_PLAYERS_MSG)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel(); //cerrar el diálogo al pulsar el botón
+                            }
+                        })
+                        .show();
+            }
+        });
