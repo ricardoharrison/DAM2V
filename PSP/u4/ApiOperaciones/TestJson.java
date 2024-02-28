@@ -1,6 +1,6 @@
 package u4.ApiOperaciones;
 
-public class Test {
+public class TestJson {
     public static void main(String[] args) {
         String a = "a", b = "b", c = "c", d = "d";
 
