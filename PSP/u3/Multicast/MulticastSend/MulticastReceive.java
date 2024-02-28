@@ -27,7 +27,7 @@ public class MulticastReceive {
 
             int port = 1234;
 
-            InetAddress multicastAddress = InetAddress.getByName("230.0.0.1");
+            InetAddress multicastAddress = InetAddress.getByName("230.0.0.1"); // IMPORTANTE QUE ESTÉ EN RANGO
             InetSocketAddress group = new InetSocketAddress(multicastAddress, port);
             MulticastSocket multicastSocket = new MulticastSocket(port);
 

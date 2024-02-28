@@ -29,7 +29,7 @@ public class HtmlServerMain {
                 clientConnexion.close();
                 continue;
             }
-
+            // GET /index.html HTTP/1.1 >>>> (petición tal y como le llega al server HTTP)
             System.out.println("Header: " + header);
             String info = extractInfo(header);
             System.out.println("'Info' antes de eliminar la barra: " + info);

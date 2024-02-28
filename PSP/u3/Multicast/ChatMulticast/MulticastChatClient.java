@@ -22,7 +22,7 @@ public class MulticastChatClient {
                                                                                  // puerto 8000
                     byte[] receivedData = new byte[MAX_LENGTH];
                     InetAddress group = InetAddress.getByName("230.0.0.1");
-                    multicastSocket.joinGroup(group);
+                    multicastSocket.joinGroup(group); // deprecated!! Compilar con -Xlint:deprecation
 
                     while (true) {
                         DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);

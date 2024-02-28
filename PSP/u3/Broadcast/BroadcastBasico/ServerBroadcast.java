@@ -9,6 +9,7 @@ public class ServerBroadcast {
 
     public static void main(String[] args) {
         try {
+            // null == wildcard (cualquier red)
             DatagramSocket socket = new DatagramSocket(PORT, null); // Abre el socket en el
                                                                     // puerto 8000
             socket.setBroadcast(true); // imprescindible para que sea broadcast

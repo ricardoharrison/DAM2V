@@ -13,7 +13,7 @@ public class ChatClient {
         if (args.length != 1) {
             username = "GUEST";
         } else {
-            username = args[0].replaceAll(";", "");
+            username = args[0].replaceAll(";", ""); // solo para evitar que el split() del servidor funcione mal
         }
 
         String ip = "localhost";

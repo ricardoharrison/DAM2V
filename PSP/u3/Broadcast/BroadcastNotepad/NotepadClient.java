@@ -17,6 +17,7 @@ public class NotepadClient {
             byte[] sendData = new byte[MAX_LENGTH];
             String sentence = ""; // Mensaje a enviar
             System.out.println("Escribe la instrucción a ejecutar: ");
+            // abrir notepad == notepad.exe
             sentence = sc.nextLine();
 
             sendData = sentence.getBytes();
@@ -28,5 +29,5 @@ public class NotepadClient {
             e.printStackTrace();
         }
     }
-    
+
 }
