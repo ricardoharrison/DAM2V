@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Tester",
+      "request": "launch",
+      "mainClass": "Tester",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
       "name": "ServerSalaDeControl",
       "request": "launch",
       "mainClass": "PracticaExamen.AscensorConObserver.ServerSalaDeControl",

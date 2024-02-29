@@ -1,6 +1,6 @@
 public class Recibidor implements Runnable {
-    public interface MensajeRecibido { /// PIEZA 1 DEL OBSERVER
-        public void haLlegadoMensaje(String s);
+    public interface MensajeRecibido { /// PIEZA 1 DEL OBSERVER // interface Observador
+        public void haLlegadoMensaje(String s); // == update()
     }
 
     private static final long DELAY = 100;
@@ -43,7 +43,7 @@ public class Recibidor implements Runnable {
         if (n <= 1) {
             return false;
         }
-        for (int i = 2; i < Math.sqrt(n); i++) {
+        for (int i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0) {
                 return false;
             }
