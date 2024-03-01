@@ -18,13 +18,13 @@ public class App {
         String password = sc.nextLine();
 
         Email email = EmailBuilder.startingBlank()
-                .to("Jorge", "jorge.duenas@educa.madrid.org")
+                // .to("Jorge", "jorge.duenas@educa.madrid.org")
                 .to("Eloy", "ian.harrisonromero@educa.madrid.org")
                 .to("Vitaliy", "vitaliy.popovych@educa.madrid.org")
                 .to("Ricardo", "ricardoharrisonromero@gmail.com")
                 .from("Ricardo", "rharrisonromero@educa.madrid.org")
                 .withReplyTo("Ricardo", "rharrisonromero@educa.madrid.org")
-                .withSubject("Mail enviado desde Java")
+                .withSubject("Firewall o q ase")
                 .withHTMLText("<h1>Hola!!</h1><p>Este e-mail se puede enviar con Java y Maven</p>")
                 .withPlainText("Este e-mail se puede enviar con Java y Maven")
                 .buildEmail();
