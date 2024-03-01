@@ -46,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+
+        buttonRecitar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     public void enableGuiItems(){
