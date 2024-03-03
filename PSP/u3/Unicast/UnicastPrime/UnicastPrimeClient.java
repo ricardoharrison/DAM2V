@@ -1,5 +1,6 @@
-package UnicastPrime;
 
+/* package UnicastPrime;
+ */
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -20,8 +21,8 @@ public class UnicastPrimeClient {
 
             while (!input.equals("exit")) {
                 System.out.println("Escribe un número para comprobar si es primo: ");
-                input = sc.nextLine(); // Mensaje a enviar 
-                if(!input.equals("exit")){
+                input = sc.nextLine(); // Mensaje a enviar
+                if (!input.equals("exit")) {
                     sendData = input.getBytes();
                     DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, ipAddress, PORT);
                     socket.send(sendPacket); // Envía el paquete al servidor
@@ -31,7 +32,7 @@ public class UnicastPrimeClient {
                     // Extrae la información del paquete
                     String message = new String(receivedPacket.getData(), 0, receivedPacket.getLength());
                     System.out.println("Respuesta del servidor:");
-                    if(message.equals("YES")){
+                    if (message.equals("YES")) {
                         System.out.println("El número es primo");
                     } else if (message.equals("NO")) {
                         System.out.println("El número no es primo");

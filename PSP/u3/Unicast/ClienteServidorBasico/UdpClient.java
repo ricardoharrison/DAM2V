@@ -1,5 +1,6 @@
-package u3.ClienteServidorBasico;
 
+/* package u3.ClienteServidorBasico;
+ */
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
