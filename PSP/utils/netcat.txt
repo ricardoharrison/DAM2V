@@ -1,0 +1,15 @@
+ESCUCHAR
+nc -u -l -k 0.0.0.0 8000
+
+-u -> UDP
+-l -> listen
+-k -> cualquier numero de mensajes (while(true) loop)
+0.0.0.0 -> cualquier red
+8000 -> puerto
+
+=====================
+
+ESCRIBIR
+nc -u 192.168.56.101 8000
+
+ip -> direccion a la que se quiere escribir

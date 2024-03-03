@@ -12,9 +12,9 @@ import org.simplejavamail.mailer.MailerBuilder;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Usuario: ");
+        System.out.println("U: ");
         String user = sc.nextLine();
-        System.out.println("Contraseña: ");
+        System.out.println("C: ");
         String password = sc.nextLine();
 
         Email email = EmailBuilder.startingBlank()

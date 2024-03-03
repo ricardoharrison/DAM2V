@@ -12,6 +12,8 @@ public class ApiOperaciones {
     // primer split()
     private static final int RESOURCE_POSITION = 1;
     // segundo split()
+    // [0] -> campo vacío debido a que la cadena empieza por el
+    // caracter con el que se realiza el split() (/)
     private static final int OPERATION_POSITION = 1;
     private static final int FIRST_OPERAND = 2;
     private static final int SECOND_OPERAND = 3;
@@ -20,28 +22,29 @@ public class ApiOperaciones {
         ServerSocket server = new ServerSocket(DEFAULT_PORT);
 
         while (true) {
-            Socket clientConnexion = server.accept();
+            Socket clientConnection = server.accept();
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(
-                            clientConnexion.getInputStream()));
+                            clientConnection.getInputStream()));
             String requestLine = reader.readLine();
 
             // Comprobar si el requestLine es null o vacío
             if (requestLine == null || requestLine.isEmpty()) {
                 // Cerrar recursos y seguir a la siguiente iteración
                 reader.close();
-                clientConnexion.close();
+                clientConnection.close();
                 continue;
             }
 
             System.out.println("'RequestLine': " + requestLine);
+            // Ejemplo de requestLine -> "GET /suma/5/7 HTTP/1.1"
             String[] info = extractInfo(requestLine);
 
             String html = generateWebPage(info);
 
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(
-                            clientConnexion.getOutputStream()));
+                            clientConnection.getOutputStream()));
 
             writer.write(html);
             writer.flush();
@@ -49,13 +52,13 @@ public class ApiOperaciones {
             // Close resources and connection
             reader.close();
             writer.close();
-            clientConnexion.close();
+            clientConnection.close();
         }
     }
 
     private static String generateWebPage(String[] info) {
         String str = "HTTP/1.1 200 OK\n";
-        str += "Content-Type: application/json\n\n"; // parece decirla al browser que es un .json
+        str += "Content-Type: application/json\n\n"; // para decirle al browser que es un .json
         int resultado;
         try {
             switch (info[OPERATION_POSITION]) {

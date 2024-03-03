@@ -3,6 +3,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Hidraserver",
+      "request": "launch",
+      "mainClass": "PracticaExamen.HidratacionHTTP.Hidraserver",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
+      "name": "ApiOperaciones",
+      "request": "launch",
+      "mainClass": "u4.ApiOperaciones.ApiOperaciones",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "com.example.App",
+      "projectName": "bucle"
+    },
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "u4.EmailConMavenBucle.demo.src.main.java.com.mavensmtp.App",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
       "name": "Tester",
       "request": "launch",
       "mainClass": "Tester",
