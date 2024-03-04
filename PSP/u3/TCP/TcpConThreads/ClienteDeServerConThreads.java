@@ -10,7 +10,7 @@ public class ClienteDeServerConThreads {
         Scanner sc = new Scanner(System.in);
         String msg = "";
         try {
-            Socket socket = new Socket("localhost", 1234);
+            Socket socket = new Socket("localhost", 4321);
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
             msg = sc.nextLine();

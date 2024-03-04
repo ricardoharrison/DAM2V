@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ServerConThreads",
+      "request": "launch",
+      "mainClass": "ServerConThreads",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
       "name": "Hidraserver",
       "request": "launch",
       "mainClass": "PracticaExamen.HidratacionHTTP.Hidraserver",
