@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ServerCiudades",
+      "request": "launch",
+      "mainClass": "Z_EXAMEN2_PSP.Ejercicio1.ServerCiudades",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
+      "name": "ServerAlarmas",
+      "request": "launch",
+      "mainClass": "Z_EXAMEN2_PSP.Ejercicio2.ServerAlarmas",
+      "projectName": "PSP_a18fdfe5"
+    },
+    {
+      "type": "java",
       "name": "ServerConThreads",
       "request": "launch",
       "mainClass": "ServerConThreads",

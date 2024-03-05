@@ -1,0 +1,31 @@
+        Map<String, Boolean> ciudades = new HashMap<>();
+        ciudades.put("MADRID", true); // Capital de España
+        ciudades.put("Barcelona", false); // No es capital
+        ciudades.put("LISBOA", true); // Capital de Portugal
+        ciudades.put("PARÍS", true); // Capital de Francia
+        ciudades.put("LONDRES", true); // Capital del Reino Unido
+        ciudades.put("Nueva York", false); // No es capital
+        ciudades.put("BERLÍN", true); // Capital de Alemania
+        ciudades.put("ROMA", true); // Capital de Italia
+        ciudades.put("AMSTERDAM", true); // Capital de Países Bajos
+        ciudades.put("DUBLÍN", true); // Capital de Irlanda
+        ciudades.put("PRAGA", true); // Capital de República Checa
+        ciudades.put("BRUSELAS", true); // Capital de Bélgica
+        ciudades.put("VIENA", true); // Capital de Austria
+        ciudades.put("BUDAPEST", true); // Capital de Hungría
+        ciudades.put("ESTOCOLMO", true); // Capital de Suecia
+        ciudades.put("TOKIO", true); // Capital de Japón
+        ciudades.put("BEIJING", true); // Capital de China
+        ciudades.put("Sídney", false); // No es capital
+        ciudades.put("CIUDAD DE MÉXICO", true); // Capital de México
+        ciudades.put("BUENOS AIRES", true); // Capital de Argentina
+        ciudades.put("Valencia", false); // No es capital
+        ciudades.put("Málaga", false); // No es capital
+        ciudades.put("Osaka", false); // No es capital
+        ciudades.put("Liverpool", false); // No es capital
+        ciudades.put("Marsella", false); // No es capital
+        ciudades.put("Florencia", false); // No es capital
+        ciudades.put("San Francisco", false); // No es capital
+        ciudades.put("Melbourne", false); // No es capital
+        ciudades.put("Las Vegas", false); // No es capital
+        ciudades.put("Boston", false); // No es capital
